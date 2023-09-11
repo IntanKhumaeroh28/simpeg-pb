@@ -50,8 +50,8 @@ class RiwayatPendidikan extends \yii\db\ActiveRecord
             'id_riwayat_pendidikan' => 'Id Riwayat Pendidikan',
             'tahun_tamat' => 'Tahun Tamat',
             'dokumen' => 'Dokumen',
-            'id_pegawai' => 'Id Pegawai',
-            'id_pendidikan_formal' => 'Id Pendidikan Formal',
+            'id_pegawai' => 'Nama',
+            'id_pendidikan_formal' => 'Nama Pendidikan Formal',
         ];
     }
 
@@ -60,7 +60,7 @@ class RiwayatPendidikan extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getPegawai()
+    public function getbiodataPegawai()
     {
         return $this->hasOne(BiodataPegawai::class, ['id_pegawai' => 'id_pegawai']);
     }
