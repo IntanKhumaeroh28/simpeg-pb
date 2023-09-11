@@ -39,7 +39,7 @@ class MasterPendidikanFormal extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            // 'id_pendidikan_formal' => 'Nama Pendidikan',
+            //'id_pendidikan_formal' => 'Nama Pendidikan',
             'nama_pendidikan' => 'Nama Pendidikan',
         ];
     }
