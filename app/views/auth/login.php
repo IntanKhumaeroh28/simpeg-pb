@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var $this yii\web\View
  * @var $model webvimark\modules\UserManagement\models\forms\LoginForm
@@ -6,7 +7,7 @@
 
 use webvimark\modules\UserManagement\components\GhostHtml;
 use webvimark\modules\UserManagement\UserManagementModule;
-use yii\bootstrap5\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 use yii\helpers\Html;
 ?>
 
@@ -21,20 +22,20 @@ use yii\helpers\Html;
 
 					<?php $form = ActiveForm::begin([
 						'id'      => 'login-form',
-						'options'=>['autocomplete'=>'off'],
-						'validateOnBlur'=>false,
+						'options' => ['autocomplete' => 'off'],
+						'validateOnBlur' => false,
 						'fieldConfig' => [
-							'template'=>"{input}\n{error}",
+							'template' => "{input}\n{error}",
 						],
 					]) ?>
 
 					<?= $form->field($model, 'username')
-						->textInput(['placeholder'=>$model->getAttributeLabel('username'), 'autocomplete'=>'off']) ?>
+						->textInput(['placeholder' => $model->getAttributeLabel('username'), 'autocomplete' => 'off']) ?>
 
 					<?= $form->field($model, 'password')
-						->passwordInput(['placeholder'=>$model->getAttributeLabel('password'), 'autocomplete'=>'off']) ?>
+						->passwordInput(['placeholder' => $model->getAttributeLabel('password'), 'autocomplete' => 'off']) ?>
 
-					<?= (isset(Yii::$app->user->enableAutoLogin) && Yii::$app->user->enableAutoLogin) ? $form->field($model, 'rememberMe')->checkbox(['value'=>true]) : '' ?>
+					<?= (isset(Yii::$app->user->enableAutoLogin) && Yii::$app->user->enableAutoLogin) ? $form->field($model, 'rememberMe')->checkbox(['value' => true]) : '' ?>
 
 					<?= Html::submitButton(
 						UserManagementModule::t('front', 'Login'),
