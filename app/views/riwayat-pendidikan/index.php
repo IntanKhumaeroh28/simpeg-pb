@@ -31,10 +31,20 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             // 'id_riwayat_pendidikan',
-            'id_pegawai',
+            [
+                'attribute' => 'id_pegawai',
+                'value' => function ($model) {
+                    return $model->biodataPegawai->nama;
+                }
+            ],
             'tahun_tamat',
             'dokumen',
-            'id_pendidikan_formal',
+            [
+                'attribute' => 'id_pendidikan_formal',
+                'value' => function ($model) {
+                    return $model->pendidikanFormal->nama_pendidikan;
+                }
+            ],
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, RiwayatPendidikan $model, $key, $index, $column) {

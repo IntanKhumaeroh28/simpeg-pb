@@ -22,7 +22,7 @@ use yii\widgets\ActiveForm;
 
     echo $form->field($model, 'id_pegawai')->widget(Select2::classname(), [
         'data' => ArrayHelper::map($data, 'id_pegawai', 'nama'),
-        'options' => ['placeholder' => 'Pilih id_pegawai ...'],
+        'options' => ['placeholder' => 'Pilih nama pegawai ...'],
         'pluginOptions' => [
             'allowClear' => true
         ],
@@ -38,7 +38,7 @@ use yii\widgets\ActiveForm;
 
     echo $form->field($model, 'id_pendidikan_formal')->widget(Select2::classname(), [
         'data' => ArrayHelper::map($data, 'id_pendidikan_formal', 'nama_pendidikan'),
-        'options' => ['placeholder' => 'Pilih id_pendidikan_formal ...'],
+        'options' => ['placeholder' => 'Pilih nama pendidikan ...'],
         'pluginOptions' => [
             'allowClear' => true
         ],
