@@ -4,20 +4,20 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var app\models\MasterAgamaSearch $model */
+/** @var app\models\JenisPegawaiSearch $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="master-agama-search">
+<div class="jenis-pegawai-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id_agama') ?>
+    <?= $form->field($model, 'kode_jenis_pegawai') ?>
 
-    <?= $form->field($model, 'agama') ?>
+    <?= $form->field($model, 'nama_jenis_pegawai') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

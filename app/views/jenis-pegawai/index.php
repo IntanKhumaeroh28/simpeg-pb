@@ -1,24 +1,24 @@
 <?php
 
-use app\models\MasterAgama;
+use app\models\JenisPegawai;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
-/** @var app\models\MasterAgamaSearch $searchModel */
+/** @var app\models\JenisPegawaiSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Master Agama';
+$this->title = 'Jenis Pegawai';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="master-agama-index">
+<div class="jenis-pegawai-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Entri Data Agama', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Entri Jenis Pegawai', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); 
@@ -30,12 +30,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            // 'id_agama',
-            'agama',
+            'kode_jenis_pegawai',
+            'nama_jenis_pegawai',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, MasterAgama $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id_agama' => $model->id_agama]);
+                'urlCreator' => function ($action, JenisPegawai $model, $key, $index, $column) {
+                    return Url::toRoute([$action, 'kode_jenis_pegawai' => $model->kode_jenis_pegawai]);
                 }
             ],
         ],

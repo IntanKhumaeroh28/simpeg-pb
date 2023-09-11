@@ -4,13 +4,11 @@
  * @var $model webvimark\modules\UserManagement\models\forms\LoginForm
  */
 
-
 use webvimark\modules\UserManagement\components\GhostHtml;
 use webvimark\modules\UserManagement\UserManagementModule;
-use yii\bootstrap4\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 use yii\helpers\Html;
 ?>
-
 
 <div class="container" id="login-wrapper">
 	<div class="row">
