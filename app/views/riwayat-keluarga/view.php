@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /** @var app\models\RiwayatKeluarga $model */
 
 $this->title = $model->id_riwayat_keluarga;
-$this->params['breadcrumbs'][] = ['label' => 'Riwayat Keluargas', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Riwayat Keluarga', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -31,10 +31,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id_riwayat_keluarga',
             'nama',
-            'hub_keluarga',
+            // 'hub_keluarga',
             'nik',
             'tgl_lahir',
-            'id_pegawai',
+            //'id_pegawai',
             'id_hubungan_keluarga',
         ],
     ]) ?>
