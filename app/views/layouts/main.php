@@ -94,6 +94,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             <?= Html::a('Biodata Pegawai', ['/biodata-pegawai'], ['class' => 'nav-link']) ?>
             <?= Html::a('Riwayat Keluarga', ['/riwayat-keluarga'], ['class' => 'nav-link']) ?>
             <?= Html::a('Master Hubungan Keluarga', ['/master-hubungan-keluarga'], ['class' => 'nav-link']) ?>
+
+
             <?= Html::a('Riwayat Pendidikan', ['/riwayat-pendidikan'], ['class' => 'nav-link']) ?>
             <?= Html::a('Master Pendidikan Formal', ['/master-pendidikan-formal'], ['class' => 'nav-link']) ?>
             
