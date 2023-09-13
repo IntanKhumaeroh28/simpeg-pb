@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\BiodataPegawai;
 use app\models\BiodataPegawaiSearch;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -55,8 +56,24 @@ class BiodataPegawaiController extends Controller
      */
     public function actionView($id_pegawai)
     {
+        $id_pegawai = $_GET['id_pegawai'];
+
+        $sql = "SELECT * FROM riwayat_pendidikan 
+        INNER JOIN master_pendidikan_formal ON master_pendidikan_formal.id_pendidikan_formal = riwayat_pendidikan.id_pendidikan_formal
+        WHERE riwayat_pendidikan.id_pegawai = '$id_pegawai'";
+
+        $data_riwayat_pendidikan = Yii::$app->db->createCommand($sql)->queryAll();
+
+        $sql = "SELECT * FROM riwayat_keluarga
+        INNER JOIN master_hubungan_keluarga ON master_hubungan_keluarga.id_hubungan_keluarga = riwayat_keluarga.id_hubungan_keluarga
+        WHERE riwayat_keluarga.id_pegawai = '$id_pegawai'";
+
+        $data_riwayat_keluarga = Yii::$app->db->createCommand($sql)->queryAll();
+
         return $this->render('view', [
             'model' => $this->findModel($id_pegawai),
+            'data_riwayat_pendidikan' => $data_riwayat_pendidikan,
+            'data_riwayat_keluarga' => $data_riwayat_keluarga
         ]);
     }
 

@@ -83,30 +83,32 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     ?>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Simpeg</a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <?= Html::a('Home', ['site/index'], ['class' => 'nav-link']) ?>
-            <?= Html::a('Biodata Pegawai', ['/biodata-pegawai'], ['class' => 'nav-link']) ?>
+            <?= Html::a('Simpeg', ['site/index'], ['class' => 'nav-link']) ?>
+            <?php if (!Yii::$app->user->isGuest) : ?>
+              <?= Html::a('Home', ['site/index'], ['class' => 'nav-link']) ?>
+              <?= Html::a('Biodata Pegawai', ['/biodata-pegawai'], ['class' => 'nav-link']) ?>
 
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                  Riwayat
-                </a>
-                <div class="dropdown-menu">
-                  <?= Html::a('Riwayat Keluarga', ['/riwayat-keluarga'], ['class' => 'dropdown-item']) ?>
-                  <?= Html::a('Riwayat Pendidikan', ['/riwayat-pendidikan'], ['class' => 'dropdown-item']) ?>
-                </div>
-              </li>
-            </ul>
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Riwayat
+                  </a>
+                  <div class="dropdown-menu">
+                    <?= Html::a('Riwayat Keluarga', ['/riwayat-keluarga'], ['class' => 'dropdown-item']) ?>
+                    <?= Html::a('Riwayat Pendidikan', ['/riwayat-pendidikan'], ['class' => 'dropdown-item']) ?>
+                  </div>
+                </li>
+              </ul>
 
 
 
-            <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                   Master
@@ -114,14 +116,15 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 <div class="dropdown-menu">
                   <?= Html::a('Master Jenis Kelamin', ['/master-jenis-kelamin'], ['class' => 'dropdown-item']) ?>
                   <?= Html::a('Master Agama', ['/master-agama'], ['class' => 'dropdown-item']) ?>
-                  <?= Html::a('Master Hubungan Keluarga', ['/master-hubungan-keluarga'], ['class' => 'dropdown-item']) ?>
-                  <?= Html::a('Master Pendidikan Formal', ['/master-pendidikan-formal'], ['class' => 'dropdown-item']) ?>
                   <?= Html::a('Master Status Perkawinan', ['/master-status-perkawinan'], ['class' => 'dropdown-item']) ?>
                   <?= Html::a('Jenis Pegawai', ['/jenis-pegawai'], ['class' => 'dropdown-item']) ?>
                   <?= Html::a('Unit Kerja', ['/unit-kerja'], ['class' => 'dropdown-item']) ?>
                 </div>
               </li>
-            </ul>
+              </ul>
+            <?php endif; ?>
+
+
             <?php
             if (Yii::$app->user->isGuest) {
               echo Html::a('Login', ['/auth/login'], ['class' => 'nav-link']);

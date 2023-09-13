@@ -47,11 +47,71 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_agama',
             'id_status_perkawinan',
             'username',
-            'created_at',
-            'updated_at',
-            'created_by',
-            'updated_by',
+            // 'created_at',
+            // 'updated_at',
+            // 'created_by',
+            // 'updated_by',
         ],
     ]) ?>
-
 </div>
+
+<br>
+<h3>RIWAYAT PENDIDIKAN</h3>
+<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th scope="col">No</th>
+            <th scope="col">Nama Pendidikan</th>
+            <th scope="col">Tahun Tamat</th>
+            <th scope="col">Dokumen</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $no = 1;
+        foreach ($data_riwayat_pendidikan as $value) :
+        ?>
+            <tr>
+                <td><?= $no++ ?></td>
+                <td><?= $value['nama_pendidikan'] ?></td>
+                <td><?= $value['tahun_tamat'] ?></td>
+                <td><?= $value['dokumen'] ?></td>
+            </tr>
+        <?php
+        endforeach;
+        ?>
+    </tbody>
+</table>
+<br>
+<h3>RIWAYAT KELUARGA</h3>
+<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th scope="col">No</th>
+            <th scope="col">Hubungan Keluarga</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Tgl Lahir</th>
+            <th scope="col">Nik</th>
+            <th scope="col">File KK</th>
+            <th scope="col">File Akte</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $no = 1;
+        foreach ($data_riwayat_keluarga as $value) :
+        ?>
+            <tr>
+                <td><?= $no++ ?></td>
+                <td><?= $value['hubungan_keluarga'] ?></td>
+                <td><?= $value['nama'] ?></td>
+                <td><?= $value['tgl_lahir'] ?></td>
+                <td><?= $value['nik'] ?></td>
+                <td><?= $value['file_kk'] ?></td>
+                <td><?= $value['file_akte'] ?></td>
+            </tr>
+        <?php
+        endforeach;
+        ?>
+    </tbody>
+</table>

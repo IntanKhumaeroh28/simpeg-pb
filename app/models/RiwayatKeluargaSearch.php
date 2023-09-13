@@ -18,7 +18,7 @@ class RiwayatKeluargaSearch extends RiwayatKeluarga
     {
         return [
             [['id_riwayat_keluarga', 'id_hubungan_keluarga'], 'integer'],
-            [['nama', 'hub_keluarga', 'nik', 'tgl_lahir', 'id_pegawai'], 'safe'],
+            [['nama', 'nik', 'tgl_lahir', 'id_pegawai'], 'safe'],
         ];
     }
 
@@ -64,7 +64,6 @@ class RiwayatKeluargaSearch extends RiwayatKeluarga
         ]);
 
         $query->andFilterWhere(['like', 'nama', $this->nama])
-            ->andFilterWhere(['like', 'hub_keluarga', $this->hub_keluarga])
             ->andFilterWhere(['like', 'nik', $this->nik])
             ->andFilterWhere(['like', 'id_pegawai', $this->id_pegawai]);
 

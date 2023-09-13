@@ -1,9 +1,11 @@
 <?php
 
 use app\models\BiodataPegawai;
+use app\models\JenisPegawai;
 use app\models\MasterAgama;
 use app\models\MasterJenisKelamin;
 use app\models\MasterStatusPerkawinan;
+use app\models\UnitKerja;
 use kartik\date\DatePicker;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
@@ -65,9 +67,31 @@ use yii\widgets\ActiveForm;
     ]);
     ?>
 
-    <?= $form->field($model, 'kode_jenis_pegawai')->textInput(['maxlength' => true]) ?>
+    <?php
+    $data = JenisPegawai::find()->all();
 
-    <?= $form->field($model, 'kode_unit')->textInput(['maxlength' => true]) ?>
+    echo $form->field($model, 'kode_jenis_pegawai')->widget(Select2::classname(), [
+        // map(arraynya, yang akan disimpan ke db, yang akan ditampilkan ke user)
+        'data' => ArrayHelper::map($data, 'kode_jenis_pegawai', 'nama_jenis_pegawai'),
+        'options' => ['placeholder' => 'pilih kode jenis pegawai'],
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ]);
+    ?>
+
+    <?php
+    $data = UnitKerja::find()->all();
+
+    echo $form->field($model, 'kode_unit')->widget(Select2::classname(), [
+        // map(arraynya, yang akan disimpan ke db, yang akan ditampilkan ke user)
+        'data' => ArrayHelper::map($data, 'kode_unit', 'nama_unit'),
+        'options' => ['placeholder' => 'pilih kode unit'],
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ]);
+    ?>
 
     <?php
     $data = MasterAgama::find()->all();

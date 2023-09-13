@@ -32,11 +32,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id_riwayat_keluarga',
             'nama',
-            'hub_keluarga',
+            //'hub_keluarga',
             'nik',
             'tgl_lahir',
-            //'id_pegawai',
-            //'id_hubungan_keluarga',
+            // 'id_pegawai',
+            // 'id_hubungan_keluarga',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, RiwayatKeluarga $model, $key, $index, $column) {
