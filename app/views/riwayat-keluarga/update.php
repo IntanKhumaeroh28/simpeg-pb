@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /** @var app\models\RiwayatKeluarga $model */
 
 $this->title = 'Update Riwayat Keluarga: ' . $model->id_riwayat_keluarga;
-$this->params['breadcrumbs'][] = ['label' => 'Riwayat Keluargas', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Riwayat Keluarga', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id_riwayat_keluarga, 'url' => ['view', 'id_riwayat_keluarga' => $model->id_riwayat_keluarga]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>

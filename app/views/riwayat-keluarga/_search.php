@@ -19,15 +19,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nama') ?>
 
-    <?= $form->field($model, 'hub_keluarga') ?>
+    <?php // $form->field($model, 'hub_keluarga') 
+    ?>
 
     <?= $form->field($model, 'nik') ?>
 
     <?= $form->field($model, 'tgl_lahir') ?>
 
-    <?php // echo $form->field($model, 'id_pegawai') ?>
+    <?php // echo $form->field($model, 'id_pegawai') 
+    ?>
 
-    <?php // echo $form->field($model, 'id_hubungan_keluarga') ?>
+    <?php echo $form->field($model, 'id_hubungan_keluarga') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

@@ -89,22 +89,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
+            <?php if(!Yii::$app->user->isGuest) : ?>
             <?= Html::a('Home', ['site/index'], ['class' => 'nav-link']) ?>
             <?= Html::a('Biodata Pegawai', ['/biodata-pegawai'], ['class' => 'nav-link']) ?>
             <?= Html::a('Riwayat Keluarga', ['/riwayat-keluarga'], ['class' => 'nav-link']) ?>
             <?= Html::a('Master Hubungan Keluarga', ['/master-hubungan-keluarga'], ['class' => 'nav-link']) ?>
             <?= Html::a('Riwayat Pendidikan', ['/riwayat-pendidikan'], ['class' => 'nav-link']) ?>
             <?= Html::a('Master Pendidikan Formal', ['/master-pendidikan-formal'], ['class' => 'nav-link']) ?>
-
-            <?php
-            if (Yii::$app->user->isGuest) {
-              echo Html::a('Login', ['/auth/login'], ['class' => 'nav-link']);
-            } else
-              echo Html::a('Logout', ['/auth/logout'], ['class' => 'nav-link']);
-            ?>
-          </div>
-
-          <ul class="navbar-nav">
+            
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                 Master
@@ -118,6 +110,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
               </div>
             </li>
           </ul>
+          <?php endif; ?>
+          
+          <?php
+            if (Yii::$app->user->isGuest) {
+              echo Html::a('Login', ['/auth/login'], ['class' => 'nav-link']);
+            } else
+              echo Html::a('Logout', ['/auth/logout'], ['class' => 'nav-link']);
+            ?>
         </div>
     </nav>
   </header>

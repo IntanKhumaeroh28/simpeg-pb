@@ -38,8 +38,8 @@ class RiwayatKeluarga extends \yii\db\ActiveRecord
             [['tgl_lahir'], 'safe'],
             [['id_hubungan_keluarga'], 'integer'],
             [['nama'], 'string', 'max' => 100],
-            [['hub_keluarga', 'nik'], 'string', 'max' => 25],
-            [['id_pegawai'], 'string', 'max' => 50],
+            //[['hub_keluarga', 'nik'], 'string', 'max' => 25],
+            //[['id_pegawai'], 'string', 'max' => 50],
             [['id_pegawai'], 'exist', 'skipOnError' => true, 'targetClass' => BiodataPegawai::class, 'targetAttribute' => ['id_pegawai' => 'id_pegawai']],
         ];
     }
@@ -52,10 +52,10 @@ class RiwayatKeluarga extends \yii\db\ActiveRecord
         return [
             'id_riwayat_keluarga' => 'Id Riwayat Keluarga',
             'nama' => 'Nama',
-            'hub_keluarga' => 'Hub Keluarga',
+            // 'hub_keluarga' => 'Hub Keluarga',
             'nik' => 'Nik',
             'tgl_lahir' => 'Tgl Lahir',
-            'id_pegawai' => 'Id Pegawai',
+            // 'id_pegawai' => 'Id Pegawai',
             'id_hubungan_keluarga' => 'Id Hubungan Keluarga',
         ];
     }
