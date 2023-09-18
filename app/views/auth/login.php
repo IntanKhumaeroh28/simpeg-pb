@@ -11,17 +11,20 @@ use yii\bootstrap4\ActiveForm;
 use yii\helpers\Html;
 ?>
 
-<div class="container" id="login-wrapper" style="margin-left: 425px; margin-top: 120px;">
-	<div class="row">
-		<div class="col-md-4 col-md-offset-4">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title"><?= UserManagementModule::t('front', 'From Login') ?></h3>
+<style>
+	/* .container {
+		background: red;
+	} */
+</style>
+<div class="container" id="login-wrapper ">
+	<div class="row ">
+		<div class="col-md-5 offset-md-3 bg-light rounded-lg ">
+			<div class="panel panel-default mx-5 my-5 ">
+				<div class="panel-heading text-center ">
+					<h3 class="panel-title"><?= UserManagementModule::t('front', 'Login Form') ?></h3>
 				</div>
-				<div class="panel-body">
-					<div class="col-lg-8 of">
-
-
+				<div class="panel-body ">
+					<div class="col-lg-8 offset-2">
 						<?php $form = ActiveForm::begin([
 							'id'      => 'login-form',
 							'options' => ['autocomplete' => 'off'],
@@ -61,9 +64,6 @@ use yii\helpers\Html;
 
 
 					</div>
-
-
-
 					<?php ActiveForm::end() ?>
 				</div>
 			</div>
@@ -81,6 +81,7 @@ html, body {
 	height: 100%;
 	min-height: 100%;
 	position: relative;
+
 }
 #login-wrapper {
 	background-image: url('../../../assets/images/office.jpg');
@@ -90,6 +91,11 @@ html, body {
 #login-wrapper .registration-block {
 	margin-top: 15px;
 }
+body {
+		background-color: lightseagreen;
+
+	}
+	
 CSS;
 
 $this->registerCss($css);

@@ -93,14 +93,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             <?= Html::a('Simpeg', ['site/index'], ['class' => 'nav-link']) ?>
             <?php if (!Yii::$app->user->isGuest) : ?>
               <?= Html::a('Home', ['site/index'], ['class' => 'nav-link']) ?>
-              <?= Html::a('Biodata Pegawai', ['/biodata-pegawai'], ['class' => 'nav-link']) ?>
+              <?= Html::a('Biodata Pegawai', ['/biodata-pegawai/index'], ['class' => 'nav-link']) ?>
 
               <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" role="button" id="dropdownStart" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
                     Riwayat
                   </a>
-                  <div class="dropdown-menu">
+                  <div class="dropdown-menu" aria-labelledby="dropdownStart">
                     <?= Html::a('Riwayat Keluarga', ['/riwayat-keluarga'], ['class' => 'dropdown-item']) ?>
                     <?= Html::a('Riwayat Pendidikan', ['/riwayat-pendidikan'], ['class' => 'dropdown-item']) ?>
                   </div>
@@ -108,19 +108,19 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
               </ul>
 
 
-              <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                    Master
-                  </a>
-                  <div class="dropdown-menu">
-                    <?= Html::a('Master Jenis Kelamin', ['/master-jenis-kelamin'], ['class' => 'dropdown-item']) ?>
-                    <?= Html::a('Master Agama', ['/master-agama'], ['class' => 'dropdown-item']) ?>
-                    <?= Html::a('Master Status Perkawinan', ['/master-status-perkawinan'], ['class' => 'dropdown-item']) ?>
-                    <?= Html::a('Jenis Pegawai', ['/jenis-pegawai'], ['class' => 'dropdown-item']) ?>
-                    <?= Html::a('Unit Kerja', ['/unit-kerja'], ['class' => 'dropdown-item']) ?>
-                  </div>
-                </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                  Master
+                </a>
+                <div class="dropdown-menu">
+                  <?= Html::a('Master Jenis Kelamin', ['/master-jenis-kelamin'], ['class' => 'dropdown-item']) ?>
+                  <?= Html::a('Master Agama', ['/master-agama'], ['class' => 'dropdown-item']) ?>
+                  <?= Html::a('Master Status Perkawinan', ['/master-status-perkawinan'], ['class' => 'dropdown-item']) ?>
+                  <?= Html::a('Jenis Pegawai', ['/jenis-pegawai'], ['class' => 'dropdown-item']) ?>
+                  <?= Html::a('Unit Kerja', ['/unit-kerja'], ['class' => 'dropdown-item']) ?>
+                </div>
+              </li>
               </ul>
 
 
@@ -148,8 +148,6 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             ?>
           </div>
         </div>
-    </nav>
-    </div>
     </nav>
   </header>
 
