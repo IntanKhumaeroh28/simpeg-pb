@@ -2,20 +2,27 @@
 
 /** @var yii\web\View $this */
 
-$this->title = 'My Yii Application';
+use yii\helpers\Url;
+
+$this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
 ?>
 <style>
     body {
         background-color: lightseagreen;
     }
 
+    h1 {
+        font-size: 35px;
+        color: darkred;
+        font-family: Apple Chancery;
+    }
 
 
     .box {
         width: 100px;
         height: 120px;
         display: block;
-        color: black;
+        color: peru;
 
         /* border: 1px solid black; */
         padding: 10px;
@@ -41,7 +48,8 @@ $this->title = 'My Yii Application';
     <div class="container-custom">
         <div class="row mt-3">
             <div class="col d-flex justify-content-center">
-                <h1>Sistem Kepegawaian Prabubima Tech</h1>
+                <h1>Sistem Informasi Kepegawaian Prabubima Tech</h1>
+
             </div>
         </div>
         <div class="row mt-2">
@@ -49,15 +57,8 @@ $this->title = 'My Yii Application';
                 <img src="https://prabubimatech.com/assets/image/logo.png" style="height: 300px;">
                 <div class="row justify-content-center">
 
-                    <a class="box" href="#home">
-                        <div class="box-center style=:">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
-                                <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
-                            </svg>
-                        </div>
-                        <span>Home</span>
-                    </a>
-                    <a class="box" href="#bio">
+
+                    <a class="box" href="<?= Url::to(['biodata-pegawai/index']) ?>">
                         <div class="box-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-badge-fill" viewBox="0 0 16 16">
                                 <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z" />
@@ -65,15 +66,15 @@ $this->title = 'My Yii Application';
                         </div>
                         <span>Biodata Pegawai</span>
                     </a>
-                    <a class="box" href="#riwayat keluarga">
+                    <a class="box" href="<?= Url::to(['riwayat-keluarga/index']) ?>">
                         <div class="box-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-file-ruled" viewBox="0 0 16 16">
-                                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v4h10V2a1 1 0 0 0-1-1H4zm9 6H6v2h7V7zm0 3H6v2h7v-2zm0 3H6v2h6a1 1 0 0 0 1-1v-1zm-8 2v-2H3v1a1 1 0 0 0 1 1h1zm-2-3h2v-2H3v2zm0-3h2V7H3v2z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-hearts" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M11.5 1.246c.832-.855 2.913.642 0 2.566-2.913-1.924-.832-3.421 0-2.566ZM9 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h10s1 0 1-1-1-4-6-4-6 3-6 4Zm13.5-8.09c1.387-1.425 4.855 1.07 0 4.277-4.854-3.207-1.387-5.702 0-4.276ZM15 2.165c.555-.57 1.942.428 0 1.711-1.942-1.283-.555-2.281 0-1.71Z" />
                             </svg>
                         </div>
                         <span>Riwayat Keluarga</span>
                     </a>
-                    <a class="box" href="#master hub keluarga">
+                    <a class="box" href="<?= Url::to(['master hub kelu/index']) ?>">
                         <div class="box-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
                                 <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
@@ -81,7 +82,7 @@ $this->title = 'My Yii Application';
                         </div>
                         <span>Master Hubungan Keluarga</span>
                     </a>
-                    <a class="box" href="#riwayat pendidikan">
+                    <a class="box" href="#riwayatpendidikan">
                         <div class="box-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
                                 <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z" />
