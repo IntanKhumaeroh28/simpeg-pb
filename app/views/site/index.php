@@ -74,7 +74,7 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
                         </div>
                         <span>Riwayat Keluarga</span>
                     </a>
-                    <a class="box" href="<?= Url::to(['master hub kelu/index']) ?>">
+                    <a class="box" href="<?= Url::to(['master-hubungan-keluarga/index']) ?>">
                         <div class="box-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
                                 <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
@@ -82,7 +82,7 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
                         </div>
                         <span>Master Hubungan Keluarga</span>
                     </a>
-                    <a class="box" href="#riwayatpendidikan">
+                    <a class="box" href="<?= Url::to(['riwayat-pendidikan/index']) ?>">
                         <div class="box-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
                                 <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z" />
@@ -91,7 +91,7 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
                         </div>
                         <span>Riwayat Pendidikan</span>
                     </a>
-                    <a class="box" href="#master pendidikan formal">
+                    <a class="box" href="<?= Url::to(['master-pendidikan-formal/index']) ?>">
                         <div class="box-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-mortarboard" viewBox="0 0 16 16">
                                 <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5ZM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46Z" />
@@ -101,7 +101,7 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
                         <span>Master Pendidikan Formal</span>
                     </a>
 
-                    <a class="box" href="Master">
+                    <a class="box" href="<?= Url::to(['master-jenis-kelamin/index']) ?>">
                         <div class="box-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-gender-ambiguous" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M11.5 1a.5.5 0 0 1 0-1h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-3.45 3.45A4 4 0 0 1 8.5 10.97V13H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V14H6a.5.5 0 0 1 0-1h1.5v-2.03a4 4 0 1 1 3.471-6.648L14.293 1H11.5zm-.997 4.346a3 3 0 1 0-5.006 3.309 3 3 0 0 0 5.006-3.31z" />
@@ -109,7 +109,7 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
                         </div>
                         <span>Master Jenis Kelamin</span>
                     </a>
-                    <a class="box" href="Master">
+                    <a class="box" href="<?= Url::to(['master-agama/index']) ?>">
                         <div class="box-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-magnet-fill" viewBox="0 0 16 16">
                                 <path d="M15 12h-4v3h4v-3ZM5 12H1v3h4v-3ZM0 8a8 8 0 1 1 16 0v8h-6V8a2 2 0 1 0-4 0v8H0V8Z" />
@@ -117,7 +117,7 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
                         </div>
                         <span>Master Agama</span>
                     </a>
-                    <a class="box" href="Master">
+                    <a class="box" href="<?= Url::to(['master-status-perkawinan/index']) ?>">
                         <div class="box-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-infinity" viewBox="0 0 16 16">
                                 <path d="M5.68 5.792 7.345 7.75 5.681 9.708a2.75 2.75 0 1 1 0-3.916ZM8 6.978 6.416 5.113l-.014-.015a3.75 3.75 0 1 0 0 5.304l.014-.015L8 8.522l1.584 1.865.014.015a3.75 3.75 0 1 0 0-5.304l-.014.015L8 6.978Zm.656.772 1.663-1.958a2.75 2.75 0 1 1 0 3.916L8.656 7.75Z" />
@@ -125,7 +125,7 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
                         </div>
                         <span>Master Status Perkawinan</span>
                     </a>
-                    <a class="box" href="Master">
+                    <a class="box" href="<?= Url::to(['jenis-pegawai/index']) ?>">
                         <div class="box-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-incognito" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="m4.736 1.968-.892 3.269-.014.058C2.113 5.568 1 6.006 1 6.5 1 7.328 4.134 8 8 8s7-.672 7-1.5c0-.494-1.113-.932-2.83-1.205a1.032 1.032 0 0 0-.014-.058l-.892-3.27c-.146-.533-.698-.849-1.239-.734C9.411 1.363 8.62 1.5 8 1.5c-.62 0-1.411-.136-2.025-.267-.541-.115-1.093.2-1.239.735Zm.015 3.867a.25.25 0 0 1 .274-.224c.9.092 1.91.143 2.975.143a29.58 29.58 0 0 0 2.975-.143.25.25 0 0 1 .05.498c-.918.093-1.944.145-3.025.145s-2.107-.052-3.025-.145a.25.25 0 0 1-.224-.274ZM3.5 10h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5Zm-1.5.5c0-.175.03-.344.085-.5H2a.5.5 0 0 1 0-1h3.5a1.5 1.5 0 0 1 1.488 1.312 3.5 3.5 0 0 1 2.024 0A1.5 1.5 0 0 1 10.5 9H14a.5.5 0 0 1 0 1h-.085c.055.156.085.325.085.5v1a2.5 2.5 0 0 1-5 0v-.14l-.21-.07a2.5 2.5 0 0 0-1.58 0l-.21.07v.14a2.5 2.5 0 0 1-5 0v-1Zm8.5-.5h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5Z" />
@@ -133,7 +133,7 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
                         </div>
                         <span>Jenis Pegawai</span>
                     </a>
-                    <a class="box" href="Master">
+                    <a class="box" href="<?= Url::to(['unit-kerja/index']) ?>">
                         <div class="box-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clipboard-check" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
