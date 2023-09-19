@@ -19,7 +19,9 @@ use yii\widgets\ActiveForm;
 
 <div class="biodata-pegawai-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(
+        ['options' => ['enctype' => 'multipart/form-data']]
+    ); ?>
 
     <?= $form->field($model, 'id_pegawai')->textInput(['maxlength' => true]) ?>
 
@@ -46,7 +48,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'foto')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'foto')->fileInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'jumlah_pasangan')->textInput() ?>
 

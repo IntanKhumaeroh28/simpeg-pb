@@ -8,6 +8,7 @@ use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * BiodataPegawaiController implements the CRUD actions for BiodataPegawai model.
@@ -62,6 +63,7 @@ class BiodataPegawaiController extends Controller
 
     /**
      * Displays a single BiodataPegawai model.
+     * 
      * @param string $id_pegawai Id Pegawai
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
@@ -100,12 +102,24 @@ class BiodataPegawaiController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id_pegawai' => $model->id_pegawai]);
+                // proses awal upload file
+                $model->foto = UploadedFile::getInstance($model, 'foto');
+                if ($model->validate() && !empty($model->foto)) {
+                    // simpan nama file foto dengan nik dan extension file yang diupload
+                    $nama = $model->nik . '.' . $model->foto->extension;
+                    // simpan fisik gambar ke folder files
+                    $model->foto->saveAs('files/img/' . $nama);
+                    // simpan nama file foto ke field foto pada model
+                    $model->foto = $nama;
+                    // simpan semua data ke model biodata pegawai
+                    $model->save();
+                }
+            } else {
+                $model->save();
             }
-        } else {
-            $model->loadDefaultValues();
+            // proses akhir upload file
+            return $this->redirect(['view', 'id_pegawai' => $model->id_pegawai]);
         }
-
         return $this->render('create', [
             'model' => $model,
         ]);

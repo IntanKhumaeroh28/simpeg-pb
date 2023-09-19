@@ -40,6 +40,8 @@ use Yii;
  */
 class BiodataPegawai extends \yii\db\ActiveRecord
 {
+    // tambahkan variabel baru untuk menyimpan file foto
+    public $foto;
     /**
      * {@inheritdoc}
      */
@@ -68,6 +70,12 @@ class BiodataPegawai extends \yii\db\ActiveRecord
             [['kode_unit'], 'exist', 'skipOnError' => true, 'targetClass' => UnitKerja::class, 'targetAttribute' => ['kode_unit' => 'kode_unit']],
             [['id_agama'], 'exist', 'skipOnError' => true, 'targetClass' => MasterAgama::class, 'targetAttribute' => ['id_agama' => 'id_agama']],
             [['id_status_perkawinan'], 'exist', 'skipOnError' => true, 'targetClass' => MasterStatusPerkawinan::class, 'targetAttribute' => ['id_status_perkawinan' => 'id_status_perkawinan']],
+            [
+                ['foto'], 'file',
+                'extensions' => 'jpg,jpeg,png',
+                'maxSize' => '1024000', // max 1 MB
+                'skipOnEmpty' => true, // boleh kosong
+            ],
         ];
     }
 

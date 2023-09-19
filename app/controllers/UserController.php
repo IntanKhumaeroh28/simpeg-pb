@@ -62,5 +62,4 @@ class UserController extends AdminDefaultController
 
 		return $this->renderIsAjax('changePassword', compact('model'));
 	}
-
 }
