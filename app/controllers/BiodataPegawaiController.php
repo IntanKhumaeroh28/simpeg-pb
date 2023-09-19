@@ -14,6 +14,15 @@ use yii\filters\VerbFilter;
  */
 class BiodataPegawaiController extends Controller
 {
+
+    // public function behaviors()
+    // {
+    //     return [
+    //         'ghost-access' => [
+    //             'class' => 'app\components\GhostAccessControl',
+    //         ],
+    //     ];
+    // }
     /**
      * @inheritDoc
      */
@@ -27,6 +36,9 @@ class BiodataPegawaiController extends Controller
                     'actions' => [
                         'delete' => ['POST'],
                     ],
+                ],
+                'ghost-access' => [
+                    'class' => 'app\components\GhostAccessControl',
                 ],
             ]
         );
