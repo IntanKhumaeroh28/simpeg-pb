@@ -93,14 +93,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             <?= Html::a('Simpeg', ['site/index'], ['class' => 'nav-link']) ?>
             <?php if (!Yii::$app->user->isGuest) : ?>
               <?= Html::a('Home', ['site/index'], ['class' => 'nav-link']) ?>
-              <?= Html::a('Biodata Pegawai', ['/biodata-pegawai'], ['class' => 'nav-link']) ?>
+              <?= Html::a('Biodata Pegawai', ['/biodata-pegawai/index'], ['class' => 'nav-link']) ?>
 
               <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" role="button" id="dropdownStart" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
                     Riwayat
                   </a>
-                  <div class="dropdown-menu">
+                  <div class="dropdown-menu" aria-labelledby="dropdownStart">
                     <?= Html::a('Riwayat Keluarga', ['/riwayat-keluarga'], ['class' => 'dropdown-item']) ?>
                     <?= Html::a('Riwayat Pendidikan', ['/riwayat-pendidikan'], ['class' => 'dropdown-item']) ?>
                   </div>
@@ -122,8 +122,21 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 </div>
               </li>
               </ul>
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Laporan
+                  </a>
+                  <div class="dropdown-menu">
+                    <?= Html::a('Rekap Jenis Kelamin dan Pegawai', ['laporan/rekap_per_jenis_kelamin_pegawai'], ['class' => 'dropdown-item']) ?>
+                    <?= Html::a('Rekap Nama Unit, Jenis Kelamin dan Total', ['laporan/rekap_per_nama_unit_jenis_kelamin_total'], ['class' => 'dropdown-item']) ?>
+                    <?= Html::a('Rekap Nama Unit, Jumlah Pegawai', ['laporan/rekap_per_nama_unit_pegawai'], ['class' => 'dropdown-item']) ?>
+                  </div>
+                </li>
+              </ul>
               <?= Html::a('User', ['/user'], ['class' => 'nav-link']) ?>
             <?php endif; ?>
+
 
 
             <?php
@@ -134,8 +147,6 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             ?>
           </div>
         </div>
-    </nav>
-    </div>
     </nav>
   </header>
 
