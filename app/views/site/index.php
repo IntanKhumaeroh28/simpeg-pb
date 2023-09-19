@@ -13,7 +13,7 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
 
     h1 {
         font-size: 35px;
-        color: darkred;
+        color: black;
         font-family: Apple Chancery;
     }
 
@@ -23,7 +23,6 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
         height: 120px;
         display: block;
         color: peru;
-
         /* border: 1px solid black; */
         padding: 10px;
         margin: 10px;
@@ -54,7 +53,7 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
         </div>
         <div class="row mt-2">
             <div class="col" style="text-align: center;">
-                <img src="https://prabubimatech.com/assets/image/logo.png" style="height: 300px;">
+                <img src="https://prabubimatech.com/assets/image/logo.png" style="height: 250px;">
                 <div class="row justify-content-center">
 
 
