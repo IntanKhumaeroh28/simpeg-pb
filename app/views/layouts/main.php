@@ -122,6 +122,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 </div>
               </li>
               </ul>
+              <?= Html::a('User', ['/user'], ['class' => 'nav-link']) ?>
             <?php endif; ?>
 
 
