@@ -1,8 +1,9 @@
 <?php
 
-namespace webvimark\modules\UserManagement\controllers;
+namespace app\controllers;
 
 use webvimark\components\AdminDefaultController;
+use webvimark\modules\UserManagement\controllers\UserController as ControllersUserController;
 use Yii;
 use webvimark\modules\UserManagement\models\User;
 use webvimark\modules\UserManagement\models\search\UserSearch;
@@ -11,7 +12,7 @@ use yii\web\NotFoundHttpException;
 /**
  * UserController implements the CRUD actions for User model.
  */
-class UserController extends AdminDefaultController
+class UserController extends ControllersUserController
 {
 	/**
 	 * @var User
@@ -28,10 +29,9 @@ class UserController extends AdminDefaultController
 	 */
 	public function actionCreate()
 	{
-		$model = new User(['scenario'=>'newUser']);
+		$model = new User(['scenario' => 'newUser']);
 
-		if ( $model->load(Yii::$app->request->post()) && $model->save() )
-		{
+		if ($model->load(Yii::$app->request->post()) && $model->save()) {
 			return $this->redirect(['view',	'id' => $model->id]);
 		}
 
@@ -48,15 +48,13 @@ class UserController extends AdminDefaultController
 	{
 		$model = User::findOne($id);
 
-		if ( !$model )
-		{
+		if (!$model) {
 			throw new NotFoundHttpException('User not found');
 		}
 
 		$model->scenario = 'changePassword';
 
-		if ( $model->load(Yii::$app->request->post()) && $model->save() )
-		{
+		if ($model->load(Yii::$app->request->post()) && $model->save()) {
 			return $this->redirect(['view',	'id' => $model->id]);
 		}
 

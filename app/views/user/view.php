@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				<?= GhostHtml::a(
 					UserManagementModule::t('back', 'Roles and permissions'),
 					['/user-management/user-permission/set', 'id' => $model->id],
-					['class' => 'btn btn-sm btn-default']
+					['class' => 'btn btn-sm btn-secondary']
 				) ?>
 
 				<?= GhostHtml::a(UserManagementModule::t('back', 'Delete'), ['delete', 'id' => $model->id], [
@@ -69,10 +69,10 @@ $this->params['breadcrumbs'][] = $this->title;
 						'visible' => User::hasPermission('viewUserRoles'),
 						'format' => 'raw',
 					],
-					[
-						'attribute' => 'bind_to_ip',
-						'visible' => User::hasPermission('bindUserToIp'),
-					],
+					// [
+					// 	'attribute' => 'bind_to_ip',
+					// 	'visible' => User::hasPermission('bindUserToIp'),
+					// ],
 					array(
 						'attribute' => 'registration_ip',
 						'value' => Html::a($model->registration_ip, "http://ipinfo.io/" . $model->registration_ip, ["target" => "_blank"]),
