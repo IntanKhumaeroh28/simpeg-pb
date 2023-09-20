@@ -1,16 +1,17 @@
 <?php
 
-namespace webvimark\modules\UserManagement\controllers;
+namespace app\controllers;
 
 use webvimark\modules\UserManagement\models\rbacDB\AuthItemGroup;
 use webvimark\modules\UserManagement\models\rbacDB\search\AuthItemGroupSearch;
 use Yii;
 use webvimark\components\AdminDefaultController;
+use webvimark\modules\UserManagement\controllers\AuthItemGroupController as ControllersAuthItemGroupController;
 
 /**
  * AuthItemGroupController implements the CRUD actions for AuthItemGroup model.
  */
-class AuthItemGroupController extends AdminDefaultController
+class AuthItemGroupController extends ControllersAuthItemGroupController
 {
 	/**
 	 * @var AuthItemGroup
@@ -32,16 +33,15 @@ class AuthItemGroupController extends AdminDefaultController
 	 */
 	protected function getRedirectPage($action, $model = null)
 	{
-		switch ($action)
-		{
+		switch ($action) {
 			case 'delete':
 				return ['index'];
 				break;
 			case 'update':
-				return ['view', 'id'=>$model->code];
+				return ['view', 'id' => $model->code];
 				break;
 			case 'create':
-				return ['view', 'id'=>$model->code];
+				return ['view', 'id' => $model->code];
 				break;
 			default:
 				return ['index'];

@@ -101,25 +101,16 @@ class BiodataPegawaiController extends Controller
         $model = new BiodataPegawai();
 
         if ($this->request->isPost) {
+            // kalo error ga akan tampil halaman view
             if ($model->load($this->request->post()) && $model->save()) {
-                // proses awal upload file
-                $model->foto = UploadedFile::getInstance($model, 'foto');
-                if ($model->validate() && !empty($model->foto)) {
-                    // simpan nama file foto dengan nik dan extension file yang diupload
-                    $nama = $model->nik . '.' . $model->foto->extension;
-                    // simpan fisik gambar ke folder files
-                    $model->foto->saveAs('files/img/' . $nama);
-                    // simpan nama file foto ke field foto pada model
-                    $model->foto = $nama;
-                    // simpan semua data ke model biodata pegawai
-                    $model->save();
-                }
-            } else {
-                $model->save();
+                return $this->redirect(['view', 'id_pegawai' => $model->id_pegawai]);
             }
-            // proses akhir upload file
-            return $this->redirect(['view', 'id_pegawai' => $model->id_pegawai]);
+        } else {
+            $model->loadDefaultValues();
         }
+
+        // ketika login input data akan render halaman create
+        // dan ketika gagal akan render halaman create juga
         return $this->render('create', [
             'model' => $model,
         ]);

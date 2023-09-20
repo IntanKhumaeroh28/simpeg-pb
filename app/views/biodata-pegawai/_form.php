@@ -48,7 +48,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'foto')->fileInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'image_file')->fileInput() ?>
+
+    <?= $form->field($model, 'foto')->hiddenInput()->label('') ?>
 
     <?= $form->field($model, 'jumlah_pasangan')->textInput() ?>
 

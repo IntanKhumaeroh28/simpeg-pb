@@ -1,4 +1,5 @@
 <?php
+
 use webvimark\extensions\GridBulkActions\GridBulkActions;
 use webvimark\extensions\GridPageSize\GridPageSize;
 use webvimark\modules\UserManagement\components\GhostHtml;
@@ -16,7 +17,7 @@ use yii\widgets\Pjax;
  * @var webvimark\modules\UserManagement\models\rbacDB\search\PermissionSearch $searchModel
  * @var yii\web\View $this
  */
-$this->title = UserManagementModule::t('back', 'Permissions');
+$this->title = UserManagementModule::t('back', 'Permission');
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -37,61 +38,59 @@ $this->params['breadcrumbs'][] = $this->title;
 			</div>
 
 			<div class="col-sm-6 text-right">
-				<?= GridPageSize::widget(['pjaxId'=>'permission-grid-pjax']) ?>
+				<?php // GridPageSize::widget(['pjaxId'=>'permission-grid-pjax']) 
+				?>
 			</div>
 		</div>
 
 		<?php Pjax::begin([
-			'id'=>'permission-grid-pjax',
+			'id' => 'permission-grid-pjax',
 		]) ?>
 
 		<?= GridView::widget([
-			'id'=>'permission-grid',
+			'id' => 'permission-grid',
 			'dataProvider' => $dataProvider,
-			'pager'=>[
-				'options'=>['class'=>'pagination pagination-sm'],
-				'hideOnSinglePage'=>true,
-				'lastPageLabel'=>'>>',
-				'firstPageLabel'=>'<<',
+			'pager' => [
+				'options' => ['class' => 'pagination pagination-sm'],
+				'hideOnSinglePage' => true,
+				'lastPageLabel' => '>>',
+				'firstPageLabel' => '<<',
 			],
 			'filterModel' => $searchModel,
-			'layout'=>'{items}<div class="row"><div class="col-sm-8">{pager}</div><div class="col-sm-4 text-right">{summary}'.GridBulkActions::widget([
-						'gridId'=>'permission-grid',
-						'actions'=>[Url::to(['bulk-delete'])=>GridBulkActions::t('app', 'Delete'),],
-						]).'</div></div>',
+			// 'layout' => '{items}<div class="row"><div class="col-sm-8">{pager}</div><div class="col-sm-4 text-right">{summary}' . GridBulkActions::widget([
+			// 	'gridId' => 'permission-grid',
+			// 	'actions' => [Url::to(['bulk-delete']) => GridBulkActions::t('app', 'Delete'),],
+			// ]) . '</div></div>',
 			'columns' => [
-				['class' => 'yii\grid\SerialColumn', 'options'=>['style'=>'width:10px'] ],
+				['class' => 'yii\grid\SerialColumn', 'options' => ['style' => 'width:10px']],
 
 				[
-					'attribute'=>'description',
-					'value'=>function($model){
-							if ( $model->name == Yii::$app->getModule('user-management')->commonPermissionName )
-							{
-								return Html::a(
-									$model->description,
-									['view', 'id'=>$model->name],
-									['data-pjax'=>0, 'class'=>'label label-primary']
-								);
-							}
-							else
-							{
-								return Html::a($model->description, ['view', 'id'=>$model->name], ['data-pjax'=>0]);
-							}
-						},
-					'format'=>'raw',
+					'attribute' => 'description',
+					'value' => function ($model) {
+						if ($model->name == Yii::$app->getModule('user-management')->commonPermissionName) {
+							return Html::a(
+								$model->description,
+								['view', 'id' => $model->name],
+								['data-pjax' => 0, 'class' => 'label label-primary']
+							);
+						} else {
+							return Html::a($model->description, ['view', 'id' => $model->name], ['data-pjax' => 0]);
+						}
+					},
+					'format' => 'raw',
 				],
 				'name',
 				[
-					'attribute'=>'group_code',
-					'filter'=>ArrayHelper::map(AuthItemGroup::find()->asArray()->all(), 'code', 'name'),
-					'value'=>function(Permission $model){
-							return $model->group_code ? $model->group->name : '';
-						},
+					'attribute' => 'group_code',
+					'filter' => ArrayHelper::map(AuthItemGroup::find()->asArray()->all(), 'code', 'name'),
+					'value' => function (Permission $model) {
+						return $model->group_code ? $model->group->name : '';
+					},
 				],
-				['class' => 'yii\grid\CheckboxColumn', 'options'=>['style'=>'width:10px'] ],
+				['class' => 'yii\grid\CheckboxColumn', 'options' => ['style' => 'width:10px']],
 				[
 					'class' => 'yii\grid\ActionColumn',
-					'contentOptions'=>['style'=>'width:70px; text-align:center;'],
+					'contentOptions' => ['style' => 'width:70px; text-align:center;'],
 				],
 			],
 		]); ?>

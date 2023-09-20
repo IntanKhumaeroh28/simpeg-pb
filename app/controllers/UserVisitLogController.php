@@ -1,16 +1,17 @@
 <?php
 
-namespace webvimark\modules\UserManagement\controllers;
+namespace app\controllers;
 
 use Yii;
 use webvimark\modules\UserManagement\models\UserVisitLog;
 use webvimark\modules\UserManagement\models\search\UserVisitLogSearch;
 use webvimark\components\AdminDefaultController;
+use webvimark\modules\UserManagement\controllers\UserVisitLogController as ControllersUserVisitLogController;
 
 /**
  * UserVisitLogController implements the CRUD actions for UserVisitLog model.
  */
-class UserVisitLogController extends AdminDefaultController
+class UserVisitLogController extends ControllersUserVisitLogController
 {
 	/**
 	 * @var UserVisitLog

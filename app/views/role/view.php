@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var yii\widgets\ActiveForm $form
  * @var array $childRoles
@@ -16,14 +17,14 @@ use webvimark\modules\UserManagement\UserManagementModule;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
-$this->title = UserManagementModule::t('back', 'Permissions for role:') . ' '. $role->description;
-$this->params['breadcrumbs'][] = ['label' => UserManagementModule::t('back', 'Roles'), 'url' => ['index']];
+$this->title = UserManagementModule::t('back', 'Permissions for role:') . ' ' . $role->description;
+$this->params['breadcrumbs'][] = ['label' => UserManagementModule::t('back', 'Role'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <h2 class="lte-hide-title"><?= $this->title ?></h2>
 
-<?php if ( Yii::$app->session->hasFlash('success') ): ?>
+<?php if (Yii::$app->session->hasFlash('success')) : ?>
 	<div class="alert alert-success text-center">
 		<?= Yii::$app->session->getFlash('success') ?>
 	</div>
@@ -43,9 +44,9 @@ $this->params['breadcrumbs'][] = $this->title;
 				</strong>
 			</div>
 			<div class="panel-body">
-				<?= Html::beginForm(['set-child-roles', 'id'=>$role->name]) ?>
+				<?= Html::beginForm(['set-child-roles', 'id' => $role->name]) ?>
 
-				<?php foreach ($allRoles as $aRole): ?>
+				<?php foreach ($allRoles as $aRole) : ?>
 					<label>
 						<?php $isChecked = in_array($aRole['name'], ArrayHelper::map($childRoles, 'name', 'name')) ? 'checked' : '' ?>
 						<input type="checkbox" <?= $isChecked ?> name="child_roles[]" value="<?= $aRole['name'] ?>">
@@ -54,17 +55,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
 					<?= GhostHtml::a(
 						'<span class="glyphicon glyphicon-edit"></span>',
-						['/user-management/role/view', 'id'=>$aRole['name']],
-						['target'=>'_blank']
+						['/user-management/role/view', 'id' => $aRole['name']],
+						['target' => '_blank']
 					) ?>
-					<br/>
+					<br />
 				<?php endforeach ?>
 
 
-				<hr/>
+				<hr />
 				<?= Html::submitButton(
 					'<span class="glyphicon glyphicon-ok"></span> ' . UserManagementModule::t('back', 'Save'),
-					['class'=>'btn btn-primary btn-sm']
+					['class' => 'btn btn-primary btn-sm']
 				) ?>
 
 				<?= Html::endForm() ?>
@@ -80,15 +81,15 @@ $this->params['breadcrumbs'][] = $this->title;
 				</strong>
 			</div>
 			<div class="panel-body">
-				<?= Html::beginForm(['set-child-permissions', 'id'=>$role->name]) ?>
+				<?= Html::beginForm(['set-child-permissions', 'id' => $role->name]) ?>
 
 				<div class="row">
-					<?php foreach ($permissionsByGroup as $groupName => $permissions): ?>
+					<?php foreach ($permissionsByGroup as $groupName => $permissions) : ?>
 						<div class="col-sm-6">
 							<fieldset>
 								<legend><?= $groupName ?></legend>
 
-								<?php foreach ($permissions as $permission): ?>
+								<?php foreach ($permissions as $permission) : ?>
 									<label>
 										<?php $isChecked = in_array($permission->name, ArrayHelper::map($currentPermissions, 'name', 'name')) ? 'checked' : '' ?>
 										<input type="checkbox" <?= $isChecked ?> name="child_permissions[]" value="<?= $permission->name ?>">
@@ -97,24 +98,24 @@ $this->params['breadcrumbs'][] = $this->title;
 
 									<?= GhostHtml::a(
 										'<span class="glyphicon glyphicon-edit"></span>',
-										['/user-management/permission/view', 'id'=>$permission->name],
-										['target'=>'_blank']
+										['/user-management/permission/view', 'id' => $permission->name],
+										['target' => '_blank']
 									) ?>
-									<br/>
+									<br />
 								<?php endforeach ?>
 
 							</fieldset>
-							<br/>
+							<br />
 						</div>
 
 
 					<?php endforeach ?>
 				</div>
 
-				<hr/>
+				<hr />
 				<?= Html::submitButton(
 					'<span class="glyphicon glyphicon-ok"></span> ' . UserManagementModule::t('back', 'Save'),
-					['class'=>'btn btn-primary btn-sm']
+					['class' => 'btn btn-primary btn-sm']
 				) ?>
 
 				<?= Html::endForm() ?>
@@ -125,7 +126,8 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 
 <?php
-$this->registerJs(<<<JS
+$this->registerJs(
+	<<<JS
 
 $('.role-help-btn').off('mouseover mouseleave')
 	.on('mouseover', function(){

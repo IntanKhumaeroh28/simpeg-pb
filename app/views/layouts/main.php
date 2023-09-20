@@ -136,7 +136,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
               </ul>
               <?= Html::a('User', ['/user'], ['class' => 'nav-link']) ?>
             <?php endif; ?>
-            
+
             <?php
             if (Yii::$app->user->isGuest) {
               echo Html::a('Login', ['/auth/login'], ['class' => 'nav-link']);

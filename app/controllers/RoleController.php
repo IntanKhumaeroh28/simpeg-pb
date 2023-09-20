@@ -1,17 +1,18 @@
 <?php
 
-namespace webvimark\modules\UserManagement\controllers;
+namespace app\controllers;
 
 use webvimark\modules\UserManagement\components\AuthHelper;
 use webvimark\modules\UserManagement\models\rbacDB\Permission;
 use webvimark\modules\UserManagement\models\rbacDB\Role;
 use webvimark\modules\UserManagement\models\rbacDB\search\RoleSearch;
 use webvimark\components\AdminDefaultController;
+use webvimark\modules\UserManagement\controllers\RoleController as ControllersRoleController;
 use webvimark\modules\UserManagement\UserManagementModule;
 use Yii;
 use yii\rbac\DbManager;
 
-class RoleController extends AdminDefaultController
+class RoleController extends ControllersRoleController
 {
 	/**
 	 * @var Role
@@ -36,17 +37,16 @@ class RoleController extends AdminDefaultController
 
 		$allRoles = Role::find()
 			->asArray()
-			->andWhere('name != :current_name', [':current_name'=>$id])
+			->andWhere('name != :current_name', [':current_name' => $id])
 			->all();
 
 		$permissions = Permission::find()
-			->andWhere(Yii::$app->getModule('user-management')->auth_item_table . '.name != :commonPermissionName', [':commonPermissionName'=>Yii::$app->getModule('user-management')->commonPermissionName])
+			->andWhere(Yii::$app->getModule('user-management')->auth_item_table . '.name != :commonPermissionName', [':commonPermissionName' => Yii::$app->getModule('user-management')->commonPermissionName])
 			->joinWith('group')
 			->all();
 
 		$permissionsByGroup = [];
-		foreach ($permissions as $permission)
-		{
+		foreach ($permissions as $permission) {
 			$permissionsByGroup[@$permission->group->name][] = $permission;
 		}
 
@@ -78,10 +78,8 @@ class RoleController extends AdminDefaultController
 
 		$oldChildRoles = [];
 
-		foreach ($children as $child)
-		{
-			if ( $child->type == Role::TYPE_ROLE )
-			{
+		foreach ($children as $child) {
+			if ($child->type == Role::TYPE_ROLE) {
 				$oldChildRoles[$child->name] = $child->name;
 			}
 		}
@@ -94,7 +92,7 @@ class RoleController extends AdminDefaultController
 
 		Yii::$app->session->setFlash('success', UserManagementModule::t('back', 'Saved'));
 
-		return $this->redirect(['view', 'id'=>$id]);
+		return $this->redirect(['view', 'id' => $id]);
 	}
 
 	/**
@@ -122,7 +120,7 @@ class RoleController extends AdminDefaultController
 
 		Yii::$app->session->setFlash('success', UserManagementModule::t('back', 'Saved'));
 
-		return $this->redirect(['view', 'id'=>$id]);
+		return $this->redirect(['view', 'id' => $id]);
 	}
 
 	/**
@@ -135,9 +133,8 @@ class RoleController extends AdminDefaultController
 		$model = new Role;
 		$model->scenario = 'webInput';
 
-		if ( $model->load(Yii::$app->request->post()) && $model->save() )
-		{
-			return $this->redirect(['view', 'id'=>$model->name]);
+		if ($model->load(Yii::$app->request->post()) && $model->save()) {
+			return $this->redirect(['view', 'id' => $model->name]);
 		}
 
 		return $this->renderIsAjax('create', compact('model'));
@@ -156,9 +153,8 @@ class RoleController extends AdminDefaultController
 		$model = $this->findModel($id);
 		$model->scenario = 'webInput';
 
-		if ( $model->load(Yii::$app->request->post()) AND $model->save())
-		{
-			return $this->redirect(['view', 'id'=>$model->name]);
+		if ($model->load(Yii::$app->request->post()) and $model->save()) {
+			return $this->redirect(['view', 'id' => $model->name]);
 		}
 
 		return $this->renderIsAjax('update', compact('model'));

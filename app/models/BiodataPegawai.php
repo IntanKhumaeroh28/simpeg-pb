@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "biodata_pegawai".
@@ -41,7 +42,7 @@ use Yii;
 class BiodataPegawai extends \yii\db\ActiveRecord
 {
     // tambahkan variabel baru untuk menyimpan file foto
-    public $foto;
+    public $image_file;
     /**
      * {@inheritdoc}
      */
@@ -71,10 +72,9 @@ class BiodataPegawai extends \yii\db\ActiveRecord
             [['id_agama'], 'exist', 'skipOnError' => true, 'targetClass' => MasterAgama::class, 'targetAttribute' => ['id_agama' => 'id_agama']],
             [['id_status_perkawinan'], 'exist', 'skipOnError' => true, 'targetClass' => MasterStatusPerkawinan::class, 'targetAttribute' => ['id_status_perkawinan' => 'id_status_perkawinan']],
             [
-                ['foto'], 'file',
-                'extensions' => 'jpg,jpeg,png',
-                'maxSize' => '1024000', // max 1 MB
-                'skipOnEmpty' => true, // boleh kosong
+                ['image_file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'maxSize' => 1024 * 1024 * 1.2
+                // 1,2 mb
+                , 'message' => 'Ukuran berkas maksimum adalah 1.2 MB.'
             ],
         ];
     }
@@ -108,6 +108,34 @@ class BiodataPegawai extends \yii\db\ActiveRecord
             'created_by' => 'Created By',
             'updated_by' => 'Updated By',
         ];
+    }
+
+    public function beforeSave($insert)
+    {
+        $parent = parent::beforeSave($insert);
+
+        // ambil data uploadnya
+        $file = UploadedFile::getInstance($this, 'image_file');
+
+        // cek apakah upload upload file apa ngga
+        if (!empty($file)) {
+            // bikin url untuk menyimpan gambar
+            $uploadPath = Yii::getAlias('@webroot/image/');
+
+            // bikin nama acak
+            $newName = uniqid() . '_' . $file->baseName . '.' . $file->extension;
+
+            // bikin url lengkap di tambah dengan nama filenya
+            $filePath = $uploadPath . $newName;
+
+            // kemudian simpan gambarnya di folder yang udah ditentuin
+            if ($file->saveAs($filePath)) {
+                // simpan informasi berkas ke dalam model jika diperlukan
+                $this->foto = $newName;
+            }
+        }
+
+        return $parent;
     }
 
     /**

@@ -37,7 +37,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'alamat',
             'no_telp',
             'email:email',
-            'foto',
+            // 'foto',
+            [
+                'attribute' => 'foto',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return Html::img(Yii::getAlias('@web/image/') . $model->foto, ['height' => '200px']);
+                }
+            ],
             'jumlah_pasangan',
             'jumlah_anak',
             'tahun_masuk',
@@ -51,6 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'updated_at',
             // 'created_by',
             // 'updated_by',
+
         ],
     ]) ?>
 </div>
