@@ -7,9 +7,10 @@ use yii\helpers\Url;
 $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
 ?>
 <style>
-    body {
-        background-color: lightseagreen;
-    }
+
+    /* body {
+        background-color: #006A4E;
+    } */
 
     h1 {
         font-size: 35px;
@@ -19,21 +20,21 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
 
 
     .box {
-        width: 100px;
-        height: 120px;
+        width: 120px;
+        height: 150px;
         display: block;
-        color: peru;
+        color: white;
         /* border: 1px solid black; */
         padding: 10px;
         margin: 10px;
-        background-color: lightblue;
+        background-color: Teal;
         border-radius: 12px;
         text-align: center;
     }
 
     .box:hover {
         text-decoration: none;
-        color: slategray;
+        color: whitesmoke;
         box-shadow: 0 0 16px rgba(35, 173, 278, 1);
     }
 
@@ -53,9 +54,8 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
         </div>
         <div class="row mt-2">
             <div class="col" style="text-align: center;">
-                <img src="https://prabubimatech.com/assets/image/logo.png" style="height: 250px;">
+                <img src="https://prabubimatech.com/assets/image/logo.png" style="height: 200px;">
                 <div class="row justify-content-center">
-
 
                     <a class="box" href="<?= Url::to(['biodata-pegawai/index']) ?>">
                         <div class="box-center">
@@ -99,7 +99,6 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
                         </div>
                         <span>Master Pendidikan Formal</span>
                     </a>
-
                     <a class="box" href="<?= Url::to(['master-jenis-kelamin/index']) ?>">
                         <div class="box-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-gender-ambiguous" viewBox="0 0 16 16">
