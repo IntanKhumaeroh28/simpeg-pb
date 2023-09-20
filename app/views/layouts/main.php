@@ -128,12 +128,6 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     Laporan
                   </a>
                   <div class="dropdown-menu">
-                    <?= Html::a('Master Jenis Kelamin', ['/master-jenis-kelamin'], ['class' => 'dropdown-item']) ?>
-                    <?= Html::a('Master Agama', ['/master-agama'], ['class' => 'dropdown-item']) ?>
-                    <?= Html::a('Master Hubungan Keluarga', ['/master-hubungan-keluarga'], ['class' => 'dropdown-item']) ?>
-                    <?= Html::a('Master Status Perkawinan', ['/master-status-perkawinan'], ['class' => 'dropdown-item']) ?>
-                    <?= Html::a('Jenis Pegawai', ['/jenis-pegawai'], ['class' => 'dropdown-item']) ?>
-                    <?= Html::a('Unit Kerja', ['/unit-kerja'], ['class' => 'dropdown-item']) ?>
                     <?= Html::a('Rekap Jenis Kelamin dan Pegawai', ['laporan/rekap_per_jenis_kelamin_pegawai'], ['class' => 'dropdown-item']) ?>
                     <?= Html::a('Rekap Nama Unit, Jenis Kelamin dan Total', ['laporan/rekap_per_nama_unit_jenis_kelamin_total'], ['class' => 'dropdown-item']) ?>
                     <?= Html::a('Rekap Nama Unit, Jumlah Pegawai', ['laporan/rekap_per_nama_unit_pegawai'], ['class' => 'dropdown-item']) ?>
