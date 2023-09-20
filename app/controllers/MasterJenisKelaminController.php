@@ -27,6 +27,9 @@ class MasterJenisKelaminController extends Controller
                         'delete' => ['POST'],
                     ],
                 ],
+                'ghost-access' => [
+                    'class' => 'app\components\GhostAccessControl',
+                ],
             ]
         );
     }

@@ -27,6 +27,9 @@ class JenisPegawaiController extends Controller
                         'delete' => ['POST'],
                     ],
                 ],
+                'ghost-access' => [
+                    'class' => 'app\components\GhostAccessControl',
+                ],
             ]
         );
     }

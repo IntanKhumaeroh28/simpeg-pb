@@ -27,6 +27,9 @@ class UnitKerjaController extends Controller
                         'delete' => ['POST'],
                     ],
                 ],
+                'ghost-access' => [
+                    'class' => 'app\components\GhostAccessControl',
+                ],
             ]
         );
     }
