@@ -33,14 +33,25 @@ $this->params['breadcrumbs'][] = $this->title;
 					<p>
 						<?= GhostHtml::a(
 							'<span class="glyphicon glyphicon-plus-sign"></span> ' . UserManagementModule::t('back', 'Create'),
-							['/user-management/user/create'],
+							['/user/create'],
 							['class' => 'btn btn-success']
+						) ?>
+						<?= GhostHtml::a(
+							'<span class="glyphicon glyphicon-plus-sign"></span> ' . UserManagementModule::t('back', 'Role'),
+							['/role/index'],
+							['class' => 'btn btn-secondary']
+						) ?>
+						<?= GhostHtml::a(
+							'<span class="glyphicon glyphicon-plus-sign"></span> ' . UserManagementModule::t('back', 'Permission'),
+							['/permission/index'],
+							['class' => 'btn btn-primary']
 						) ?>
 					</p>
 				</div>
 
 				<div class="col-sm-6 text-right">
-					<?= GridPageSize::widget(['pjaxId' => 'user-grid-pjax']) ?>
+					<?php // GridPageSize::widget(['pjaxId' => 'user-grid-pjax']) 
+					?>
 				</div>
 			</div>
 
@@ -59,16 +70,16 @@ $this->params['breadcrumbs'][] = $this->title;
 					'firstPageLabel' => '<<',
 				],
 				'filterModel' => $searchModel,
-				'layout' => '{items}<div class="row"><div class="col-sm-8">{pager}</div><div class="col-sm-4 text-right">{summary}' . GridBulkActions::widget([
-					'gridId' => 'user-grid',
-					'actions' => [
-						Url::to(['bulk-activate', 'attribute' => 'status']) => GridBulkActions::t('app', 'Activate'),
-						Url::to(['bulk-deactivate', 'attribute' => 'status']) => GridBulkActions::t('app', 'Deactivate'),
-						'----' => [
-							Url::to(['bulk-delete']) => GridBulkActions::t('app', 'Delete'),
-						],
-					],
-				]) . '</div></div>',
+				// 'layout' => '{items}<div class="row"><div class="col-sm-8">{pager}</div><div class="col-sm-4 text-right">{summary}' . GridBulkActions::widget([
+				// 	'gridId' => 'user-grid',
+				// 	'actions' => [
+				// 		Url::to(['bulk-activate', 'attribute' => 'status']) => GridBulkActions::t('app', 'Activate'),
+				// 		Url::to(['bulk-deactivate', 'attribute' => 'status']) => GridBulkActions::t('app', 'Deactivate'),
+				// 		'----' => [
+				// 			Url::to(['bulk-delete']) => GridBulkActions::t('app', 'Delete'),
+				// 		],
+				// 	],
+				// ]) . '</div></div>',
 				'columns' => [
 					['class' => 'yii\grid\SerialColumn', 'options' => ['style' => 'width:10px']],
 
@@ -85,16 +96,16 @@ $this->params['breadcrumbs'][] = $this->title;
 						},
 						'format' => 'raw',
 					],
-					[
-						'attribute' => 'email',
-						'format' => 'raw',
-						'visible' => User::hasPermission('viewUserEmail'),
-					],
-					[
-						'class' => 'webvimark\components\StatusColumn',
-						'attribute' => 'email_confirmed',
-						'visible' => User::hasPermission('viewUserEmail'),
-					],
+					// [
+					// 	'attribute' => 'email',
+					// 	'format' => 'raw',
+					// 	'visible' => User::hasPermission('viewUserEmail'),
+					// ],
+					// [
+					// 	'class' => 'webvimark\components\StatusColumn',
+					// 	'attribute' => 'email_confirmed',
+					// 	'visible' => User::hasPermission('viewUserEmail'),
+					// ],
 					[
 						'attribute' => 'gridRoleSearch',
 						'filter' => ArrayHelper::map(Role::getAvailableRoles(Yii::$app->user->isSuperAdmin), 'name', 'description'),
@@ -131,7 +142,7 @@ $this->params['breadcrumbs'][] = $this->title;
 							return GhostHtml::a(
 								UserManagementModule::t('back', 'Change password'),
 								['change-password', 'id' => $model->id],
-								['class' => 'btn btn-sm btn-default', 'data-pjax' => 0]
+								['class' => 'btn btn-sm btn-warning', 'data-pjax' => 0]
 							);
 						},
 						'format' => 'raw',

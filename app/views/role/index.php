@@ -1,4 +1,5 @@
 <?php
+
 use webvimark\extensions\GridBulkActions\GridBulkActions;
 use webvimark\extensions\GridPageSize\GridPageSize;
 use webvimark\modules\UserManagement\components\GhostHtml;
@@ -16,7 +17,7 @@ use yii\widgets\Pjax;
  * @var webvimark\modules\UserManagement\models\rbacDB\search\RoleSearch $searchModel
  * @var yii\web\View $this
  */
-$this->title = UserManagementModule::t('back', 'Roles');
+$this->title = UserManagementModule::t('back', 'Role');
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -37,43 +38,44 @@ $this->params['breadcrumbs'][] = $this->title;
 			</div>
 
 			<div class="col-sm-6 text-right">
-				<?= GridPageSize::widget(['pjaxId'=>'role-grid-pjax']) ?>
+				<?php // GridPageSize::widget(['pjaxId'=>'role-grid-pjax']) 
+				?>
 			</div>
 		</div>
 
 		<?php Pjax::begin([
-			'id'=>'role-grid-pjax',
+			'id' => 'role-grid-pjax',
 		]) ?>
 
 		<?= GridView::widget([
-			'id'=>'role-grid',
+			'id' => 'role-grid',
 			'dataProvider' => $dataProvider,
-			'pager'=>[
-				'options'=>['class'=>'pagination pagination-sm'],
-				'hideOnSinglePage'=>true,
-				'lastPageLabel'=>'>>',
-				'firstPageLabel'=>'<<',
+			'pager' => [
+				'options' => ['class' => 'pagination pagination-sm'],
+				'hideOnSinglePage' => true,
+				'lastPageLabel' => '>>',
+				'firstPageLabel' => '<<',
 			],
 			'filterModel' => $searchModel,
-			'layout'=>'{items}<div class="row"><div class="col-sm-8">{pager}</div><div class="col-sm-4 text-right">{summary}'.GridBulkActions::widget([
-						'gridId'=>'role-grid',
-						'actions'=>[ Url::to(['bulk-delete'])=>GridBulkActions::t('app', 'Delete'),],
-					]).'</div></div>',
+			// 'layout' => '{items}<div class="row"><div class="col-sm-8">{pager}</div><div class="col-sm-4 text-right">{summary}' . GridBulkActions::widget([
+			// 	'gridId' => 'role-grid',
+			// 	'actions' => [Url::to(['bulk-delete']) => GridBulkActions::t('app', 'Delete'),],
+			// ]) . '</div></div>',
 			'columns' => [
-				['class' => 'yii\grid\SerialColumn', 'options'=>['style'=>'width:10px'] ],
+				['class' => 'yii\grid\SerialColumn', 'options' => ['style' => 'width:10px']],
 
 				[
-					'attribute'=>'description',
-					'value'=>function(Role $model){
-							return Html::a($model->description, ['view', 'id'=>$model->name], ['data-pjax'=>0]);
-						},
-					'format'=>'raw',
+					'attribute' => 'description',
+					'value' => function (Role $model) {
+						return Html::a($model->description, ['view', 'id' => $model->name], ['data-pjax' => 0]);
+					},
+					'format' => 'raw',
 				],
 				'name',
-				['class' => 'yii\grid\CheckboxColumn', 'options'=>['style'=>'width:10px'] ],
+				['class' => 'yii\grid\CheckboxColumn', 'options' => ['style' => 'width:10px']],
 				[
 					'class' => 'yii\grid\ActionColumn',
-					'contentOptions'=>['style'=>'width:70px; text-align:center;'],
+					'contentOptions' => ['style' => 'width:70px; text-align:center;'],
 				],
 			],
 		]); ?>

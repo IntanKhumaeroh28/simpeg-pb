@@ -8,6 +8,15 @@ use yii\web\Controller;
 
 class LaporanController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'ghost-access' => [
+                'class' => 'app\components\GhostAccessControl',
+            ],
+        ];
+    }
+
     function actionRekap_per_jenis_kelamin_pegawai()
     {
         $tittle = "Rekap Jenis Kelamin dan Pegawai";

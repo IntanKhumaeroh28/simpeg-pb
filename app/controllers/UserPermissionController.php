@@ -1,6 +1,6 @@
 <?php
 
-namespace webvimark\modules\UserManagement\controllers;
+namespace app\controllers;
 
 use webvimark\components\BaseController;
 use webvimark\modules\UserManagement\models\rbacDB\Permission;
@@ -23,21 +23,19 @@ class UserPermissionController extends BaseController
 	{
 		$user = User::findOne($id);
 
-		if ( !$user )
-		{
+		if (!$user) {
 			throw new NotFoundHttpException('User not found');
 		}
 
 		$permissionsByGroup = [];
 		$permissions = Permission::find()
 			->andWhere([
-				Yii::$app->getModule('user-management')->auth_item_table . '.name'=>array_keys(Permission::getUserPermissions($user->id))
+				Yii::$app->getModule('user-management')->auth_item_table . '.name' => array_keys(Permission::getUserPermissions($user->id))
 			])
 			->joinWith('group')
 			->all();
 
-		foreach ($permissions as $permission)
-		{
+		foreach ($permissions as $permission) {
 			$permissionsByGroup[@$permission->group->name][] = $permission;
 		}
 
@@ -51,10 +49,9 @@ class UserPermissionController extends BaseController
 	 */
 	public function actionSetRoles($id)
 	{
-		if ( !Yii::$app->user->isSuperadmin AND Yii::$app->user->id == $id )
-		{
+		if (!Yii::$app->user->isSuperadmin and Yii::$app->user->id == $id) {
 			Yii::$app->session->setFlash('error', UserManagementModule::t('back', 'You can not change own permissions'));
-			return $this->redirect(['set', 'id'=>$id]);
+			return $this->redirect(['set', 'id' => $id]);
 		}
 
 		$oldAssignments = array_keys(Role::getUserRoles($id));
@@ -65,18 +62,16 @@ class UserPermissionController extends BaseController
 		$toAssign = array_diff($newAssignments, $oldAssignments);
 		$toRevoke = array_diff($oldAssignments, $newAssignments);
 
-		foreach ($toRevoke as $role)
-		{
+		foreach ($toRevoke as $role) {
 			User::revokeRole($id, $role);
 		}
 
-		foreach ($toAssign as $role)
-		{
+		foreach ($toAssign as $role) {
 			User::assignRole($id, $role);
 		}
 
 		Yii::$app->session->setFlash('success', UserManagementModule::t('back', 'Saved'));
 
-		return $this->redirect(['set', 'id'=>$id]);
+		return $this->redirect(['set', 'id' => $id]);
 	}
 }

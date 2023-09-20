@@ -36,16 +36,20 @@ use webvimark\extensions\BootstrapSwitch\BootstrapSwitch;
 
 	<?php if (User::hasPermission('bindUserToIp')) : ?>
 
-		<?= $form->field($model, 'bind_to_ip')
-			->textInput(['maxlength' => 255])
-			->hint(UserManagementModule::t('back', 'For example: 123.34.56.78, 168.111.192.12')) ?>
+		<?php
+		// $form->field($model, 'bind_to_ip')
+		// 	->textInput(['maxlength' => 255])
+		// 	->hint(UserManagementModule::t('back', 'For example: 123.34.56.78, 168.111.192.12'))
+		?>
 
 	<?php endif; ?>
 
 	<?php if (User::hasPermission('editUserEmail')) : ?>
 
-		<?= $form->field($model, 'email')->textInput(['maxlength' => 255]) ?>
-		<?= $form->field($model, 'email_confirmed')->checkbox() ?>
+		<?php // $form->field($model, 'email')->textInput(['maxlength' => 255]) 
+		?>
+		<?php // $form->field($model, 'email_confirmed')->checkbox() 
+		?>
 
 	<?php endif; ?>
 
