@@ -108,8 +108,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <?= Html::a('Simpeg', ['site/index'], ['class' => 'nav-link']) ?>
+            <?= Html::a('Home', ['site/index'], ['class' => 'nav-link']) ?>
             <?php if (!Yii::$app->user->isGuest) : ?>
-              <?= Html::a('Home', ['site/index'], ['class' => 'nav-link']) ?>
               <?= Html::a('Biodata Pegawai', ['/biodata-pegawai/index'], ['class' => 'nav-link']) ?>
 
               <ul class="navbar-nav">

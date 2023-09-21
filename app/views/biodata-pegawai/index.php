@@ -12,6 +12,32 @@ use yii\grid\GridView;
 
 $this->title = 'Biodata Pegawai';
 $this->params['breadcrumbs'][] = $this->title;
+
+function tgl_indo($tanggal)
+{
+    $bulan = array(
+        1 =>   'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+    );
+    $pecahkan = explode('-', $tanggal);
+
+    // variabel pecahkan 0 = tanggal
+    // variabel pecahkan 1 = bulan
+    // variabel pecahkan 2 = tahun
+
+    return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+}
+
 ?>
 <div class="biodata-pegawai-index">
 
@@ -33,25 +59,30 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_pegawai',
             'nik',
             'nama',
-            'tgl_lahir',
+            [
+                'attribute' => 'tgl_lahir',
+                'value' => function ($model) {
+                    return tgl_indo($model->tgl_lahir);
+                }
+            ],
             'tempat_lahir',
-            //'alamat',
-            //'no_telp',
-            //'email:email',
-            //'foto',
-            //'jumlah_pasangan',
-            //'jumlah_anak',
-            //'tahun_masuk',
-            //'kode_jenis_kelamin',
-            //'kode_jenis_pegawai',
-            //'kode_unit',
-            //'id_agama',
-            //'id_status_perkawinan',
-            //'username',
-            //'created_at',
-            //'updated_at',
-            //'created_by',
-            //'updated_by',
+            // 'alamat',
+            // 'no_telp',
+            // 'email:email',
+            // 'foto',
+            // 'jumlah_pasangan',
+            // 'jumlah_anak',
+            // 'tahun_masuk',
+            // 'kode_jenis_kelamin',
+            // 'kode_jenis_pegawai',
+            // 'kode_unit',
+            // 'id_agama',
+            // 'id_status_perkawinan',
+            // 'username',
+            // 'created_at',
+            // 'updated_at',
+            // 'created_by',
+            // 'updated_by',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, BiodataPegawai $model, $key, $index, $column) {
