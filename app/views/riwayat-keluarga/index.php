@@ -12,6 +12,33 @@ use yii\grid\GridView;
 
 $this->title = 'Riwayat Keluarga';
 $this->params['breadcrumbs'][] = $this->title;
+
+function tgl_indo($tanggal)
+{
+    $bulan = array(
+        1 =>   'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+    );
+    $pecahkan = explode('-', $tanggal);
+
+    // variabel pecahkan 0 = tanggal
+    // variabel pecahkan 1 = bulan
+    // variabel pecahkan 2 = tahun
+
+    return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+}
+
+
 ?>
 <div class="riwayat-keluarga-index">
 
@@ -34,7 +61,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'nama',
             //'hub_keluarga',
             'nik',
-            'tgl_lahir',
+            'file_kk',
+            'file_akte',
+            [
+                'attribute' => 'tgl_lahir',
+                'value' => function ($model) {
+                    return tgl_indo($model->tgl_lahir);
+                }
+            ],
             // 'id_pegawai',
             // 'id_hubungan_keluarga',
             [

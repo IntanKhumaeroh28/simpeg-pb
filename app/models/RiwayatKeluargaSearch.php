@@ -18,7 +18,7 @@ class RiwayatKeluargaSearch extends RiwayatKeluarga
     {
         return [
             [['id_riwayat_keluarga', 'id_hubungan_keluarga'], 'integer'],
-            [['nama', 'nik', 'tgl_lahir', 'id_pegawai'], 'safe'],
+            [['nama', 'nik', 'file_kk', 'file_akte', 'tgl_lahir', 'id_pegawai'], 'safe'],
         ];
     }
 
@@ -65,6 +65,8 @@ class RiwayatKeluargaSearch extends RiwayatKeluarga
 
         $query->andFilterWhere(['like', 'nama', $this->nama])
             ->andFilterWhere(['like', 'nik', $this->nik])
+            ->andFilterWhere(['like', 'file_kk', $this->nik])
+            ->andFilterWhere(['like', 'file_akte', $this->nik])
             ->andFilterWhere(['like', 'id_pegawai', $this->id_pegawai]);
 
         return $dataProvider;
