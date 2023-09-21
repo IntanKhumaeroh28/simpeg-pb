@@ -2,7 +2,7 @@
 
 use app\models\BiodataPegawai;
 use app\models\MasterPendidikanFormal;
-use app\models\RiwayatPendidikan;
+use kartik\file\FileInput;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -15,7 +15,7 @@ use yii\widgets\ActiveForm;
 
 <div class="riwayat-pendidikan-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?php
     $data = BiodataPegawai::find()->asArray()->all();
@@ -31,7 +31,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'tahun_tamat')->textInput() ?>
 
-    <?= $form->field($model, 'dokumen')->textInput(['maxlength' => true]) ?>
+    <?php
+    echo $form->field($model, 'image_file')->widget(FileInput::classname(), [
+        'options' => ['accept' => 'image/*'],
+    ]);
+    ?>
+    <?php
+    if ($model->dokumen != null) {
+        echo Html::img(Yii::getAlias('@web/files/images/dokumen') . $model->dokumen, ['height' => '200px']);
+    }
+    ?>
+    <?= $form->field($model, 'dokumen')->hiddenInput()->label('') ?>
 
     <?php
     $data = MasterPendidikanFormal::find()->asArray()->all();

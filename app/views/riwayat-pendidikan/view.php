@@ -36,7 +36,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             'tahun_tamat',
-            'dokumen',
+            //'dokumen',
+            [
+                'attribute' => 'dokumen',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return Html::img(Yii::getAlias('@web/files/images/dokumen') . $model->dokumen, ['height' => '200px']);
+                }
+
+            ],
             [
                 'attribute' => 'id_pendidikan_formal',
                 'value' => function ($model) {

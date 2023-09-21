@@ -4,6 +4,11 @@ namespace app\models;
 
 use Yii;
 
+use yii\web\UploadedFile;
+
+
+
+
 /**
  * This is the model class for table "riwayat_pendidikan".
  *
@@ -18,6 +23,7 @@ use Yii;
  */
 class RiwayatPendidikan extends \yii\db\ActiveRecord
 {
+    public $image_file;
     /**
      * {@inheritdoc}
      */
@@ -38,6 +44,11 @@ class RiwayatPendidikan extends \yii\db\ActiveRecord
             [['id_pegawai'], 'string', 'max' => 50],
             [['id_pegawai'], 'exist', 'skipOnError' => true, 'targetClass' => BiodataPegawai::class, 'targetAttribute' => ['id_pegawai' => 'id_pegawai']],
             [['id_pendidikan_formal'], 'exist', 'skipOnError' => true, 'targetClass' => MasterPendidikanFormal::class, 'targetAttribute' => ['id_pendidikan_formal' => 'id_pendidikan_formal']],
+            [
+                ['image_file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf, jpg, png, jpeg', 'maxSize' => 1024 * 1024 * 1.2
+                /** 1,2 mb */
+                , 'message' => 'Ukuran berkas maksimum adalah 1.2 MB.'
+            ],
         ];
     }
 
@@ -53,6 +64,30 @@ class RiwayatPendidikan extends \yii\db\ActiveRecord
             'id_pegawai' => 'Nama',
             'id_pendidikan_formal' => 'Nama Pendidikan Formal',
         ];
+    }
+
+    public function beforeSave($insert)
+    {
+        $parent = parent::beforeSave($insert);
+        //ambil data upload
+        $file = UploadedFile::getInstance($this, 'image_file');
+
+        // cek apakah upload file 
+        if (!empty($file)) {
+            // bikin url untuk menyimpan gambar
+            $uploadPath = Yii::getAlias('@webroot/files/images/dokumen');
+            // bikin nama acak
+            $newname = uniqid() . '_' . $file->baseName . '_' . $file->extension;
+            // bikin url lengkap ditambah nama filenya
+            $filePath = $uploadPath . $newname;
+
+            // kemudian simpan gambarnya di folder yang ditentukan
+            if ($file->saveAs($filePath)) {
+                // simpan informasi berkas didalam model jika diperlukan
+                $this->dokumen = $newname;
+            }
+        }
+        return $parent;
     }
 
     /**
