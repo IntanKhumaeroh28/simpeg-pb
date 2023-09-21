@@ -120,7 +120,7 @@ class BiodataPegawai extends \yii\db\ActiveRecord
         // cek apakah upload upload file apa ngga
         if (!empty($file)) {
             // bikin url untuk menyimpan gambar
-            $uploadPath = Yii::getAlias('@webroot/image/');
+            $uploadPath = Yii::getAlias('@webroot/files/img/');
 
             // bikin nama acak
             $newName = uniqid() . '_' . $file->baseName . '.' . $file->extension;
@@ -128,12 +128,24 @@ class BiodataPegawai extends \yii\db\ActiveRecord
             // bikin url lengkap di tambah dengan nama filenya
             $filePath = $uploadPath . $newName;
 
+            // var_dump(is_dir($uploadPath));
+            // echo '<pre>';
+            // var_dump($file);
+            // die;
+
             // kemudian simpan gambarnya di folder yang udah ditentuin
             if ($file->saveAs($filePath)) {
                 // simpan informasi berkas ke dalam model jika diperlukan
                 $this->foto = $newName;
             }
+            // echo '<pre>';
+            // print_r($this->attributes);
+            // echo '</pre>';
+            // die;
         }
+
+        // untuk mengubah format tanggal
+        $this->tgl_lahir = date('Y-m-d', strtotime($this->tgl_lahir));
 
         return $parent;
     }

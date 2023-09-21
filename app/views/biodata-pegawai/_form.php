@@ -7,6 +7,7 @@ use app\models\MasterJenisKelamin;
 use app\models\MasterStatusPerkawinan;
 use app\models\UnitKerja;
 use kartik\date\DatePicker;
+use kartik\file\FileInput;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -35,7 +36,8 @@ use yii\widgets\ActiveForm;
         'pickerIcon' => '<i class="fas fa-calendar-alt text-primary">KALENDER</i>',
         'removeIcon' => '<i class="fas fa-trash text-danger">CLEAR</i>',
         'pluginOptions' => [
-            'autoclose' => true
+            'autoclose' => true,
+            'format' => 'dd-mm-yyyy'
         ]
     ]);
     ?>
@@ -49,6 +51,16 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'image_file')->fileInput() ?>
+
+    <?php
+    echo $form->field($model, 'image_file')->widget(FileInput::classname(), [
+        'options' => ['accept' => 'image/*'],
+    ]); ?>
+
+    <?php
+    if ($model->foto != null) {
+        echo Html::img(Yii::getAlias('@web/files/img/') . $model->foto, ['height' => '200px']);
+    } ?>
 
     <?= $form->field($model, 'foto')->hiddenInput()->label('') ?>
 

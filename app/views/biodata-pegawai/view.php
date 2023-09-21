@@ -10,6 +10,32 @@ $this->title = $model->id_pegawai;
 $this->params['breadcrumbs'][] = ['label' => 'Biodata Pegawai', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
+
+function tgl_indo($tanggal)
+{
+    $bulan = array(
+        1 =>   'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+    );
+    $pecahkan = explode('-', $tanggal);
+
+    // variabel pecahkan 0 = tanggal
+    // variabel pecahkan 1 = bulan
+    // variabel pecahkan 2 = tahun
+
+    return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+}
+
 ?>
 <div class="biodata-pegawai-view">
 
@@ -32,7 +58,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_pegawai',
             'nik',
             'nama',
-            'tgl_lahir',
+            [
+                'attribute' => 'tgl_lahir',
+                'value' => function ($model) {
+                    return tgl_indo($model->tgl_lahir);
+                }
+            ],
             'tempat_lahir',
             'alamat',
             'no_telp',
@@ -42,17 +73,42 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'foto',
                 'format' => 'raw',
                 'value' => function ($model) {
-                    return Html::img(Yii::getAlias('@web/image/') . $model->foto, ['height' => '200px']);
+                    return Html::img(Yii::getAlias('@web/files/img/') . $model->foto, ['height' => '200px']);
                 }
             ],
             'jumlah_pasangan',
             'jumlah_anak',
             'tahun_masuk',
-            'kode_jenis_kelamin',
-            'kode_jenis_pegawai',
-            'kode_unit',
-            'id_agama',
-            'id_status_perkawinan',
+            [
+                'attribute' => 'kode_jenis_kelamin',
+                'label' => 'Jenis Kelamin',
+                'value' => function ($model) {
+                    return $model->kodeJenisKelamin->jenis_kelamin;
+                }
+            ],
+            [
+                'attribute' => 'kode_jenis_pegawai',
+                'label' => 'Jenis Pegawai',
+                'value' => function ($model) {
+                    return $model->kodeJenisPegawai->nama_jenis_pegawai;
+                }
+            ],
+            [
+                'attribute' => 'kode_unit',
+                'label' => 'Unit',
+                'value' => function ($model) {
+                    return $model->kodeUnit->nama_unit;
+                }
+            ],
+            [
+                'attribute' => 'id_agama',
+                'label' => 'Agama',
+                'value' => function ($model) {
+                    return $model->agama->agama;
+                }
+            ],
+            'statusPerkawinan.status_perkawinan',
+
             'username',
             // 'created_at',
             // 'updated_at',

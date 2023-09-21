@@ -15,11 +15,19 @@ use yii\widgets\ActiveForm;
 
 <div class="riwayat-keluarga-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(
+        ['options' => ['enctype' => 'multipart/form-data']]
+    ); ?>
 
     <?= $form->field($model, 'nama')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'nik')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'dokumen_file')->fileInput() ?>
+
+    <?= $form->field($model, 'file_kk')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'file_akte')->textInput(['maxlength' => true]) ?>
 
     <?php
     echo $form->field($model, 'tgl_lahir')->widget(DatePicker::classname(), [
@@ -27,7 +35,8 @@ use yii\widgets\ActiveForm;
         'pickerIcon' => '<i class="fas fa-calendar-alt text-primary">KALENDER</i>',
         'removeIcon' => '<i class="fas fa-trash text-danger">CLEAR</i>',
         'pluginOptions' => [
-            'autoclose' => true
+            'autoclose' => true,
+            'format' => 'dd-mm-yyyy'
         ]
     ]);
     ?>

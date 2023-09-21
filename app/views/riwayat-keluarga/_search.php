@@ -24,6 +24,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nik') ?>
 
+    <?= $form->field($model, 'file_kk') ?>
+
+    <?= $form->field($model, 'file_akte') ?>
+
     <?= $form->field($model, 'tgl_lahir') ?>
 
     <?php // echo $form->field($model, 'id_pegawai') 
