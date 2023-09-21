@@ -27,7 +27,7 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
         /* border: 1px solid black; */
         padding: 10px;
         margin: 10px;
-        background-color: Teal;
+        background-color: #006A4E;
         border-radius: 12px;
         text-align: center;
     }

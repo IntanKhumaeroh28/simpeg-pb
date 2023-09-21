@@ -12,6 +12,7 @@ use yii\bootstrap4\Html;
 use yii\bootstrap5\Breadcrumbs;
 
 
+
 AppAsset::register($this);
 
 $this->registerCsrfMetaTags();
@@ -24,6 +25,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
+
+
 
 <head>
   <title><?= Html::encode($this->title) ?></title>
@@ -81,7 +84,21 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     // ]);
     // NavBar::end();
     ?>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-md fixed-top">
+      <style>
+        .navbar {
+          background: #006A4E;
+
+          /* untuk menampilkan supaya tampilan navbar gradasi
+
+          background-image: linear-gradient(to right, darkslategray, black); */
+        }
+
+/* warna text pada navbar */
+        .nav-link {
+          color: black !important;
+        }
+      </style>
       <div class="container">
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

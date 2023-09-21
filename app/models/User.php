@@ -1,6 +1,6 @@
 <?php
 
-namespace webvimark\modules\UserManagement\models;
+namespace app\models;
 
 use webvimark\helpers\LittleBigHelper;
 use webvimark\helpers\Singleton;
@@ -8,6 +8,7 @@ use webvimark\modules\UserManagement\components\AuthHelper;
 use webvimark\modules\UserManagement\components\UserIdentity;
 use webvimark\modules\UserManagement\models\rbacDB\Role;
 use webvimark\modules\UserManagement\models\rbacDB\Route;
+use webvimark\modules\UserManagement\models\User as ModelsUser;
 use webvimark\modules\UserManagement\UserManagementModule;
 use Yii;
 use yii\behaviors\TimestampBehavior;
@@ -29,7 +30,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $created_at
  * @property integer $updated_at
  */
-class User extends UserIdentity
+class User extends ModelsUser
 {
 	const STATUS_ACTIVE = 1;
 	const STATUS_INACTIVE = 0;
