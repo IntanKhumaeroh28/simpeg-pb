@@ -61,7 +61,7 @@ class RiwayatPendidikan extends \yii\db\ActiveRecord
             'id_riwayat_pendidikan' => 'Id Riwayat Pendidikan',
             'tahun_tamat' => 'Tahun Tamat',
             'dokumen' => 'Dokumen',
-            'id_pegawai' => 'Nama',
+            'id_pegawai' => 'nama',
             'id_pendidikan_formal' => 'Nama Pendidikan Formal',
         ];
     }

@@ -7,7 +7,6 @@ use yii\helpers\Url;
 $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
 ?>
 <style>
-
     /* body {
         background-color: #006A4E;
     } */
