@@ -32,13 +32,13 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'tahun_tamat')->textInput() ?>
 
     <?php
-    echo $form->field($model, 'image_file')->widget(FileInput::classname(), [
+    echo $form->field($model, 'ijazah_file')->widget(FileInput::classname(), [
         'options' => ['accept' => 'image/*'],
     ]);
     ?>
     <?php
     if ($model->dokumen != null) {
-        echo Html::img(Yii::getAlias('@web/files/images/dokumen') . $model->dokumen, ['height' => '200px']);
+        echo Html::img(Yii::getAlias('@web/files/dokumen/') . $model->dokumen, ['height' => '200px']);
     }
     ?>
     <?= $form->field($model, 'dokumen')->hiddenInput()->label('') ?>

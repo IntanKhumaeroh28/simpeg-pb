@@ -37,14 +37,17 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'tahun_tamat',
             //'dokumen',
-            [
-                'attribute' => 'dokumen',
-                'format' => 'raw',
-                'value' => function ($model) {
-                    return Html::img(Yii::getAlias('@web/files/images/dokumen') . $model->dokumen, ['height' => '200px']);
-                }
+            // [
+            //     'attribute' => 'dokumen',
+            //     'format' => 'raw',
+            //     'value' => function ($model) {
+            //         // var_dump(Yii::getAlias('@web/files/dokumen/') . $model->dokumen);
+            //         // die;
+            //         // return Html::img(Yii::getAlias('@web/files/images/dokumen/') . $model->dokumen, ['height' => '200px']);
+            //         return 
+            //     }
 
-            ],
+            // ],
             [
                 'attribute' => 'id_pendidikan_formal',
                 'value' => function ($model) {
@@ -54,5 +57,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
         ],
     ]) ?>
+
+    <h2> Dokumen Ijazah </h2>
+    <?php
+    echo '<embed src="' . Yii::getAlias('@web/files/dokumen/') . $model->dokumen . '" type="application/pdf" width="1110" height="600"></embed>';
+    ?>
 
 </div>

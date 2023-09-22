@@ -23,7 +23,7 @@ use yii\web\UploadedFile;
  */
 class RiwayatPendidikan extends \yii\db\ActiveRecord
 {
-    public $image_file;
+    public $ijazah_file;
     /**
      * {@inheritdoc}
      */
@@ -38,14 +38,14 @@ class RiwayatPendidikan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['tahun_tamat', 'dokumen', 'id_pegawai', 'id_pendidikan_formal'], 'required'],
+            [['tahun_tamat', 'id_pegawai', 'id_pendidikan_formal'], 'required'],
             [['tahun_tamat', 'id_pendidikan_formal'], 'integer'],
             [['dokumen'], 'string', 'max' => 100],
             [['id_pegawai'], 'string', 'max' => 50],
             [['id_pegawai'], 'exist', 'skipOnError' => true, 'targetClass' => BiodataPegawai::class, 'targetAttribute' => ['id_pegawai' => 'id_pegawai']],
             [['id_pendidikan_formal'], 'exist', 'skipOnError' => true, 'targetClass' => MasterPendidikanFormal::class, 'targetAttribute' => ['id_pendidikan_formal' => 'id_pendidikan_formal']],
             [
-                ['image_file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf, jpg, png, jpeg', 'maxSize' => 1024 * 1024 * 1.2
+                ['ijazah_file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf', 'maxSize' => 1024 * 1024 * 1.2
                 /** 1,2 mb */
                 , 'message' => 'Ukuran berkas maksimum adalah 1.2 MB.'
             ],
@@ -70,14 +70,14 @@ class RiwayatPendidikan extends \yii\db\ActiveRecord
     {
         $parent = parent::beforeSave($insert);
         //ambil data upload
-        $file = UploadedFile::getInstance($this, 'image_file');
+        $file = UploadedFile::getInstance($this, 'ijazah_file');
 
         // cek apakah upload file 
         if (!empty($file)) {
             // bikin url untuk menyimpan gambar
-            $uploadPath = Yii::getAlias('@webroot/files/images/dokumen');
+            $uploadPath = Yii::getAlias('@webroot/files/dokumen/');
             // bikin nama acak
-            $newname = uniqid() . '_' . $file->baseName . '_' . $file->extension;
+            $newname = uniqid() . '_' . $file->baseName . '.' . $file->extension;
             // bikin url lengkap ditambah nama filenya
             $filePath = $uploadPath . $newname;
 
