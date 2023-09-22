@@ -4,6 +4,11 @@ namespace app\models;
 
 use Yii;
 
+use yii\web\UploadedFile;
+
+
+
+
 /**
  * This is the model class for table "riwayat_pendidikan".
  *
@@ -18,6 +23,7 @@ use Yii;
  */
 class RiwayatPendidikan extends \yii\db\ActiveRecord
 {
+    public $ijazah_file;
     /**
      * {@inheritdoc}
      */
@@ -32,12 +38,17 @@ class RiwayatPendidikan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['tahun_tamat', 'dokumen', 'id_pegawai', 'id_pendidikan_formal'], 'required'],
+            [['tahun_tamat', 'id_pegawai', 'id_pendidikan_formal'], 'required'],
             [['tahun_tamat', 'id_pendidikan_formal'], 'integer'],
             [['dokumen'], 'string', 'max' => 100],
             [['id_pegawai'], 'string', 'max' => 50],
             [['id_pegawai'], 'exist', 'skipOnError' => true, 'targetClass' => BiodataPegawai::class, 'targetAttribute' => ['id_pegawai' => 'id_pegawai']],
             [['id_pendidikan_formal'], 'exist', 'skipOnError' => true, 'targetClass' => MasterPendidikanFormal::class, 'targetAttribute' => ['id_pendidikan_formal' => 'id_pendidikan_formal']],
+            [
+                ['ijazah_file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf', 'maxSize' => 1024 * 1024 * 1.2
+                /** 1,2 mb */
+                , 'message' => 'Ukuran berkas maksimum adalah 1.2 MB.'
+            ],
         ];
     }
 
@@ -50,9 +61,33 @@ class RiwayatPendidikan extends \yii\db\ActiveRecord
             'id_riwayat_pendidikan' => 'Id Riwayat Pendidikan',
             'tahun_tamat' => 'Tahun Tamat',
             'dokumen' => 'Dokumen',
-            'id_pegawai' => 'Nama',
+            'id_pegawai' => 'nama',
             'id_pendidikan_formal' => 'Nama Pendidikan Formal',
         ];
+    }
+
+    public function beforeSave($insert)
+    {
+        $parent = parent::beforeSave($insert);
+        //ambil data upload
+        $file = UploadedFile::getInstance($this, 'ijazah_file');
+
+        // cek apakah upload file 
+        if (!empty($file)) {
+            // bikin url untuk menyimpan gambar
+            $uploadPath = Yii::getAlias('@webroot/files/dokumen/');
+            // bikin nama acak
+            $newname = uniqid() . '_' . $file->baseName . '.' . $file->extension;
+            // bikin url lengkap ditambah nama filenya
+            $filePath = $uploadPath . $newname;
+
+            // kemudian simpan gambarnya di folder yang ditentukan
+            if ($file->saveAs($filePath)) {
+                // simpan informasi berkas didalam model jika diperlukan
+                $this->dokumen = $newname;
+            }
+        }
+        return $parent;
     }
 
     /**

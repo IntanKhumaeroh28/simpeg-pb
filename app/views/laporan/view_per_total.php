@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 $this->params['breadcrumbs'][] = ['label' => 'Rekap per nama unit dan kode jenis kelamin dan total', 'url' => ['rekap_per_nama_unit_jenis_kelamin_total']];
-$this->params['breadcrumbs'][] = ['label' => 'View per nama unit dan kode jenis kelamin dan total'];
+$this->params['breadcrumbs'][] = ['label' => 'View'];
 ?>
 <h2><?= $judul ?></h2>
 

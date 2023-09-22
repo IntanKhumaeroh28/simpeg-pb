@@ -1,5 +1,7 @@
 <?php
-$this->params['breadcrumbs'][] = ['label' => 'Rekap per nama unit, kode jenis kelamin dan total', 'url' => ['rekap_per_nama_unit_jenis_kelamin_total']];
+$this->params['breadcrumbs'][] = ['label' => 'Rekap per nama unit, kode jenis kelamin dan total'];
+
+$this->title = 'Rekap Per nama unit, jenis kelamin dan total';
 
 use yii\helpers\Html;
 ?>
@@ -28,7 +30,12 @@ use yii\helpers\Html;
                 <td><?= $value['kode_jenis_kelamin'] ?></td>
                 <td><?= $value['total'] ?></td>
                 <td>
-                    <?= Html::a('View', ['laporan/view_per_total', 'kode_unit' => $value['kode_unit'], 'kode_jenis_kelamin' => $value['kode_jenis_kelamin']], ['class' => 'btn btn-info btn-sm']) ?>
+                    <?php
+                    if ($value['total'] > 0) {
+                        echo Html::a('View', ['laporan/view_per_total', 'kode_unit' => $value['kode_unit'], 'kode_jenis_kelamin' => $value['kode_jenis_kelamin']], ['class' => 'btn btn-info btn-sm']);
+                    }
+                    ?>
+
                 </td>
             </tr>
         <?php
