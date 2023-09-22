@@ -96,7 +96,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
 /* warna text pada navbar */
         .nav-link {
-          color: black !important;
+          color: white !important;
         }
       </style>
       <div class="container">
