@@ -3,6 +3,7 @@
 use app\models\BiodataPegawai;
 use app\models\MasterHubunganKeluarga;
 use kartik\date\DatePicker;
+use kartik\file\FileInput;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -23,11 +24,19 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nik')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'dokumen_file')->fileInput() ?>
+    <?php
+    echo $form->field($model, 'dokumen_file_kk')->widget(FileInput::classname(), [
+        'options' => ['accept' => 'image/*'],
+    ]); ?>
 
-    <?= $form->field($model, 'file_kk')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'file_kk')->hiddenInput()->label('') ?>
 
-    <?= $form->field($model, 'file_akte')->textInput(['maxlength' => true]) ?>
+    <?php
+    echo $form->field($model, 'dokumen_file_akte')->widget(FileInput::classname(), [
+        'options' => ['accept' => 'image/*'],
+    ]); ?>
+
+    <?= $form->field($model, 'file_akte')->hiddenInput()->label('') ?>
 
     <?php
     echo $form->field($model, 'tgl_lahir')->widget(DatePicker::classname(), [
@@ -46,7 +55,7 @@ use yii\widgets\ActiveForm;
 
     echo $form->field($model, 'id_pegawai')->widget(Select2::classname(), [
         // map(arraynya, yang akan disimpan ke db, yang akan ditampilkan ke user)
-        'data' => ArrayHelper::map($data, 'id_pegawai', 'id_pegawai'),
+        'data' => ArrayHelper::map($data, 'id_pegawai', 'nama'),
         'options' => ['placeholder' => 'pilih id pegawai'],
         'pluginOptions' => [
             'allowClear' => true
