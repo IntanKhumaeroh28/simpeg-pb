@@ -61,8 +61,8 @@ function tgl_indo($tanggal)
             'nama',
             //'hub_keluarga',
             'nik',
-            'file_kk',
-            'file_akte',
+            // 'file_kk',
+            // 'file_akte',
             [
                 'attribute' => 'tgl_lahir',
                 'value' => function ($model) {

@@ -59,21 +59,22 @@ function tgl_indo($tanggal)
             'nama',
             // 'hub_keluarga',
             'nik',
-            'file_kk',
-            [
-                'attribute' => 'file_kk',
-                'format' => 'raw',
-                'value' => function ($model) {
-                    return Html::img(Yii::getAlias('@web/files/dokumen/') . $model->file_kk, ['height' => '200px']);
-                }
-            ],
-            'file_akte',
-            [
-                'attribute' => 'tgl_lahir',
-                'value' => function ($model) {
-                    return tgl_indo($model->tgl_lahir);
-                }
-            ],
+            // 'file_kk',
+            // [
+            //     'attribute' => 'file_kk',
+            //     'format' => 'raw',
+            //     'value' => function ($model) {
+            //         return Html::img(Yii::getAlias('@web/files/dokumen/') . $model->file_kk, ['height' => '200px']);
+            //     }
+            // ],
+            // 'file_akte',
+            // 'file_akte',
+            // [
+            //     'attribute' => 'tgl_lahir',
+            //     'value' => function ($model) {
+            //         return tgl_indo($model->tgl_lahir);
+            //     }
+            // ],
             //'id_pegawai',
             [
                 'attribute' => 'id_hubungan_keluarga',
@@ -84,5 +85,19 @@ function tgl_indo($tanggal)
             ],
         ],
     ]) ?>
+
+    <h3>File KK</h3>
+    <?php
+    if ($model->file_kk != null) {
+        // echo Html::img(Yii::getAlias('@web/files/dokumen/') . $model->file_kk, ['height' => '200px']);
+        echo '<embed src="' . Yii::getAlias('@web/files/dokumen/') . $model->file_kk . '" type="application/pdf" width="100%" height="600px" />';
+    } ?>
+
+    <h3>File Akte</h3>
+    <?php
+    if ($model->file_akte != null) {
+        // echo Html::img(Yii::getAlias('@web/files/dokumen/') . $model->file_kk, ['height' => '200px']);
+        echo '<embed src="' . Yii::getAlias('@web/files/dokumen/') . $model->file_akte . '" type="application/pdf" width="100%" height="600px" />';
+    } ?>
 
 </div>

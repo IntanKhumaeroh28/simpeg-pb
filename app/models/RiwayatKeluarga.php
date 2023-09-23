@@ -23,7 +23,8 @@ use yii\web\UploadedFile;
  */
 class RiwayatKeluarga extends \yii\db\ActiveRecord
 {
-    public $dokumen_file;
+    public $dokumen_file_kk;
+    public $dokumen_file_akte;
 
     /**
      * {@inheritdoc}
@@ -39,15 +40,15 @@ class RiwayatKeluarga extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nama', 'nik', 'file_kk', 'file_akte', 'tgl_lahir', 'id_pegawai', 'id_hubungan_keluarga'], 'required'],
-            [['tgl_lahir'], 'safe'],
+            [['nama', 'nik', 'tgl_lahir', 'id_pegawai', 'id_hubungan_keluarga'], 'required'],
+            [['tgl_lahir', 'file_kk', 'file_akte'], 'safe'],
             [['id_hubungan_keluarga'], 'integer'],
             [['nama'], 'string', 'max' => 100],
             //[['hub_keluarga', 'nik'], 'string', 'max' => 25],
             //[['id_pegawai'], 'string', 'max' => 50],
             [['id_pegawai'], 'exist', 'skipOnError' => true, 'targetClass' => BiodataPegawai::class, 'targetAttribute' => ['id_pegawai' => 'id_pegawai']],
             [
-                ['dokumen_file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf', 'maxSize' => 1024 * 1024 * 1.2
+                ['dokumen_file_kk', 'dokumen_file_akte'], 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf', 'maxSize' => 1024 * 1024 * 1.2
                 // 1,2 mb
                 , 'message' => 'Ukuran berkas maksimum adalah 1.2 MB.'
             ],
@@ -76,8 +77,9 @@ class RiwayatKeluarga extends \yii\db\ActiveRecord
     {
         $parent = parent::beforeSave($insert);
 
+        // upload file kk
         // ambil data uploadnya
-        $file = UploadedFile::getInstance($this, 'dokumen_file');
+        $file = UploadedFile::getInstance($this, 'dokumen_file_kk');
 
         // cek apakah upload upload file apa ngga
         if (!empty($file)) {
@@ -99,6 +101,37 @@ class RiwayatKeluarga extends \yii\db\ActiveRecord
             if ($file->saveAs($filePath)) {
                 // simpan informasi berkas ke dalam model jika diperlukan
                 $this->file_kk = $newName;
+            }
+            // echo '<pre>';
+            // print_r($this->attributes);
+            // echo '</pre>';
+            // die;
+        }
+
+        // upload file akte
+        // ambil data uploadnya
+        $file = UploadedFile::getInstance($this, 'dokumen_file_akte');
+
+        // cek apakah upload upload file apa ngga
+        if (!empty($file)) {
+            // bikin url untuk menyimpan gambar
+            $uploadPath = Yii::getAlias('@webroot/files/dokumen/');
+
+            // bikin nama acak
+            $newName = uniqid() . '_' . $file->baseName . '.' . $file->extension;
+
+            // bikin url lengkap di tambah dengan nama filenya
+            $filePath = $uploadPath . $newName;
+
+            // var_dump(is_dir($uploadPath));
+            // echo '<pre>';
+            // var_dump($file);
+            // die;
+
+            // kemudian simpan gambarnya di folder yang udah ditentuin
+            if ($file->saveAs($filePath)) {
+                // simpan informasi berkas ke dalam model jika diperlukan
+                $this->file_akte = $newName;
             }
             // echo '<pre>';
             // print_r($this->attributes);
