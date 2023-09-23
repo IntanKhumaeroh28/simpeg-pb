@@ -5,8 +5,6 @@
 
 use app\assets\AppAsset;
 use app\widgets\Alert;
-use webvimark\modules\UserManagement\components\GhostHtml;
-use webvimark\modules\UserManagement\components\GhostMenu;
 use yii\bootstrap4\Breadcrumbs as Bootstrap4Breadcrumbs;
 use yii\bootstrap4\Html;
 use yii\bootstrap5\Breadcrumbs;
@@ -89,7 +87,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         .navbar {
           background: #006A4E;
 
-          /* untuk menampilkan supaya tampilan navbar gradasi
+          /* untuk menampilkan supaya tampilan navbar jadi gradasi
 
           background-image: linear-gradient(to right, darkslategray, black); */
         }
@@ -99,8 +97,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
           color: white !important;
         }
       </style>
+      
       <div class="container">
-
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

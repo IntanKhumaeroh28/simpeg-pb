@@ -17,11 +17,11 @@ use yii\helpers\Html;
 
 	}
 
-	.intan:hover {
+	/* .intan:hover {
 		transform: scale(1.2);
 		transition: transform 330ms ease-in-out;
 		color: white;
-	}
+	} */
 </style>
 <div class="site-index">
 	<div class="container-custom">
