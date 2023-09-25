@@ -5,6 +5,7 @@
 
 use app\assets\AppAsset;
 use app\widgets\Alert;
+use webvimark\modules\UserManagement\components\GhostHtml;
 use yii\bootstrap4\Breadcrumbs as Bootstrap4Breadcrumbs;
 use yii\bootstrap4\Html;
 use yii\bootstrap5\Breadcrumbs;
@@ -65,9 +66,10 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     // echo Nav::widget([
     //     'options' => ['class' => 'navbar-nav'],
     //     'items' => [
+    //         ['label' => 'Simpeg', 'url' => ['/site/index']],
     //         ['label' => 'Home', 'url' => ['/site/index']],
-    //         ['label' => 'About', 'url' => ['/site/about']],
-    //         ['label' => 'Contact', 'url' => ['/site/contact']],
+    //         ['label' => 'Biodata ', 'url' => ['/site/index']],
+
     //         Yii::$app->user->isGuest
     //             ? ['label' => 'Login', 'url' => ['/site/login']]
     //             : '<li class="nav-item">'
@@ -105,19 +107,18 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <?= Html::a('Simpeg', ['site/index'], ['class' => 'nav-link']) ?>
-            <?= Html::a('Home', ['site/index'], ['class' => 'nav-link']) ?>
+            <?= Html::a('Simpeg', ['/site/index'], ['class' => 'nav-link']) ?>
+            <?= Html::a('Home', ['/site/index'], ['class' => 'nav-link']) ?>
             <?php if (!Yii::$app->user->isGuest) : ?>
-              <?= Html::a('Biodata Pegawai', ['/biodata-pegawai/index'], ['class' => 'nav-link']) ?>
+              <?= GhostHtml::a('Biodata Pegawai', ['/biodata-pegawai/index'], ['class' => 'nav-link']) ?>
 
               <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" role="button" id="dropdownStart" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
-                    Riwayat
-                  </a>
+                  <?= GhostHtml::a('Riwayat', ['/riwayat-keluarga/index'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
+
                   <div class="dropdown-menu" aria-labelledby="dropdownStart">
-                    <?= Html::a('Riwayat Keluarga', ['/riwayat-keluarga'], ['class' => 'dropdown-item']) ?>
-                    <?= Html::a('Riwayat Pendidikan', ['/riwayat-pendidikan'], ['class' => 'dropdown-item']) ?>
+                    <?= GhostHtml::a('Riwayat Keluarga', ['/riwayat-keluarga/index'], ['class' => 'dropdown-item']) ?>
+                    <?= GhostHtml::a('Riwayat Pendidikan', ['/riwayat-pendidikan/index'], ['class' => 'dropdown-item']) ?>
                   </div>
                 </li>
               </ul>
@@ -125,33 +126,30 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                  Master
-                </a>
+                <?= GhostHtml::a('Master', ['/master-jenis-kelamin/index'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
                 <div class="dropdown-menu">
-                  <?= Html::a('Master Jenis Kelamin', ['/master-jenis-kelamin'], ['class' => 'dropdown-item']) ?>
-                  <?= Html::a('Master Agama', ['/master-agama'], ['class' => 'dropdown-item']) ?>
-                  <?= Html::a('Master Hubungan Keluarga', ['/master-hubungan-keluarga'], ['class' => 'dropdown-item']) ?>
-                  <?= Html::a('Master Pendidikan Formal', ['/master-pendidikan-formal'], ['class' => 'dropdown-item']) ?>
-                  <?= Html::a('Master Status Perkawinan', ['/master-status-perkawinan'], ['class' => 'dropdown-item']) ?>
-                  <?= Html::a('Jenis Pegawai', ['/jenis-pegawai'], ['class' => 'dropdown-item']) ?>
-                  <?= Html::a('Unit Kerja', ['/unit-kerja'], ['class' => 'dropdown-item']) ?>
+                  <?= GhostHtml::a('Master Jenis Kelamin', ['/master-jenis-kelamin/index'], ['class' => 'dropdown-item']) ?>
+                  <?= GhostHtml::a('Master Agama', ['/master-agama/index'], ['class' => 'dropdown-item']) ?>
+                  <?= GhostHtml::a('Master Hubungan Keluarga', ['/master-hubungan-keluarga/index'], ['class' => 'dropdown-item']) ?>
+                  <?= GhostHtml::a('Master Pendidikan Formal', ['/master-pendidikan-formal/index'], ['class' => 'dropdown-item']) ?>
+                  <?= GhostHtml::a('Master Status Perkawinan', ['/master-status-perkawinan/index'], ['class' => 'dropdown-item']) ?>
+                  <?= GhostHtml::a('Jenis Pegawai', ['/jenis-pegawai/index'], ['class' => 'dropdown-item']) ?>
+                  <?= GhostHtml::a('Unit Kerja', ['/unit-kerja/index'], ['class' => 'dropdown-item']) ?>
                 </div>
               </li>
               </ul>
               <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                    Laporan
-                  </a>
+                  <?= GhostHtml::a('Laporan', ['/laporan/rekap_per_jenis_kelamin_pegawai'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
+
                   <div class="dropdown-menu">
-                    <?= Html::a('Rekap Jenis Kelamin dan Pegawai', ['laporan/rekap_per_jenis_kelamin_pegawai'], ['class' => 'dropdown-item']) ?>
-                    <?= Html::a('Rekap Nama Unit, Jenis Kelamin dan Total', ['laporan/rekap_per_nama_unit_jenis_kelamin_total'], ['class' => 'dropdown-item']) ?>
-                    <?= Html::a('Rekap Nama Unit, Jumlah Pegawai', ['laporan/rekap_per_nama_unit_pegawai'], ['class' => 'dropdown-item']) ?>
+                    <?= GhostHtml::a('Rekap Jenis Kelamin dan Pegawai', ['/laporan/rekap_per_jenis_kelamin_pegawai'], ['class' => 'dropdown-item']) ?>
+                    <?= GhostHtml::a('Rekap Nama Unit, Jenis Kelamin dan Total', ['/laporan/rekap_per_nama_unit_jenis_kelamin_total'], ['class' => 'dropdown-item']) ?>
+                    <?= GhostHtml::a('Rekap Nama Unit, Jumlah Pegawai', ['/laporan/rekap_per_nama_unit_pegawai'], ['class' => 'dropdown-item']) ?>
                   </div>
                 </li>
               </ul>
-              <?= Html::a('User', ['/user'], ['class' => 'nav-link']) ?>
+              <?= GhostHtml::a('User', ['/user'], ['class' => 'nav-link']) ?>
             <?php endif; ?>
 
             <?php
@@ -159,6 +157,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
               echo Html::a('Login', ['/auth/login'], ['class' => 'nav-link']);
             } else
               echo Html::a('Logout', ['/auth/logout'], ['class' => 'nav-link']);
+
+
             ?>
           </div>
         </div>
