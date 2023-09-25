@@ -92,12 +92,12 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
           background-image: linear-gradient(to right, darkslategray, black); */
         }
 
-/* warna text pada navbar */
+        /* warna text pada navbar */
         .nav-link {
           color: white !important;
         }
       </style>
-      
+
       <div class="container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -132,6 +132,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                   <?= Html::a('Master Jenis Kelamin', ['/master-jenis-kelamin'], ['class' => 'dropdown-item']) ?>
                   <?= Html::a('Master Agama', ['/master-agama'], ['class' => 'dropdown-item']) ?>
                   <?= Html::a('Master Hubungan Keluarga', ['/master-hubungan-keluarga'], ['class' => 'dropdown-item']) ?>
+                  <?= Html::a('Master Pendidikan Formal', ['/master-pendidikan-formal'], ['class' => 'dropdown-item']) ?>
                   <?= Html::a('Master Status Perkawinan', ['/master-status-perkawinan'], ['class' => 'dropdown-item']) ?>
                   <?= Html::a('Jenis Pegawai', ['/jenis-pegawai'], ['class' => 'dropdown-item']) ?>
                   <?= Html::a('Unit Kerja', ['/unit-kerja'], ['class' => 'dropdown-item']) ?>

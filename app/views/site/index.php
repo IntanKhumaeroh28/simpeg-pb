@@ -21,7 +21,7 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
 
     .box {
         width: 120px;
-        height: 150px;
+        height: 155px;
         display: block;
         color: white;
         /* border: 1px solid black; */
