@@ -2,6 +2,7 @@
 
 /** @var yii\web\View $this */
 
+use webvimark\modules\UserManagement\components\GhostHtml;
 use yii\helpers\Url;
 use yii\helpers\Html;
 
