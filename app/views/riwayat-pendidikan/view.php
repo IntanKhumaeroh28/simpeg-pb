@@ -31,6 +31,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             [
                 'attribute' => 'id_pegawai',
+                'label' => 'id pegawai',
+                'value' => function ($model) {
+                    return $model->biodataPegawai->id_pegawai;
+                }
+            ],
+            [
+                'attribute' => 'id_pegawai',
                 'value' => function ($model) {
                     return $model->biodataPegawai->nama;
                 }

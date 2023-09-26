@@ -17,7 +17,7 @@ class LaporanController extends Controller
         ];
     }
 
-    function actionRekap_per_jenis_kelamin_pegawai()
+    function actionRekapPerJenisKelaminPegawai()
     {
         $tittle = "Rekap Jenis Kelamin dan Pegawai";
 
@@ -41,7 +41,7 @@ class LaporanController extends Controller
     }
 
 
-    function actionRekap_per_nama_unit_pegawai()
+    function actionRekapPerNamaUnitPegawai()
     {
         $tittle = "Rekap Nama Unit dan Jumlah Pegawai";
 
@@ -59,7 +59,7 @@ class LaporanController extends Controller
         ]);
     }
 
-    function actionRekap_per_nama_unit_jenis_kelamin_total()
+    function actionRekapPerNamaUnitJenisKelaminTotal()
     {
         $tittle = "Rekap Nama Unit, Jenis Kelamin dan Total";
 

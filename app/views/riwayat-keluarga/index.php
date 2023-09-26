@@ -1,6 +1,7 @@
 <?php
 
 use app\models\RiwayatKeluarga;
+use webvimark\modules\UserManagement\components\GhostHtml;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -45,7 +46,7 @@ function tgl_indo($tanggal)
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Entri Riwayat Keluarga', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= GhostHtml::a('Entri Riwayat Keluarga', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); 
@@ -71,12 +72,38 @@ function tgl_indo($tanggal)
             ],
             // 'id_pegawai',
             // 'id_hubungan_keluarga',
+            // [
+            //     'class' => ActionColumn::className(),
+            //     'urlCreator' => function ($action, RiwayatKeluarga $model, $key, $index, $column) {
+            //         return Url::toRoute([$action, 'id_riwayat_keluarga' => $model->id_riwayat_keluarga]);
+            //     }
+            // ],
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, RiwayatKeluarga $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id_riwayat_keluarga' => $model->id_riwayat_keluarga]);
-                }
+                'template' => '{view} {edit} {hapus}',
+                'buttons' => [
+                    'view' => function ($url, $model) {
+                        return GhostHtml::a('View', ['jenis-pegawai/view', 'kode_jenis_pegawai' => $model['kode_jenis_pegawai']], [
+                            'class' => 'btn btn-primary btn-sm'
+                        ]);
+                    },
+                    'edit' => function ($url, $model) {
+                        return GhostHtml::a('Edit', ['jenis-pegawai/update', 'kode_jenis_pegawai' => $model['kode_jenis_pegawai']], [
+                            'class' => 'btn btn-warning btn-sm'
+                        ]);
+                    },
+                    'hapus' => function ($url, $model) {
+                        return GhostHtml::a('Delete', ['jenis-pegawai/delete', 'kode_jenis_pegawai' => $model['kode_jenis_pegawai']], [
+                            'class' => 'btn btn-danger btn-sm',
+                            'data' => [
+                                'confirm' => 'Are you sure you want to delete this item?',
+                                'method' => 'post',
+                            ],
+                        ]);
+                    }
+                ]
             ],
+
         ],
     ]); ?>
 

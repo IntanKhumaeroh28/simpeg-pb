@@ -1,6 +1,7 @@
 <?php
 
 use app\models\BiodataPegawai;
+use webvimark\modules\UserManagement\components\GhostHtml;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -44,7 +45,7 @@ function tgl_indo($tanggal)
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Entri Biodata Pegawai', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= GhostHtml::a('Entri Biodata Pegawai', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); 
@@ -83,12 +84,39 @@ function tgl_indo($tanggal)
             // 'updated_at',
             // 'created_by',
             // 'updated_by',
+
+            // [
+            //     'class' => ActionColumn::className(),
+            //     'urlCreator' => function ($action, BiodataPegawai $model, $key, $index, $column) {
+            //         return Url::toRoute([$action, 'id_pegawai' => $model->id_pegawai]);
+            //     }
+            // ],
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, BiodataPegawai $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id_pegawai' => $model->id_pegawai]);
-                }
+                'template' => '{view} {edit} {hapus}',
+                'buttons' => [
+                    'view' => function ($url, $model) {
+                        return GhostHtml::a('View', ['biodata-pegawai/view', 'id_pegawai' => $model['id_pegawai']], [
+                            'class' => 'btn btn-primary btn-sm'
+                        ]);
+                    },
+                    'edit' => function ($url, $model) {
+                        return GhostHtml::a('Edit', ['biodata-pegawai/update', 'id_pegawai' => $model['id_pegawai']], [
+                            'class' => 'btn btn-warning btn-sm'
+                        ]);
+                    },
+                    'hapus' => function ($url, $model) {
+                        return GhostHtml::a('Delete', ['biodata-pegawai/delete', 'id_pegawai' => $model->id_pegawai], [
+                            'class' => 'btn btn-danger btn-sm',
+                            'data' => [
+                                'confirm' => 'Are you sure you want to delete this item?',
+                                'method' => 'post',
+                            ],
+                        ]);
+                    }
+                ]
             ],
+
         ],
     ]); ?>
 

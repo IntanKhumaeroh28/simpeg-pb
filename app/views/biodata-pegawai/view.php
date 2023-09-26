@@ -1,5 +1,6 @@
 <?php
 
+use webvimark\modules\UserManagement\components\GhostHtml;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -42,8 +43,8 @@ function tgl_indo($tanggal)
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id_pegawai' => $model->id_pegawai], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id_pegawai' => $model->id_pegawai], [
+        <?= GhostHtml::a('Update', ['update', 'id_pegawai' => $model->id_pegawai], ['class' => 'btn btn-primary']) ?>
+        <?= GhostHtml::a('Delete', ['delete', 'id_pegawai' => $model->id_pegawai], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
