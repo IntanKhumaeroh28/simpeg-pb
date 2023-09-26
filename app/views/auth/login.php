@@ -14,6 +14,7 @@ use yii\helpers\Html;
 <style>
 	.intan {
 		background-color: #006A4E;
+		color: white;
 
 	}
 
@@ -39,7 +40,7 @@ use yii\helpers\Html;
 					</br>
 					<div class="row " style="padding-left: 85px;">
 						<div class="col-md-5 offset-md-3 bg-light rounded-lg">
-							<div class="panel panel-default mx-5 my-5 ">
+							<div class="panel panel-default mx-6 my-6 ">
 								<div class="panel-heading text-center ">
 									<h3 class="panel-title"><?= UserManagementModule::t('front', 'Login Form') ?></h3>
 								</div>
