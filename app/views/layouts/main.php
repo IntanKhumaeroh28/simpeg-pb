@@ -5,7 +5,6 @@
 
 use app\assets\AppAsset;
 use app\widgets\Alert;
-use webvimark\modules\UserManagement\components\AuthHelper;
 use webvimark\modules\UserManagement\components\GhostMenu;
 use webvimark\modules\UserManagement\components\GhostHtml;
 use yii\bootstrap4\Breadcrumbs as Bootstrap4Breadcrumbs;
@@ -142,19 +141,18 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                   </div>
                 </li>
                 </ul>
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <?= GhostHtml::a('Laporan', ['/laporan/rekap_per_jenis_kelamin_pegawai'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
 
-
-                <li class="nav-item dropdown">
-                  <?= GhostHtml::a('Laporan', ['/laporan/rekap-per-jenis-kelamin-pegawai'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
-                  <div class="dropdown-menu">
-                    <?= GhostHtml::a('Rekap Jenis Kelamin dan Pegawai', ['/laporan/rekap-per-jenis-kelamin-pegawai'], ['class' => 'dropdown-item']) ?>
-                    <?= GhostHtml::a('Rekap Nama Unit, Jenis Kelamin dan Total', ['/laporan/rekap-per-nama-unit-jenis-kelamin-total'], ['class' => 'dropdown-item']) ?>
-                    <?= GhostHtml::a('Rekap Nama Unit, Jumlah Pegawai', ['/laporan/rekap-per-nama-unit-pegawai'], ['class' => 'dropdown-item']) ?>
-                  </div>
-                </li>
+                    <div class="dropdown-menu">
+                      <?= GhostHtml::a('Rekap Jenis Kelamin dan Pegawai', ['/laporan/rekap_per_jenis_kelamin_pegawai'], ['class' => 'dropdown-item']) ?>
+                      <?= GhostHtml::a('Rekap Nama Unit, Jenis Kelamin dan Total', ['/laporan/rekap_per_nama_unit_jenis_kelamin_total'], ['class' => 'dropdown-item']) ?>
+                      <?= GhostHtml::a('Rekap Nama Unit, Jumlah Pegawai', ['/laporan/rekap_per_nama_unit_pegawai'], ['class' => 'dropdown-item']) ?>
+                    </div>
+                  </li>
                 </ul>
-
-                <?= GhostHtml::a('User', ['/user/index'], ['class' => 'nav-link']) ?>
+                <?= GhostHtml::a('User', ['/user'], ['class' => 'nav-link']) ?>
               <?php endif; ?>
 
               <?php
