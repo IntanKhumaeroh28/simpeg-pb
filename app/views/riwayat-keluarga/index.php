@@ -83,17 +83,17 @@ function tgl_indo($tanggal)
                 'template' => '{view} {edit} {hapus}',
                 'buttons' => [
                     'view' => function ($url, $model) {
-                        return GhostHtml::a('View', ['jenis-pegawai/view', 'kode_jenis_pegawai' => $model['kode_jenis_pegawai']], [
+                        return GhostHtml::a('View', ['riwayat-keluarga/view', 'id_riwayat_keluarga' => $model['id_riwayat_keluarga']], [
                             'class' => 'btn btn-primary btn-sm'
                         ]);
                     },
                     'edit' => function ($url, $model) {
-                        return GhostHtml::a('Edit', ['jenis-pegawai/update', 'kode_jenis_pegawai' => $model['kode_jenis_pegawai']], [
+                        return GhostHtml::a('Edit', ['riwayat-keluarga/update', 'id_riwayat_keluarga' => $model['id_riwayat_keluarga']], [
                             'class' => 'btn btn-warning btn-sm'
                         ]);
                     },
                     'hapus' => function ($url, $model) {
-                        return GhostHtml::a('Delete', ['jenis-pegawai/delete', 'kode_jenis_pegawai' => $model['kode_jenis_pegawai']], [
+                        return GhostHtml::a('Delete', ['riwayat-keluarga/delete', 'id_riwayat_keluarga' => $model['id_riwayat_keluarga']], [
                             'class' => 'btn btn-danger btn-sm',
                             'data' => [
                                 'confirm' => 'Are you sure you want to delete this item?',

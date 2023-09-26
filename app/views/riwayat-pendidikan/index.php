@@ -54,11 +54,31 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->pendidikanFormal->nama_pendidikan;
                 }
             ],
+
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, RiwayatPendidikan $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id_riwayat_pendidikan' => $model->id_riwayat_pendidikan]);
-                }
+                'template' => '{view} {edit} {hapus}',
+                'buttons' => [
+                    'view' => function ($url, $model) {
+                        return GhostHtml::a('View', ['riwayat-pendidikan/view', 'id_riwayat_pendidikan' => $model['id_riwayat_pendidikan']], [
+                            'class' => 'btn btn-primary btn-sm'
+                        ]);
+                    },
+                    'edit' => function ($url, $model) {
+                        return GhostHtml::a('Edit', ['riwayat-pendidikan/update', 'id_riwayat_pendidikan' => $model['id_riwayat_pendidikan']], [
+                            'class' => 'btn btn-warning btn-sm'
+                        ]);
+                    },
+                    'hapus' => function ($url, $model) {
+                        return GhostHtml::a('Delete', ['riwayat-pendidikan/delete', 'id_riwayat_pendidikan' => $model['id_riwayat_pendidikan']], [
+                            'class' => 'btn btn-danger btn-sm',
+                            'data' => [
+                                'confirm' => 'Are you sure you want to delete this item?',
+                                'method' => 'post',
+                            ],
+                        ]);
+                    }
+                ]
             ],
         ],
     ]); ?>
