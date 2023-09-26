@@ -5,8 +5,8 @@
 
 use app\assets\AppAsset;
 use app\widgets\Alert;
-use webvimark\modules\UserManagement\components\GhostHtml;
 use webvimark\modules\UserManagement\components\GhostMenu;
+use webvimark\modules\UserManagement\components\GhostHtml;
 use yii\bootstrap4\Breadcrumbs as Bootstrap4Breadcrumbs;
 use yii\bootstrap4\Html;
 use yii\bootstrap4\NavBar;
@@ -105,56 +105,55 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         <div class="container">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button>    
-              
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <?= Html::a('Simpeg', ['/site/index'], ['class' => 'nav-link']) ?>
-            <?= Html::a('Home', ['/site/index'], ['class' => 'nav-link']) ?>
-            <?php if (!Yii::$app->user->isGuest) : ?>
-              <?= GhostHtml::a('Biodata Pegawai', ['/biodata-pegawai/index'], ['class' => 'nav-link']) ?>
+          </button>
 
-              <ul class="navbar-nav">
+
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <?= Html::a('Simpeg', ['/site/index'], ['class' => 'nav-link']) ?>
+              <?= Html::a('Home', ['/site/index'], ['class' => 'nav-link']) ?>
+              <?php if (!Yii::$app->user->isGuest) : ?>
+                <?= GhostHtml::a('Biodata Pegawai', ['/biodata-pegawai/index'], ['class' => 'nav-link']) ?>
+
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <?= GhostHtml::a('Riwayat', ['/riwayat-keluarga/index'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownStart">
+                      <?= GhostHtml::a('Riwayat Keluarga', ['/riwayat-keluarga/index'], ['class' => 'dropdown-item']) ?>
+                      <?= GhostHtml::a('Riwayat Pendidikan', ['/riwayat-pendidikan/index'], ['class' => 'dropdown-item']) ?>
+                    </div>
+                  </li>
+                </ul>
+
                 <li class="nav-item dropdown">
-                  <?= GhostHtml::a('Riwayat', ['/riwayat-keluarga/index'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
-
-                  <div class="dropdown-menu" aria-labelledby="dropdownStart">
-                    <?= GhostHtml::a('Riwayat Keluarga', ['/riwayat-keluarga/index'], ['class' => 'dropdown-item']) ?>
-                    <?= GhostHtml::a('Riwayat Pendidikan', ['/riwayat-pendidikan/index'], ['class' => 'dropdown-item']) ?>
-                  </div>
-                </li>
-              </ul>
-
-
-
-              <li class="nav-item dropdown">
-                <?= GhostHtml::a('Master', ['/master-jenis-kelamin/index'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
-                <div class="dropdown-menu">
-                  <?= GhostHtml::a('Master Jenis Kelamin', ['/master-jenis-kelamin/index'], ['class' => 'dropdown-item']) ?>
-                  <?= GhostHtml::a('Master Agama', ['/master-agama/index'], ['class' => 'dropdown-item']) ?>
-                  <?= GhostHtml::a('Master Hubungan Keluarga', ['/master-hubungan-keluarga/index'], ['class' => 'dropdown-item']) ?>
-                  <?= GhostHtml::a('Master Pendidikan Formal', ['/master-pendidikan-formal/index'], ['class' => 'dropdown-item']) ?>
-                  <?= GhostHtml::a('Master Status Perkawinan', ['/master-status-perkawinan/index'], ['class' => 'dropdown-item']) ?>
-                  <?= GhostHtml::a('Jenis Pegawai', ['/jenis-pegawai/index'], ['class' => 'dropdown-item']) ?>
-                  <?= GhostHtml::a('Unit Kerja', ['/unit-kerja/index'], ['class' => 'dropdown-item']) ?>
-                </div>
-              </li>
-              </ul>
-              <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                  <?= GhostHtml::a('Laporan', ['/laporan/rekap_per_jenis_kelamin_pegawai'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
-
+                  <?= GhostHtml::a('Master', ['/master-jenis-kelamin/index'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
                   <div class="dropdown-menu">
-                    <?= GhostHtml::a('Rekap Jenis Kelamin dan Pegawai', ['/laporan/rekap_per_jenis_kelamin_pegawai'], ['class' => 'dropdown-item']) ?>
-                    <?= GhostHtml::a('Rekap Nama Unit, Jenis Kelamin dan Total', ['/laporan/rekap_per_nama_unit_jenis_kelamin_total'], ['class' => 'dropdown-item']) ?>
-                    <?= GhostHtml::a('Rekap Nama Unit, Jumlah Pegawai', ['/laporan/rekap_per_nama_unit_pegawai'], ['class' => 'dropdown-item']) ?>
+                    <?= GhostHtml::a('Master Jenis Kelamin', ['/master-jenis-kelamin/index'], ['class' => 'dropdown-item']) ?>
+                    <?= GhostHtml::a('Master Agama', ['/master-agama/index'], ['class' => 'dropdown-item']) ?>
+                    <?= GhostHtml::a('Master Hubungan Keluarga', ['/master-hubungan-keluarga/index'], ['class' => 'dropdown-item']) ?>
+                    <?= GhostHtml::a('Master Pendidikan Formal', ['/master-pendidikan-formal/index'], ['class' => 'dropdown-item']) ?>
+                    <?= GhostHtml::a('Master Status Perkawinan', ['/master-status-perkawinan/index'], ['class' => 'dropdown-item']) ?>
+                    <?= GhostHtml::a('Jenis Pegawai', ['/jenis-pegawai/index'], ['class' => 'dropdown-item']) ?>
+                    <?= GhostHtml::a('Unit Kerja', ['/unit-kerja/index'], ['class' => 'dropdown-item']) ?>
                   </div>
                 </li>
-              </ul>
-              <?= GhostHtml::a('User', ['/user'], ['class' => 'nav-link']) ?>
-            <?php endif; ?>
+                </ul>
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <?= GhostHtml::a('Laporan', ['/laporan/rekap_per_jenis_kelamin_pegawai'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
 
-            <?php
+                    <div class="dropdown-menu">
+                      <?= GhostHtml::a('Rekap Jenis Kelamin dan Pegawai', ['/laporan/rekap_per_jenis_kelamin_pegawai'], ['class' => 'dropdown-item']) ?>
+                      <?= GhostHtml::a('Rekap Nama Unit, Jenis Kelamin dan Total', ['/laporan/rekap_per_nama_unit_jenis_kelamin_total'], ['class' => 'dropdown-item']) ?>
+                      <?= GhostHtml::a('Rekap Nama Unit, Jumlah Pegawai', ['/laporan/rekap_per_nama_unit_pegawai'], ['class' => 'dropdown-item']) ?>
+                    </div>
+                  </li>
+                </ul>
+                <?= GhostHtml::a('User', ['/user'], ['class' => 'nav-link']) ?>
+              <?php endif; ?>
+
+              <?php
               if (Yii::$app->user->isGuest) {
                 echo Html::a('Login', ['/auth/login'], ['class' => 'nav-link']);
               } else

@@ -57,7 +57,11 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
             <div class="col" style="text-align: center;">
                 <img src="https://prabubimatech.com/assets/image/logo.png" style="height: 200px;">
                 <div class="row justify-content-center">
-
+                    <?php echo GhostHtml::a(
+                        Html::tag('div', Html::img('app/assets/icon/biodata.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Biodata Pegawai'),
+                        ['biodata-pegawai/index'],
+                        ['class' => 'box']
+                    ) ?>
                     <a class="box" href="<?= Url::to(['biodata-pegawai/index']) ?>">
                         <div class="box-center">
                             <?php echo Html::img('app/assets/icon/biodata.png', ['class' => 'pull-left img-responsive']); ?>
