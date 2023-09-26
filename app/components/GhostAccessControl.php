@@ -17,7 +17,8 @@ class GhostAccessControl extends ComponentGhostAccessControl
 		if (Yii::$app->user->getIsGuest()) {
 			Yii::$app->getResponse()->redirect(['/auth/login'])->send();
 		} else {
-			Yii::$app->getResponse()->redirect(['/auth/forbidden'])->send();
+			// Yii::$app->getResponse()->redirect(['/auth/forbidden'])->send();
+			throw new ForbiddenHttpException(Yii::t('yii', 'You are not allowed to perform this action.'));
 		}
 		Yii::$app->end();
 	}
