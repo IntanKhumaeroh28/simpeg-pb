@@ -1,11 +1,14 @@
 <?php
 
+use app\models\BiodataPegawai;
 use app\models\RiwayatPendidikan;
 use webvimark\modules\UserManagement\components\GhostHtml;
+use yii\base\Model;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
 
 /** @var yii\web\View $this */
 /** @var app\models\RiwayatPendidikanSearch $searchModel */
@@ -34,6 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'id_riwayat_pendidikan',
             [
                 'attribute' => 'id_pegawai',
+                'filter' => ArrayHelper::map(BiodataPegawai::find()->asArray()->all(), 'id_pegawai', 'nama'),
                 'value' => function ($model) {
                     return $model->biodataPegawai->nama;
                 }
@@ -44,7 +48,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'dokumen',
                 'format' => 'raw',
                 'value' => function ($model) {
-                    return Html::img(Yii::getAlias('@web/files/images/dokumen') . $model->dokumen, ['height' => '80px']);
+                    return $model->dokumen;
+                    // return Html::ijazah_file(Yii::getAlias('@web/files/images/dokumen') . $model->dokumen, ['height' => '80px']);
                 }
 
             ],
