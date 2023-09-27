@@ -5,6 +5,7 @@ namespace app\models;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\RiwayatKeluarga;
+use Yii;
 
 /**
  * RiwayatKeluargaSearch represents the model behind the search form of `app\models\RiwayatKeluarga`.
@@ -43,6 +44,10 @@ class RiwayatKeluargaSearch extends RiwayatKeluarga
         $query = RiwayatKeluarga::find();
 
         // add conditions that should always apply here
+        if (User::hasRole('pegawai', false)) {
+            $id_pegawai = Yii::$app->user->identity->username;
+            $query->andFilterWhere(['id_pegawai' => $id_pegawai]);
+        }
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

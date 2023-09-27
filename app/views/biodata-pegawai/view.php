@@ -43,8 +43,8 @@ function tgl_indo($tanggal)
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= GhostHtml::a('Update', ['update', 'id_pegawai' => $model->id_pegawai], ['class' => 'btn btn-primary']) ?>
-        <?= GhostHtml::a('Delete', ['delete', 'id_pegawai' => $model->id_pegawai], [
+        <?= GhostHtml::a('Update', ['biodata-pegawai/update', 'id_pegawai' => $model->id_pegawai], ['class' => 'btn btn-primary']) ?>
+        <?= GhostHtml::a('Delete', ['biodata-pegawai/delete', 'id_pegawai' => $model->id_pegawai], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -56,7 +56,7 @@ function tgl_indo($tanggal)
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id_pegawai',
+            // 'id_pegawai',
             'nik',
             'nama',
             [

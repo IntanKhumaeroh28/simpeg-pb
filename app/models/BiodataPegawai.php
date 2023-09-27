@@ -148,6 +148,9 @@ class BiodataPegawai extends \yii\db\ActiveRecord
         $this->tgl_lahir = date('Y-m-d', strtotime($this->tgl_lahir));
 
         return $parent;
+
+        // menghilangkan id_pegawai ketika insert
+        $id_pegawai = Yii::$app->user->identity->username;
     }
 
     /**
