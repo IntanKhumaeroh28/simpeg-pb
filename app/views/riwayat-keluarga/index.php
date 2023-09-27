@@ -46,7 +46,7 @@ function tgl_indo($tanggal)
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= GhostHtml::a('Entri Riwayat Keluarga', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= GhostHtml::a('Entri Riwayat Keluarga', ['riwayat-keluarga/create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); 
