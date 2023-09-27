@@ -62,84 +62,73 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
                         ['biodata-pegawai/index'],
                         ['class' => 'box']
                     ) ?>
-                    <a class="box" href="<?= Url::to(['biodata-pegawai/index']) ?>">
-                        <div class="box-center">
-                            <?php echo Html::img('app/assets/icon/biodata.png', ['class' => 'pull-left img-responsive']); ?>
-                        </div>
-                        <span>Biodata Pegawai</span>
-                    </a>
-                    <a class="box" href="<?= Url::to(['riwayat-keluarga/index']) ?>">
-                        <div class="box-center">
-                            <?php echo Html::img('app/assets/icon/family.png', ['class' => 'pull-left img-responsive']); ?>
-                        </div>
-                        <span>Riwayat Keluarga</span>
-                    </a>
-                    <a class="box" href="<?= Url::to(['master-hubungan-keluarga/index']) ?>">
-                        <div class="box-center">
-                            <?php echo Html::img('app/assets/icon/masterhub.png', ['class' => 'pull-left img-responsive']); ?>
-                        </div>
-                        <span>Master Hubungan Keluarga</span>
-                    </a>
-                    <a class="box" href="<?= Url::to(['riwayat-pendidikan/index']) ?>">
-                        <div class="box-center">
-                            <?php echo Html::img('app/assets/icon/riwayatpend.png', ['class' => 'pull-left img-responsive']); ?>
-                        </div>
-                        <span>Riwayat Pendidikan</span>
-                    </a>
-                    <a class="box" href="<?= Url::to(['master-pendidikan-formal/index']) ?>">
-                        <div class="box-center">
-                            <?php echo Html::img('app/assets/icon/masterpend.png', ['class' => 'pull-left img-responsive']); ?>
-                        </div>
-                        <span>Master Pendidikan Formal</span>
-                    </a>
-                    <a class="box" href="<?= Url::to(['master-jenis-kelamin/index']) ?>">
-                        <div class="box-center">
-                            <?php echo Html::img('app/assets/icon/jenis kelamin.png', ['class' => 'pull-left img-responsive']); ?>
-                        </div>
-                        <span>Master Jenis Kelamin</span>
-                    </a>
-                    <a class="box" href="<?= Url::to(['master-agama/index']) ?>">
-                        <div class="box-center">
-                            <?php echo Html::img('app/assets/icon/agama.png', ['class' => 'pull-left img-responsive']); ?>
-                        </div>
-                        <span>Master Agama</span>
-                    </a>
-                    <a class="box" href="<?= Url::to(['master-status-perkawinan/index']) ?>">
-                        <div class="box-center">
-                            <?php echo Html::img('app/assets/icon/status perkawinan.png', ['class' => 'pull-left img-responsive']); ?>
-                        </div>
-                        <span>Master Status Perkawinan</span>
-                    </a>
-                    <a class="box" href="<?= Url::to(['jenis-pegawai/index']) ?>">
-                        <div class="box-center">
-                            <?php echo Html::img('app/assets/icon/jenis pegawai.png', ['class' => 'pull-left img-responsive']); ?>
-                        </div>
-                        <span>Jenis Pegawai</span>
-                    </a>
-                    <a class="box" href="<?= Url::to(['unit-kerja/index']) ?>">
-                        <div class="box-center">
-                            <?php echo Html::img('app/assets/icon/unit kerja.png', ['class' => 'pull-left img-responsive']); ?>
-                        </div>
-                        <span>Unit Kerja</span>
-                    </a>
-                    <a class="box" href="<?= Url::to(['laporan/rekap_per_jenis_kelamin_pegawai']) ?>">
-                        <div class="box-center">
-                            <?php echo Html::img('app/assets/icon/rekap.png', ['class' => 'pull-left img-responsive']); ?>
-                        </div>
-                        <span>Rekap Jenis Kelamin dan Pegawai</span>
-                    </a>
-                    <a class="box" href="<?= Url::to(['laporan/rekap_per_nama_unit_jenis_kelamin_total']) ?>">
-                        <div class="box-center">
-                            <?php echo Html::img('app/assets/icon/rekap.png', ['class' => 'pull-left img-responsive']); ?>
-                        </div>
-                        <span>Rekap Nama Unit, Jenis Kelamin dan Total</span>
-                    </a>
-                    <a class="box" href="<?= Url::to(['laporan/rekap_per_nama_unit_pegawai']) ?>">
-                        <div class="box-center">
-                            <?php echo Html::img('app/assets/icon/rekap.png', ['class' => 'pull-left img-responsive']); ?>
-                        </div>
-                        <span>Rekap Nama Unit, Jumlah Pegawai</span>
-                    </a>
+                    <?php echo GhostHtml::a(
+                        Html::tag('div', Html::img('app/assets/icon/family.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Riwayat Keluarga'),
+                        ['riwayat-keluarga/index'],
+                        ['class' => 'box']
+                    ) ?>
+                    <?php echo GhostHtml::a(
+                        Html::tag('div', Html::img('app/assets/icon/riwayatpend.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Riwayat Pendidikan'),
+                        ['riwayat-pendidikan/index'],
+                        ['class' => 'box']
+                    ) ?>
+                    <?php echo GhostHtml::a(
+                        Html::tag('div', Html::img('app/assets/icon/masterhub.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Master Hubungan Keluarga'),
+                        ['master-hubungan-keluarga/index'],
+                        ['class' => 'box']
+                    ) ?>
+                    <?php echo GhostHtml::a(
+                        Html::tag('div', Html::img('app/assets/icon/masterpend.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Master Hubungan Pendidikan Formal'),
+                        ['master-pendidikan-formal/index'],
+                        ['class' => 'box']
+                    ) ?>
+                    <?php echo GhostHtml::a(
+                        Html::tag('div', Html::img('app/assets/icon/jenis kelamin.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Master Jenis Kelamin'),
+                        ['master-jenis-kelamin/index'],
+                        ['class' => 'box']
+                    ) ?>
+                    <?php echo GhostHtml::a(
+                        Html::tag('div', Html::img('app/assets/icon/agama.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Master Agama'),
+                        ['master-agama/index'],
+                        ['class' => 'box']
+                    ) ?>
+
+                    <?php echo GhostHtml::a(
+                        Html::tag('div', Html::img('app/assets/icon/status perkawinan.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Master Status Perkawinan'),
+                        ['master-status-perkawinan/index'],
+                        ['class' => 'box']
+                    ) ?>
+                    <?php echo GhostHtml::a(
+                        Html::tag('div', Html::img('app/assets/icon/jenis pegawai.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Jenis Pegawai'),
+                        ['jenis-pegawai/index'],
+                        ['class' => 'box']
+                    ) ?>
+                    <?php echo GhostHtml::a(
+                        Html::tag('div', Html::img('app/assets/icon/unit kerja.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Unit Kerja'),
+                        ['unit-kerja/index'],
+                        ['class' => 'box']
+                    ) ?>
+                    <?php echo GhostHtml::a(
+                        Html::tag('div', Html::img('app/assets/icon/rekap.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Rekap Jenis Kelamin dan Pegawai'),
+                        ['laporan/rekap-per-jenis-kelamin-pegawai'],
+                        ['class' => 'box']
+                    ) ?>
+                    <?php echo GhostHtml::a(
+                        Html::tag('div', Html::img('app/assets/icon/rekap.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Rekap Nama Unit, Jenis Kelamin dan Total'),
+                        ['laporan/rekap-per-nama-unit-jenis-kelamin-total'],
+                        ['class' => 'box']
+                    ) ?>
+                    <?php echo GhostHtml::a(
+                        Html::tag('div', Html::img('app/assets/icon/rekap.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Rekap Nama Unit, Jumlah Pegawai'),
+                        ['laporan/rekap-per-nama-unit-pegawai'],
+                        ['class' => 'box']
+                    ) ?>
+                    <?php echo GhostHtml::a(
+                        Html::tag('div', Html::img('app/assets/icon/sandi.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Change Password'),
+                        ['user/change-password/id'],
+                        ['class' => 'box']
+                    ) ?>
+
                 </div>
             </div>
         </div>
