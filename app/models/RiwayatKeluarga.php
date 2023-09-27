@@ -41,7 +41,7 @@ class RiwayatKeluarga extends \yii\db\ActiveRecord
     {
         return [
             [['nama', 'nik', 'tgl_lahir', 'id_pegawai', 'id_hubungan_keluarga'], 'required'],
-            [['tgl_lahir', 'file_kk', 'file_akte'], 'safe'],
+            [['tgl_lahir', 'file_kk', 'file_akte', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'safe'],
             [['id_hubungan_keluarga'], 'integer'],
             [['nama'], 'string', 'max' => 100],
             //[['hub_keluarga', 'nik'], 'string', 'max' => 25],
@@ -70,6 +70,10 @@ class RiwayatKeluarga extends \yii\db\ActiveRecord
             'tgl_lahir' => 'Tgl Lahir',
             // 'id_pegawai' => 'Id Pegawai',
             'id_hubungan_keluarga' => 'Id Hubungan Keluarga',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
+            'created_by' => 'Created By',
+            'updated_by' => 'Updated By',
         ];
     }
 
@@ -141,6 +145,13 @@ class RiwayatKeluarga extends \yii\db\ActiveRecord
 
         // untuk mengubah format tanggal
         $this->tgl_lahir = date('Y-m-d', strtotime($this->tgl_lahir));
+
+        // simpan tatus created by atau updated by
+        if ($insert) {
+            $this->created_by = Yii::$app->user->identity->username;
+        } else {
+            $this->updated_by = Yii::$app->user->identity->username;
+        }
 
         return $parent;
     }

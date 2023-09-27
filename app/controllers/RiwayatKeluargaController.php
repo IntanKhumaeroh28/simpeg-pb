@@ -137,10 +137,10 @@ class RiwayatKeluargaController extends Controller
             $id_pegawai = Yii::$app->user->identity->username;
             if (($model = RiwayatKeluarga::findOne(['id_riwayat_keluarga' => $id_riwayat_keluarga, 'id_pegawai' => $id_pegawai])) !== null) {
                 return $model;
-            } else {
-                if (($model = RiwayatKeluarga::findOne(['id_riwayat_kelurga' => $id_riwayat_keluarga])) !== null) {
-                    return $model;
-                }
+            }
+        } else {
+            if (($model = RiwayatKeluarga::findOne(['id_riwayat_keluarga' => $id_riwayat_keluarga])) !== null) {
+                return $model;
             }
         }
 
