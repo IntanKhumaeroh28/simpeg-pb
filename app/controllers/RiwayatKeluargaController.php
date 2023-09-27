@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use app\models\RiwayatKeluarga;
 use app\models\RiwayatKeluargaSearch;
+use app\models\User;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -41,6 +43,9 @@ class RiwayatKeluargaController extends Controller
      */
     public function actionIndex()
     {
+        if (User::hasRole('pegawai', false)) {
+            $id_pegawai = Yii::$app->user->identity->username;
+        }
         $searchModel = new RiwayatKeluargaSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
@@ -128,8 +133,15 @@ class RiwayatKeluargaController extends Controller
      */
     protected function findModel($id_riwayat_keluarga)
     {
-        if (($model = RiwayatKeluarga::findOne(['id_riwayat_keluarga' => $id_riwayat_keluarga])) !== null) {
-            return $model;
+        if (User::hasRole('pegawai', false)) {
+            $id_pegawai = Yii::$app->user->identity->username;
+            if (($model = RiwayatKeluarga::findOne(['id_riwayat_keluarga' => $id_riwayat_keluarga, 'id_pegawai' => $id_pegawai])) !== null) {
+                return $model;
+            } else {
+                if (($model = RiwayatKeluarga::findOne(['id_riwayat_kelurga' => $id_riwayat_keluarga])) !== null) {
+                    return $model;
+                }
+            }
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');

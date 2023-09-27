@@ -33,7 +33,7 @@ use yii\widgets\ActiveForm;
 
     <?php
     echo $form->field($model, 'ijazah_file')->widget(FileInput::classname(), [
-        'options' => ['accept' => 'image/*'],
+        'options' => ['accept' => 'file/*'],
     ]);
     ?>
     <?php

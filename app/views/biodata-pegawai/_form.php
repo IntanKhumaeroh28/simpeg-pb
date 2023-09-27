@@ -24,7 +24,12 @@ use yii\widgets\ActiveForm;
         ['options' => ['enctype' => 'multipart/form-data']]
     ); ?>
 
-    <?= $form->field($model, 'id_pegawai')->textInput(['maxlength' => true]) ?>
+    <?php
+    if ($model->isNewRecord) {
+        echo  $form->field($model, 'id_pegawai')->textInput(['maxlength' => true]);
+        # code...
+    }
+    ?>
 
     <?= $form->field($model, 'nik')->textInput(['maxlength' => true]) ?>
 
@@ -49,8 +54,6 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'no_telp')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'image_file')->fileInput() ?>
 
     <?php
     echo $form->field($model, 'image_file')->widget(FileInput::classname(), [

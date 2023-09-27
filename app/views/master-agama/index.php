@@ -33,28 +33,28 @@ $this->params['breadcrumbs'][] = $this->title;
 
             // 'id_agama',
             'agama',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, MasterAgama $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id_agama' => $model->id_agama]);
-                }
-            ],
+            // [
+            //     'class' => ActionColumn::className(),
+            //     'urlCreator' => function ($action, MasterAgama $model, $key, $index, $column) {
+            //         return Url::toRoute([$action, 'id_agama' => $model->id_agama]);
+            //     }
+            // ],
             [
                 'class' => ActionColumn::className(),
                 'template' => '{view} {edit} {hapus}',
                 'buttons' => [
                     'view' => function ($url, $model) {
-                        return Html::a('View', ['view', 'id_agama' => $model['id_agama']], [
+                        return GhostHtml::a('View', ['master-agama/view', 'id_agama' => $model['id_agama']], [
                             'class' => 'btn btn-primary btn-sm'
                         ]);
                     },
                     'edit' => function ($url, $model) {
-                        return GhostHtml::a('Edit', ['update', 'kode_jenis_pegawai' => $model['kode_jenis_pegawai']], [
+                        return GhostHtml::a('Edit', ['master-agama/update', 'id_agama' => $model['id_agama']], [
                             'class' => 'btn btn-warning btn-sm'
                         ]);
                     },
                     'hapus' => function ($url, $model) {
-                        return GhostHtml::a('Delete', ['delete', 'kode_jenis_pegawai' => $model->kode_jenis_pegawai], [
+                        return GhostHtml::a('Delete', ['master-agama/delete', 'id_agama' => $model['id_agama']], [
                             'class' => 'btn btn-danger btn-sm',
                             'data' => [
                                 'confirm' => 'Are you sure you want to delete this item?',

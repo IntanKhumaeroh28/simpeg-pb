@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use app\models\RiwayatPendidikan;
 use app\models\RiwayatPendidikanSearch;
+use app\models\User;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -128,8 +130,15 @@ class RiwayatPendidikanController extends Controller
      */
     protected function findModel($id_riwayat_pendidikan)
     {
-        if (($model = RiwayatPendidikan::findOne(['id_riwayat_pendidikan' => $id_riwayat_pendidikan])) !== null) {
-            return $model;
+        if (User::hasRole('pegawai', false)) {
+            $id_pegawai = Yii::$app->user->identity->username;
+            if (($model = RiwayatPendidikan::findOne(['id_riwayat_pendidikan' => $id_riwayat_pendidikan, 'id_pegawai' => $id_pegawai])) !== null) {
+                return $model;
+            }
+        } else {
+            if (($model = RiwayatPendidikan::findOne(['id_riwayat_pendidikan' => $id_riwayat_pendidikan])) !== null) {
+                return $model;
+            }
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');

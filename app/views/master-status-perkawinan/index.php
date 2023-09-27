@@ -33,11 +33,36 @@ $this->params['breadcrumbs'][] = $this->title;
 
             // 'id_status_perkawinan',
             'status_perkawinan',
+            // [
+            //     'class' => ActionColumn::className(),
+            //     'urlCreator' => function ($action, MasterStatusPerkawinan $model, $key, $index, $column) {
+            //         return Url::toRoute([$action, 'id_status_perkawinan' => $model->id_status_perkawinan]);
+            //     }
+            // ],
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, MasterStatusPerkawinan $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id_status_perkawinan' => $model->id_status_perkawinan]);
-                }
+                'template' => '{view} {edit} {hapus}',
+                'buttons' => [
+                    'view' => function ($url, $model) {
+                        return GhostHtml::a('View', ['master-status-perkawinan/view', 'id_status_perkawinan' => $model['id_status_perkawinan']], [
+                            'class' => 'btn btn-primary btn-sm'
+                        ]);
+                    },
+                    'edit' => function ($url, $model) {
+                        return GhostHtml::a('Edit', ['master-status-perkawinan/update', 'id_status_perkawinan' => $model['id_status_perkawinan']], [
+                            'class' => 'btn btn-warning btn-sm'
+                        ]);
+                    },
+                    'hapus' => function ($url, $model) {
+                        return GhostHtml::a('Delete', ['master-status-perkawinan/delete', 'id_status_perkawinan' => $model['id_status_perkawinan']], [
+                            'class' => 'btn btn-danger btn-sm',
+                            'data' => [
+                                'confirm' => 'Are you sure you want to delete this item?',
+                                'method' => 'post',
+                            ],
+                        ]);
+                    }
+                ]
             ],
         ],
     ]); ?>

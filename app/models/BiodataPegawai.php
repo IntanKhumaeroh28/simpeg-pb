@@ -156,6 +156,9 @@ class BiodataPegawai extends \yii\db\ActiveRecord
 
 
         return $parent;
+
+        // menghilangkan id_pegawai ketika insert
+        $id_pegawai = Yii::$app->user->identity->username;
     }
 
     /**
