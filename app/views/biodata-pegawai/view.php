@@ -148,7 +148,7 @@ function tgl_indo($tanggal)
                 <td><?= $no++ ?></td>
                 <td><?= $value['nama_pendidikan'] ?></td>
                 <td><?= $value['tahun_tamat'] ?></td>
-                <td><?= $value['dokumen'] ?></td>
+                <td><?= Html::a($value['dokumen'], ['biodata-pegawai/view-dokumen', 'dokumen' => $value['dokumen']]) ?></td>
             </tr>
         <?php
         endforeach;
@@ -180,8 +180,8 @@ function tgl_indo($tanggal)
                 <td><?= $value['nama'] ?></td>
                 <td><?= $value['tgl_lahir'] ?></td>
                 <td><?= $value['nik'] ?></td>
-                <td><?= $value['file_kk'] ?></td>
-                <td><?= $value['file_akte'] ?></td>
+                <td><?= Html::a($value['file_kk'], ['biodata-pegawai/view-dokumen', 'dokumen' => $value['file_kk']]) ?></td>
+                <td><?= Html::a($value['file_akte'], ['biodata-pegawai/view-dokumen', 'dokumen' => $value['file_akte']]) ?></td>
             </tr>
         <?php
         endforeach;

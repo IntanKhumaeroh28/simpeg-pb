@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= GhostHtml::a('Entri Unit Kerja', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= GhostHtml::a('Entri Unit Kerja', ['unit-kerja/create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); 

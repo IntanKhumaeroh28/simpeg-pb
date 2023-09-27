@@ -1,5 +1,6 @@
 <?php
 
+use webvimark\modules\UserManagement\components\GhostHtml;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -16,8 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id_pendidikan_formal' => $model->id_pendidikan_formal], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id_pendidikan_formal' => $model->id_pendidikan_formal], [
+        <?= GhostHtml::a('Update', ['master-pendidikan-formal/update', 'id_pendidikan_formal' => $model->id_pendidikan_formal], ['class' => 'btn btn-primary']) ?>
+        <?= GhostHtml::a('Delete', ['master-pendidikan-formal/delete', 'id_pendidikan_formal' => $model->id_pendidikan_formal], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
