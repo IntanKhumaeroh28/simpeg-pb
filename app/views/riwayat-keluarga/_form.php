@@ -2,6 +2,7 @@
 
 use app\models\BiodataPegawai;
 use app\models\MasterHubunganKeluarga;
+use app\models\User;
 use kartik\date\DatePicker;
 use kartik\file\FileInput;
 use kartik\select2\Select2;
@@ -26,14 +27,16 @@ use yii\widgets\ActiveForm;
 
     <?php
     echo $form->field($model, 'dokumen_file_kk')->widget(FileInput::classname(), [
-        'options' => ['accept' => 'image/*'],
+        'options' => ['accept' => 'file/*'],
+        'options' => ['accept' => 'application/pdf'],
     ]); ?>
 
     <?= $form->field($model, 'file_kk')->hiddenInput()->label('') ?>
 
     <?php
     echo $form->field($model, 'dokumen_file_akte')->widget(FileInput::classname(), [
-        'options' => ['accept' => 'image/*'],
+        'options' => ['accept' => 'file/*'],
+        'options' => ['accept' => 'application/pdf'],
     ]); ?>
 
     <?= $form->field($model, 'file_akte')->hiddenInput()->label('') ?>
@@ -51,16 +54,17 @@ use yii\widgets\ActiveForm;
     ?>
 
     <?php
-    $data = BiodataPegawai::find()->all();
-
-    echo $form->field($model, 'id_pegawai')->widget(Select2::classname(), [
-        // map(arraynya, yang akan disimpan ke db, yang akan ditampilkan ke user)
-        'data' => ArrayHelper::map($data, 'id_pegawai', 'nama'),
-        'options' => ['placeholder' => 'pilih id pegawai'],
-        'pluginOptions' => [
-            'allowClear' => true
-        ],
-    ]);
+    if (!User::hasRole('pegawai')) {
+        $data = BiodataPegawai::find()->all();
+        echo $form->field($model, 'id_pegawai')->widget(Select2::classname(), [
+            // map(arraynya, yang akan disimpan ke db, yang akan ditampilkan ke user)
+            'data' => ArrayHelper::map($data, 'id_pegawai', 'nama'),
+            'options' => ['placeholder' => 'pilih id pegawai'],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]);
+    }
     ?>
 
     <?php

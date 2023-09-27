@@ -45,7 +45,7 @@ function tgl_indo($tanggal)
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= GhostHtml::a('Entri Biodata Pegawai', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= GhostHtml::a('Entri Biodata Pegawai', ['biodata-pegawai/create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); 
@@ -79,7 +79,6 @@ function tgl_indo($tanggal)
             // 'kode_unit',
             // 'id_agama',
             // 'id_status_perkawinan',
-            // 'username',
             // 'created_at',
             // 'updated_at',
             // 'created_by',

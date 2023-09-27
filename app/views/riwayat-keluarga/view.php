@@ -1,5 +1,6 @@
 <?php
 
+use webvimark\modules\UserManagement\components\GhostHtml;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -42,8 +43,8 @@ function tgl_indo($tanggal)
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id_riwayat_keluarga' => $model->id_riwayat_keluarga], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id_riwayat_keluarga' => $model->id_riwayat_keluarga], [
+        <?= GhostHtml::a('Update', ['riwayat-keluarga/update', 'id_riwayat_keluarga' => $model->id_riwayat_keluarga], ['class' => 'btn btn-primary']) ?>
+        <?= GhostHtml::a('Delete', ['riwayat-keluarga/delete', 'id_riwayat_keluarga' => $model->id_riwayat_keluarga], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -56,7 +57,17 @@ function tgl_indo($tanggal)
         'model' => $model,
         'attributes' => [
             'id_riwayat_keluarga',
-            'nama',
+            [
+                'attribute' => 'id_pegawai',
+                'label' => 'Nama Pegawai',
+                'value' => function ($model) {
+                    return $model->pegawai->nama;
+                }
+            ],
+            [
+                'attribute' => 'nama',
+                'label' => 'Nama Keluarga',
+            ],
             // 'hub_keluarga',
             'nik',
             // 'file_kk',

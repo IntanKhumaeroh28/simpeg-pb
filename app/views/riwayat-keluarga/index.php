@@ -59,7 +59,17 @@ function tgl_indo($tanggal)
             ['class' => 'yii\grid\SerialColumn'],
 
             'id_riwayat_keluarga',
-            'nama',
+            [
+                'attribute' => 'id_pegawai',
+                'label' => 'Nama Pegawai',
+                'value' => function ($model) {
+                    return $model->pegawai->nama;
+                }
+            ],
+            [
+                'attribute' => 'nama',
+                'label' => 'Nama Keluarga',
+            ],
             //'hub_keluarga',
             'nik',
             // 'file_kk',

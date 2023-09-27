@@ -2,6 +2,7 @@
 
 use app\models\BiodataPegawai;
 use app\models\MasterPendidikanFormal;
+use app\models\User;
 use kartik\file\FileInput;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
@@ -18,15 +19,17 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?php
-    $data = BiodataPegawai::find()->asArray()->all();
+    if (!User::hasRole('pegawai')) {
+        $data = BiodataPegawai::find()->asArray()->all();
 
-    echo $form->field($model, 'id_pegawai')->widget(Select2::classname(), [
-        'data' => ArrayHelper::map($data, 'id_pegawai', 'nama'),
-        'options' => ['placeholder' => 'Pilih nama pegawai ...'],
-        'pluginOptions' => [
-            'allowClear' => true
-        ],
-    ]);
+        echo $form->field($model, 'id_pegawai')->widget(Select2::classname(), [
+            'data' => ArrayHelper::map($data, 'id_pegawai', 'nama'),
+            'options' => ['placeholder' => 'Pilih nama pegawai ...'],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]);
+    }
     ?>
 
     <?= $form->field($model, 'tahun_tamat')->textInput() ?>
