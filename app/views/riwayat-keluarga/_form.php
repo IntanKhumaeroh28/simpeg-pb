@@ -26,14 +26,14 @@ use yii\widgets\ActiveForm;
 
     <?php
     echo $form->field($model, 'dokumen_file_kk')->widget(FileInput::classname(), [
-        'options' => ['accept' => 'image/*'],
+        'options' => ['accept' => 'application/pdf'],
     ]); ?>
 
     <?= $form->field($model, 'file_kk')->hiddenInput()->label('') ?>
 
     <?php
     echo $form->field($model, 'dokumen_file_akte')->widget(FileInput::classname(), [
-        'options' => ['accept' => 'image/*'],
+        'options' => ['accept' => 'application/pdf'],
     ]); ?>
 
     <?= $form->field($model, 'file_akte')->hiddenInput()->label('') ?>

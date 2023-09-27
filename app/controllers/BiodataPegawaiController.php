@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\BiodataPegawai;
 use app\models\BiodataPegawaiSearch;
+use app\models\RiwayatKeluarga;
 use app\models\User;
 use Yii;
 use yii\web\Controller;
@@ -83,6 +84,15 @@ class BiodataPegawaiController extends Controller
             ]);
         }
     }
+
+    // menampilkan dokumen ke new tab
+    public function actionViewDokumen($dokumen)
+    {
+        $filepath = Yii::getAlias('@web/files/dokumen/') . $dokumen;
+        header('Content-type: application/pdf');
+        echo '<embed src="' . $filepath . '" type="application/pdf" width="100%" height="100%" />';
+    }
+
 
     /**
      * Displays a single BiodataPegawai model.
