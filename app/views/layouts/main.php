@@ -152,7 +152,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     </div>
                   </li>
                 </ul>
-                <?= GhostHtml::a('User', ['/user'], ['class' => 'nav-link']) ?>
+                <?= GhostHtml::a('User', ['/user/index'], ['class' => 'nav-link']) ?>
               <?php endif; ?>
 
               <?php
