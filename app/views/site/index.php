@@ -124,8 +124,13 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
                         ['class' => 'box']
                     ) ?>
                     <?php echo GhostHtml::a(
-                        Html::tag('div', Html::img('app/assets/icon/sandi.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Change Password'),
-                        ['user/change-password/id'],
+                        Html::tag('div', Html::img('app/assets/icon/user.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'User'),
+                        ['user/index'],
+                        ['class' => 'box']
+                    ) ?>
+                    <?php echo GhostHtml::a(
+                        Html::tag('div', Html::img('app/assets/icon/sandi.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Change Own Password'),
+                        ['auth/change-own-password'],
                         ['class' => 'box']
                     ) ?>
 

@@ -54,15 +54,15 @@ $this->params['breadcrumbs'][] = $this->title;
                             'class' => 'btn btn-warning btn-sm'
                         ]);
                     },
-                    'hapus' => function ($url, $model) {
-                        return GhostHtml::a('Delete', ['master-jenis-kelamin/delete', 'kode_jenis_kelamin' => $model['kode_jenis_kelamin']], [
-                            'class' => 'btn btn-danger btn-sm',
-                            'data' => [
-                                'confirm' => 'Are you sure you want to delete this item?',
-                                'method' => 'post',
-                            ],
-                        ]);
-                    }
+                    // 'hapus' => function ($url, $model) {
+                    //     return GhostHtml::a('Delete', ['master-jenis-kelamin/delete', 'kode_jenis_kelamin' => $model['kode_jenis_kelamin']], [
+                    //         'class' => 'btn btn-danger btn-sm',
+                    //         'data' => [
+                    //             'confirm' => 'Are you sure you want to delete this item?',
+                    //             'method' => 'post',
+                    //         ],
+                    //     ]);
+                    // }
                 ]
             ],
         ],
