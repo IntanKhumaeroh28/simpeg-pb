@@ -143,7 +143,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 </ul>
                 <ul class="navbar-nav">
                   <li class="nav-item dropdown">
-                    <?= GhostHtml::a('Laporan', ['/laporan/rekap_per_jenis_kelamin_pegawai'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
+                    <?= GhostHtml::a('Laporan', ['/laporan/rekap-per-jenis-kelamin-pegawai'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
 
                     <div class="dropdown-menu">
                       <?= GhostHtml::a('Rekap Jenis Kelamin dan Pegawai', ['/laporan/rekap-per-jenis-kelamin-pegawai'], ['class' => 'dropdown-item']) ?>
