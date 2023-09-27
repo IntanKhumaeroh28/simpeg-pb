@@ -10,6 +10,7 @@ use yii\helpers\Url;
 use yii\widgets\Pjax;
 use webvimark\extensions\GridBulkActions\GridBulkActions;
 use webvimark\extensions\GridPageSize\GridPageSize;
+use webvimark\modules\UserManagement\components\AuthHelper;
 use yii\grid\GridView;
 
 /**
@@ -108,7 +109,7 @@ $this->params['breadcrumbs'][] = $this->title;
 					// ],
 					[
 						'attribute' => 'gridRoleSearch',
-						'filter' => ArrayHelper::map(Role::getAvailableRoles(Yii::$app->user->isSuperAdmin), 'name', 'description'),
+						'filter' => ArrayHelper::map(Role::getAvailableRoles(1), 'name', 'description'),
 						'value' => function (User $model) {
 							return implode(', ', ArrayHelper::map($model->roles, 'name', 'description'));
 						},
@@ -125,14 +126,18 @@ $this->params['breadcrumbs'][] = $this->title;
 					],
 					[
 						'value' => function (User $model) {
+							// echo '<pre>';
+							// print_r(Yii::$app->session->get(AuthHelper::SESSION_PREFIX_ROUTES, []));
+							// echo '</pre>';
+							// die;
 							return GhostHtml::a(
 								UserManagementModule::t('back', 'Roles and permissions'),
-								['/user-management/user-permission/set', 'id' => $model->id],
+								['/user-permission/set', 'id' => $model->id],
 								['class' => 'btn btn-sm btn-primary', 'data-pjax' => 0]
 							);
 						},
 						'format' => 'raw',
-						'visible' => User::canRoute('/user-management/user-permission/set'),
+						'visible' => User::canRoute('/user-permission/set'),
 						'options' => [
 							'width' => '10px',
 						],

@@ -6,6 +6,7 @@
  * @var webvimark\modules\UserManagement\models\User $user
  */
 
+use app\models\User;
 use webvimark\modules\UserManagement\components\GhostHtml;
 use webvimark\modules\UserManagement\models\rbacDB\Role;
 use webvimark\modules\UserManagement\UserManagementModule;
@@ -40,7 +41,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
 				<?= Html::beginForm(['set-roles', 'id' => $user->id]) ?>
 
-				<?php foreach (Role::getAvailableRoles() as $aRole) : ?>
+				<?php
+				$avaliable_role = Role::getAvailableRoles(1);
+
+				if (User::hasRole('kepegawaian')) {
+					$avaliable_role = array_slice($avaliable_role, 2, 1);
+				}
+				// echo '<pre>';
+				// print_r($avaliable_role);
+				// echo '</pre>';
+				// die;
+				foreach ($avaliable_role as $aRole) : ?>
 					<label>
 						<?php $isChecked = in_array($aRole['name'], ArrayHelper::map(Role::getUserRoles($user->id), 'name', 'name')) ? 'checked' : '' ?>
 
@@ -66,7 +77,6 @@ $this->params['breadcrumbs'][] = $this->title;
 				<br />
 
 				<?php if (Yii::$app->user->isSuperadmin or Yii::$app->user->id != $user->id) : ?>
-
 					<?= Html::submitButton(
 						'<span class="glyphicon glyphicon-ok"></span> ' . UserManagementModule::t('back', 'Save'),
 						['class' => 'btn btn-primary btn-sm']

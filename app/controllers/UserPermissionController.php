@@ -34,7 +34,12 @@ class UserPermissionController extends BaseController
 			])
 			->joinWith('group')
 			->all();
-
+		// echo '<pre>';
+		// print_r([
+		// 	Yii::$app->getModule('user-management')->auth_item_table . '.name' => array_keys(Permission::getUserPermissions($user->id))
+		// ]);
+		// echo '</pre>';
+		// die;
 		foreach ($permissions as $permission) {
 			$permissionsByGroup[@$permission->group->name][] = $permission;
 		}
