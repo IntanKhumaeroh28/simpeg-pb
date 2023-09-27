@@ -25,7 +25,6 @@ use yii\web\UploadedFile;
  * @property string $kode_unit
  * @property int $id_agama
  * @property int $id_status_perkawinan
- * @property string|null $username
  * @property string $created_at
  * @property string $updated_at
  * @property string|null $created_by
@@ -62,7 +61,7 @@ class BiodataPegawai extends \yii\db\ActiveRecord
             [['jumlah_pasangan', 'jumlah_anak', 'tahun_masuk', 'id_agama', 'id_status_perkawinan'], 'integer'],
             [['id_pegawai', 'tempat_lahir', 'email', 'kode_jenis_kelamin', 'kode_jenis_pegawai', 'kode_unit'], 'string', 'max' => 50],
             [['nik'], 'string', 'max' => 25],
-            [['nama', 'foto', 'username', 'created_by', 'updated_by'], 'string', 'max' => 100],
+            [['nama', 'foto', 'created_by', 'updated_by'], 'string', 'max' => 100],
             [['alamat'], 'string', 'max' => 255],
             [['no_telp'], 'string', 'max' => 20],
             [['id_pegawai'], 'unique'],
@@ -102,7 +101,6 @@ class BiodataPegawai extends \yii\db\ActiveRecord
             'kode_unit' => 'Unit Kerja',
             'id_agama' => 'Agama',
             'id_status_perkawinan' => 'Status Perkawinan',
-            'username' => 'Username',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'created_by' => 'Created By',

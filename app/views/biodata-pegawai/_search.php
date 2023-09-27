@@ -62,9 +62,6 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'id_status_perkawinan') 
     ?>
 
-    <?php // echo $form->field($model, 'username') 
-    ?>
-
     <?php // echo $form->field($model, 'created_at') 
     ?>
 

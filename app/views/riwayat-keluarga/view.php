@@ -56,7 +56,17 @@ function tgl_indo($tanggal)
         'model' => $model,
         'attributes' => [
             'id_riwayat_keluarga',
-            'nama',
+            [
+                'attribute' => 'id_pegawai',
+                'label' => 'Nama Pegawai',
+                'value' => function ($model) {
+                    return $model->pegawai->nama;
+                }
+            ],
+            [
+                'attribute' => 'nama',
+                'label' => 'Nama Keluarga',
+            ],
             // 'hub_keluarga',
             'nik',
             // 'file_kk',

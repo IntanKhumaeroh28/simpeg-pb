@@ -79,7 +79,6 @@ function tgl_indo($tanggal)
             // 'kode_unit',
             // 'id_agama',
             // 'id_status_perkawinan',
-            // 'username',
             // 'created_at',
             // 'updated_at',
             // 'created_by',

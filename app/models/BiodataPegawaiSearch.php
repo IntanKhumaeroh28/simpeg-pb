@@ -17,7 +17,7 @@ class BiodataPegawaiSearch extends BiodataPegawai
     public function rules()
     {
         return [
-            [['id_pegawai', 'nik', 'nama', 'tgl_lahir', 'tempat_lahir', 'alamat', 'no_telp', 'email', 'foto', 'kode_jenis_kelamin', 'kode_jenis_pegawai', 'kode_unit', 'username', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'safe'],
+            [['id_pegawai', 'nik', 'nama', 'tgl_lahir', 'tempat_lahir', 'alamat', 'no_telp', 'email', 'foto', 'kode_jenis_kelamin', 'kode_jenis_pegawai', 'kode_unit', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'safe'],
             [['jumlah_pasangan', 'jumlah_anak', 'tahun_masuk', 'id_agama', 'id_status_perkawinan'], 'integer'],
         ];
     }
@@ -79,7 +79,6 @@ class BiodataPegawaiSearch extends BiodataPegawai
             ->andFilterWhere(['like', 'kode_jenis_kelamin', $this->kode_jenis_kelamin])
             ->andFilterWhere(['like', 'kode_jenis_pegawai', $this->kode_jenis_pegawai])
             ->andFilterWhere(['like', 'kode_unit', $this->kode_unit])
-            ->andFilterWhere(['like', 'username', $this->username])
             ->andFilterWhere(['like', 'created_by', $this->created_by])
             ->andFilterWhere(['like', 'updated_by', $this->updated_by]);
 

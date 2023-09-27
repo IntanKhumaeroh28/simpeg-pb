@@ -42,7 +42,7 @@ function tgl_indo($tanggal)
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
+    <div>
         <?= GhostHtml::a('Update', ['biodata-pegawai/update', 'id_pegawai' => $model->id_pegawai], ['class' => 'btn btn-primary']) ?>
         <?= GhostHtml::a('Delete', ['biodata-pegawai/delete', 'id_pegawai' => $model->id_pegawai], [
             'class' => 'btn btn-danger',
@@ -51,73 +51,81 @@ function tgl_indo($tanggal)
                 'method' => 'post',
             ],
         ]) ?>
-    </p>
+    </div>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            // 'id_pegawai',
-            'nik',
-            'nama',
-            [
-                'attribute' => 'tgl_lahir',
-                'value' => function ($model) {
-                    return tgl_indo($model->tgl_lahir);
-                }
-            ],
-            'tempat_lahir',
-            'alamat',
-            'no_telp',
-            'email:email',
-            // 'foto',
-            [
-                'attribute' => 'foto',
-                'format' => 'raw',
-                'value' => function ($model) {
-                    return Html::img(Yii::getAlias('@web/files/img/') . $model->foto, ['height' => '200px']);
-                }
-            ],
-            'jumlah_pasangan',
-            'jumlah_anak',
-            'tahun_masuk',
-            [
-                'attribute' => 'kode_jenis_kelamin',
-                'label' => 'Jenis Kelamin',
-                'value' => function ($model) {
-                    return $model->kodeJenisKelamin->jenis_kelamin;
-                }
-            ],
-            [
-                'attribute' => 'kode_jenis_pegawai',
-                'label' => 'Jenis Pegawai',
-                'value' => function ($model) {
-                    return $model->kodeJenisPegawai->nama_jenis_pegawai;
-                }
-            ],
-            [
-                'attribute' => 'kode_unit',
-                'label' => 'Unit',
-                'value' => function ($model) {
-                    return $model->kodeUnit->nama_unit;
-                }
-            ],
-            [
-                'attribute' => 'id_agama',
-                'label' => 'Agama',
-                'value' => function ($model) {
-                    return $model->agama->agama;
-                }
-            ],
-            'statusPerkawinan.status_perkawinan',
+    <div class="row">
+        <div class="col">
+            <h2>Foto Pegawai</p>
+                <img src='<?= Yii::getAlias('@web/files/img/') . $model->foto ?>' width="100%">
+        </div>
+        <div class="col">
+            <?= DetailView::widget([
 
-            'username',
-            // 'created_at',
-            // 'updated_at',
-            // 'created_by',
-            // 'updated_by',
+                'model' => $model,
+                'attributes' => [
+                    // 'id_pegawai',
+                    'nik',
+                    'nama',
+                    [
+                        'attribute' => 'tgl_lahir',
+                        'value' => function ($model) {
+                            return tgl_indo($model->tgl_lahir);
+                        }
+                    ],
+                    'tempat_lahir',
+                    'alamat',
+                    'no_telp',
+                    'email:email',
+                    // 'foto',
+                    // [
+                    //     'attribute' => 'foto',
+                    //     'format' => 'raw',
+                    //     'value' => function ($model) {
+                    //         return Html::img(Yii::getAlias('@web/files/img/') . $model->foto, ['height' => '200px']);
+                    //     }
+                    // ],
+                    'jumlah_pasangan',
+                    'jumlah_anak',
+                    'tahun_masuk',
+                    [
+                        'attribute' => 'kode_jenis_kelamin',
+                        'label' => 'Jenis Kelamin',
+                        'value' => function ($model) {
+                            return $model->kodeJenisKelamin->jenis_kelamin;
+                        }
+                    ],
+                    [
+                        'attribute' => 'kode_jenis_pegawai',
+                        'label' => 'Jenis Pegawai',
+                        'value' => function ($model) {
+                            return $model->kodeJenisPegawai->nama_jenis_pegawai;
+                        }
+                    ],
+                    [
+                        'attribute' => 'kode_unit',
+                        'label' => 'Unit',
+                        'value' => function ($model) {
+                            return $model->kodeUnit->nama_unit;
+                        }
+                    ],
+                    [
+                        'attribute' => 'id_agama',
+                        'label' => 'Agama',
+                        'value' => function ($model) {
+                            return $model->agama->agama;
+                        }
+                    ],
+                    'statusPerkawinan.status_perkawinan',
 
-        ],
-    ]) ?>
+                    // 'created_at',
+                    // 'updated_at',
+                    // 'created_by',
+                    // 'updated_by',
+
+                ],
+            ]) ?>
+        </div>
+    </div>
 </div>
 
 <br>
