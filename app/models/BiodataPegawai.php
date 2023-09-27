@@ -147,6 +147,14 @@ class BiodataPegawai extends \yii\db\ActiveRecord
         // untuk mengubah format tanggal
         $this->tgl_lahir = date('Y-m-d', strtotime($this->tgl_lahir));
 
+        // simpan tatus created by atau updated by
+        if ($insert) {
+            $this->created_by = Yii::$app->user->identity->username;
+        } else {
+            $this->updated_by = Yii::$app->user->identity->username;
+        }
+
+
         return $parent;
     }
 
