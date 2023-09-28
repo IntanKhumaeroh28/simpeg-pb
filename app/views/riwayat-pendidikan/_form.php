@@ -38,12 +38,12 @@ use yii\widgets\ActiveForm;
         'options' => ['accept' => 'application/pdf'],
     ]);
     ?>
-    <?php
-    if ($model->dokumen != null) {
-        echo Html::img(Yii::getAlias('@web/files/dokumen/') . $model->dokumen, ['height' => '200px']);
-    }
-    // 
-    ?>
+    <!-- <?php
+            // if ($model->dokumen != null) {
+            //     echo Html::img(Yii::getAlias('@web/files/dokumen/') . $model->dokumen, ['height' => '200px']);
+            // }
+            // 
+            ?> -->
     <?php
     // $form->field($model, 'dokumen')->hiddenInput()->label('') 
     ?>
