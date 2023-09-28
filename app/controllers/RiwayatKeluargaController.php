@@ -43,9 +43,6 @@ class RiwayatKeluargaController extends Controller
      */
     public function actionIndex()
     {
-        if (User::hasRole('pegawai', false)) {
-            $id_pegawai = Yii::$app->user->identity->username;
-        }
         $searchModel = new RiwayatKeluargaSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
@@ -78,7 +75,8 @@ class RiwayatKeluargaController extends Controller
         $model = new RiwayatKeluarga();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            if ($model->load($this->request->post())) {
+                $model->save();
                 return $this->redirect(['view', 'id_riwayat_keluarga' => $model->id_riwayat_keluarga]);
             }
         } else {
@@ -88,6 +86,26 @@ class RiwayatKeluargaController extends Controller
         return $this->render('create', [
             'model' => $model,
         ]);
+        // $model = new RiwayatKeluarga();
+
+        // if ($this->request->isPost) {
+        //     if ($model->load($this->request->post())) {
+        //         $model->save();
+        //         // echo '<pre>';
+        //         // print_r($model->getErrorSummary(true));
+        //         // echo '</pre>';
+        //         // die;
+        //         return $this->redirect(['view', 'id_riwayat_keluarga' => $model->id_riwayat_keluarga]);
+        //     }
+        // } else {
+        //     $model->loadDefaultValues();
+        //     $id_pegawai->loadDefaultValues();
+        // }
+
+        // return $this->render('create', [
+        //     'model' => $model,
+        //     'id_pegawai' => $id_pegawai,
+        // ]);
     }
 
     /**

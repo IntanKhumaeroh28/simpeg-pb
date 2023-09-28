@@ -54,8 +54,9 @@ use yii\widgets\ActiveForm;
     ?>
 
     <?php
-    if (!User::hasRole('pegawai')) {
+    if (User::hasRole('superadmin') || User::hasRole('kepegawaian')) {
         $data = BiodataPegawai::find()->all();
+
         echo $form->field($model, 'id_pegawai')->widget(Select2::classname(), [
             // map(arraynya, yang akan disimpan ke db, yang akan ditampilkan ke user)
             'data' => ArrayHelper::map($data, 'id_pegawai', 'nama'),

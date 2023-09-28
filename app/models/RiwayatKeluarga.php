@@ -153,10 +153,6 @@ class RiwayatKeluarga extends \yii\db\ActiveRecord
             $this->updated_by = Yii::$app->user->identity->username;
         }
 
-        if (User::hasRole('pegawai')) {
-            $this->id_pegawai = Yii::$app->user->identity->username;
-        }
-
         return $parent;
     }
 
