@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /** @var app\models\JenisPegawai $model */
 
 $this->title = 'Update Data Jenis Pegawai: ' . $model->kode_jenis_pegawai;
-$this->params['breadcrumbs'][] = ['label' => 'Jenis Pegawais', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Jenis Pegawai', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->kode_jenis_pegawai, 'url' => ['view', 'kode_jenis_pegawai' => $model->kode_jenis_pegawai]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>

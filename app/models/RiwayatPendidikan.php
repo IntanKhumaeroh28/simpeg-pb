@@ -92,7 +92,7 @@ class RiwayatPendidikan extends \yii\db\ActiveRecord
             }
         }
 
-        // simpan tatus created by atau updated by
+        // simpan status created by atau updated by
         if ($insert) {
             $this->created_by = Yii::$app->user->identity->username;
         } else {

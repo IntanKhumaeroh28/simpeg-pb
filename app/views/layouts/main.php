@@ -153,6 +153,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                   </li>
                 </ul>
                 <?= GhostHtml::a('User', ['/user/index'], ['class' => 'nav-link']) ?>
+                <!-- <?= GhostHtml::a('Change Own Password', ['auth/change-own-password'], ['class' => 'nav-link']) ?> -->
               <?php endif; ?>
 
               <?php

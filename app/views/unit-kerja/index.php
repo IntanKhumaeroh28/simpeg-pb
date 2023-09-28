@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         ]);
                     },
                     'edit' => function ($url, $model) {
-                        return GhostHtml::a('Edit', ['unit_kerja/update', 'kode_unit' => $model['kode_unit']], [
+                        return GhostHtml::a('Edit', ['unit-kerja/update', 'kode_unit' => $model['kode_unit']], [
                             'class' => 'btn btn-warning btn-sm'
                         ]);
                     },
