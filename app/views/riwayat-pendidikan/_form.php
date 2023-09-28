@@ -31,24 +31,24 @@ use yii\widgets\ActiveForm;
         ]);
     }
     ?>
-
     <?= $form->field($model, 'tahun_tamat')->textInput() ?>
-
     <?php
     echo $form->field($model, 'ijazah_file')->widget(FileInput::classname(), [
         'options' => ['accept' => 'file/*'],
+        'options' => ['accept' => 'application/pdf'],
     ]);
     ?>
     <?php
     if ($model->dokumen != null) {
         echo Html::img(Yii::getAlias('@web/files/dokumen/') . $model->dokumen, ['height' => '200px']);
     }
+    // 
     ?>
-    <?= $form->field($model, 'dokumen')->hiddenInput()->label('') ?>
-
+    <?php
+    // $form->field($model, 'dokumen')->hiddenInput()->label('') 
+    ?>
     <?php
     $data = MasterPendidikanFormal::find()->asArray()->all();
-
     echo $form->field($model, 'id_pendidikan_formal')->widget(Select2::classname(), [
         'data' => ArrayHelper::map($data, 'id_pendidikan_formal', 'nama_pendidikan'),
         'options' => ['placeholder' => 'Pilih nama pendidikan ...'],
@@ -57,12 +57,8 @@ use yii\widgets\ActiveForm;
         ],
     ]);
     ?>
-
-
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
-
     <?php ActiveForm::end(); ?>
-
 </div>
