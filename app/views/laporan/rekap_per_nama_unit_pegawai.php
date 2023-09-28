@@ -27,7 +27,11 @@ $this->params['breadcrumbs'][] = ['label' => 'Rekap per nama unit dan pegawai'];
                 <td><?= $value['nama_unit'] ?></td>
                 <td><?= $value['pegawai'] ?></td>
                 <td>
-                    <?= Html::a('View', ['laporan/viewnamaunit', 'kode_unit' => $value['kode_unit']], ['class' => 'btn btn-info btn-sm']) ?>
+                    <?php
+                    if ($value['pegawai'] > 0) {
+                        echo Html::a('View', ['laporan/viewnamaunit', 'kode_unit' => $value['kode_unit']], ['class' => 'btn btn-info btn-sm']);
+                    }
+                    ?>
                 </td>
             </tr>
         <?php

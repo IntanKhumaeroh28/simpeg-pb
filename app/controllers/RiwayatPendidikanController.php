@@ -75,7 +75,8 @@ class RiwayatPendidikanController extends Controller
         $model = new RiwayatPendidikan();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            if ($model->load($this->request->post())) {
+                $model->save();
                 return $this->redirect(['view', 'id_riwayat_pendidikan' => $model->id_riwayat_pendidikan]);
             }
         } else {
@@ -98,7 +99,13 @@ class RiwayatPendidikanController extends Controller
     {
         $model = $this->findModel($id_riwayat_pendidikan);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $model->save();
+            // echo '<pre>';
+            // print_r($model->getErrorSummary(true));
+            // echo '</pre>';
+            // die;
+
             return $this->redirect(['view', 'id_riwayat_pendidikan' => $model->id_riwayat_pendidikan]);
         }
 
