@@ -19,7 +19,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?php
-    if (!User::hasRole('pegawai')) {
+    if (User::hasRole('superadmin') || User::hasRole('kepegawaian')) {
         $data = BiodataPegawai::find()->asArray()->all();
 
         echo $form->field($model, 'id_pegawai')->widget(Select2::classname(), [
