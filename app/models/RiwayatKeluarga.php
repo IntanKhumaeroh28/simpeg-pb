@@ -44,8 +44,8 @@ class RiwayatKeluarga extends \yii\db\ActiveRecord
             [['tgl_lahir', 'file_kk', 'file_akte', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'safe'],
             [['id_hubungan_keluarga'], 'integer'],
             [['nama'], 'string', 'max' => 100],
-            //[['hub_keluarga', 'nik'], 'string', 'max' => 25],
-            //[['id_pegawai'], 'string', 'max' => 50],
+            // [['hub_keluarga', 'nik'], 'string', 'max' => 25],
+            // [['id_pegawai'], 'string', 'max' => 50],
             [['id_pegawai'], 'exist', 'skipOnError' => true, 'targetClass' => BiodataPegawai::class, 'targetAttribute' => ['id_pegawai' => 'id_pegawai']],
             [
                 ['dokumen_file_kk', 'dokumen_file_akte'], 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf', 'maxSize' => 1024 * 1024 * 1.2
@@ -85,7 +85,7 @@ class RiwayatKeluarga extends \yii\db\ActiveRecord
         // ambil data uploadnya
         $file = UploadedFile::getInstance($this, 'dokumen_file_kk');
 
-        // cek apakah upload upload file apa ngga
+        // cek apakah upload file ada apa ngga
         if (!empty($file)) {
             // bikin url untuk menyimpan gambar
             $uploadPath = Yii::getAlias('@webroot/files/dokumen/');
