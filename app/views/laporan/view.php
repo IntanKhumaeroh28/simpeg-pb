@@ -2,8 +2,9 @@
 
 use yii\helpers\Html;
 
-$this->params['breadcrumbs'][] = ['label' => 'Rekap per kode jenis kelamin dan pegawai', 'url' => ['rekap_per_jenis_kelamin_pegawai']];
-$this->params['breadcrumbs'][] = ['label' => 'View'];
+$this->params['breadcrumbs'][] = ['label' => 'Rekap per kode jenis kelamin dan pegawai', 'url' => ['rekap-per-jenis-kelamin-pegawai']];
+$this->params['breadcrumbs'][] = ['label' => 'View
+'];
 
 ?>
 <h2><?= $judul ?></h2>

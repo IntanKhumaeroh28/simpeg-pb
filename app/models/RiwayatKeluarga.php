@@ -146,15 +146,11 @@ class RiwayatKeluarga extends \yii\db\ActiveRecord
         // untuk mengubah format tanggal
         $this->tgl_lahir = date('Y-m-d', strtotime($this->tgl_lahir));
 
-        // simpan tatus created by atau updated by
+        // simpan status created by atau updated by
         if ($insert) {
             $this->created_by = Yii::$app->user->identity->username;
         } else {
             $this->updated_by = Yii::$app->user->identity->username;
-        }
-
-        if (User::hasRole('pegawai')) {
-            $this->id_pegawai = Yii::$app->user->identity->username;
         }
 
         return $parent;

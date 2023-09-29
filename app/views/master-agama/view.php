@@ -8,7 +8,7 @@ use yii\widgets\DetailView;
 /** @var app\models\MasterAgama $model */
 
 $this->title = $model->id_agama;
-$this->params['breadcrumbs'][] = ['label' => 'Master Agamas', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Master Agama', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>

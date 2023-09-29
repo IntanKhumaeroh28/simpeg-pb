@@ -9,7 +9,7 @@ use yii\widgets\DetailView;
 /** @var app\models\MasterJenisKelamin $model */
 
 $this->title = $model->kode_jenis_kelamin;
-$this->params['breadcrumbs'][] = ['label' => 'Master Jenis Kelamins', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Master Jenis Kelamin', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>

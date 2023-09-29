@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /** @var app\models\MasterJenisKelamin $model */
 
 $this->title = 'Update Data Jenis Kelamin: ' . $model->kode_jenis_kelamin;
-$this->params['breadcrumbs'][] = ['label' => 'Master Jenis Kelamins', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Master Jenis Kelamin', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->kode_jenis_kelamin, 'url' => ['view', 'kode_jenis_kelamin' => $model->kode_jenis_kelamin]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>

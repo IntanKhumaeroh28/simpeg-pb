@@ -79,7 +79,7 @@ use yii\widgets\ActiveForm;
     echo $form->field($model, 'kode_jenis_kelamin')->widget(Select2::classname(), [
         // map(arraynya, yang akan disimpan ke db, yang akan ditampilkan ke user)
         'data' => ArrayHelper::map($data, 'kode_jenis_kelamin', 'jenis_kelamin'),
-        'options' => ['placeholder' => 'pilih kode jenis kelamin'],
+        'options' => ['placeholder' => 'pilih jenis kelamin'],
         'pluginOptions' => [
             'allowClear' => true
         ],
@@ -92,7 +92,7 @@ use yii\widgets\ActiveForm;
     echo $form->field($model, 'kode_jenis_pegawai')->widget(Select2::classname(), [
         // map(arraynya, yang akan disimpan ke db, yang akan ditampilkan ke user)
         'data' => ArrayHelper::map($data, 'kode_jenis_pegawai', 'nama_jenis_pegawai'),
-        'options' => ['placeholder' => 'pilih kode jenis pegawai'],
+        'options' => ['placeholder' => 'pilih jenis pegawai'],
         'pluginOptions' => [
             'allowClear' => true
         ],
@@ -105,7 +105,7 @@ use yii\widgets\ActiveForm;
     echo $form->field($model, 'kode_unit')->widget(Select2::classname(), [
         // map(arraynya, yang akan disimpan ke db, yang akan ditampilkan ke user)
         'data' => ArrayHelper::map($data, 'kode_unit', 'nama_unit'),
-        'options' => ['placeholder' => 'pilih kode unit'],
+        'options' => ['placeholder' => 'pilih nama unit'],
         'pluginOptions' => [
             'allowClear' => true
         ],
@@ -118,7 +118,7 @@ use yii\widgets\ActiveForm;
     echo $form->field($model, 'id_agama')->widget(Select2::classname(), [
         // map(arraynya, yang akan disimpan ke db, yang akan ditampilkan ke user)
         'data' => ArrayHelper::map($data, 'id_agama', 'agama'),
-        'options' => ['placeholder' => 'pilih id agama'],
+        'options' => ['placeholder' => 'pilih agama'],
         'pluginOptions' => [
             'allowClear' => true
         ],
@@ -131,7 +131,7 @@ use yii\widgets\ActiveForm;
     echo $form->field($model, 'id_status_perkawinan')->widget(Select2::classname(), [
         // map(arraynya, yang akan disimpan ke db, yang akan ditampilkan ke user)
         'data' => ArrayHelper::map($data, 'id_status_perkawinan', 'status_perkawinan'),
-        'options' => ['placeholder' => 'pilih id status perkawinan'],
+        'options' => ['placeholder' => 'pilih status perkawinan'],
         'pluginOptions' => [
             'allowClear' => true
         ],

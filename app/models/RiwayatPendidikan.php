@@ -39,7 +39,7 @@ class RiwayatPendidikan extends \yii\db\ActiveRecord
     {
         return [
             [['tahun_tamat', 'id_pegawai', 'id_pendidikan_formal'], 'required'],
-            [['tahun_tamat', 'id_pendidikan_formal'], 'integer'],
+            [['tahun_tamat', 'id_pendidikan_formal', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'safe'],
             [['dokumen'], 'string', 'max' => 100],
             [['id_pegawai'], 'string', 'max' => 50],
             [['id_pegawai'], 'exist', 'skipOnError' => true, 'targetClass' => BiodataPegawai::class, 'targetAttribute' => ['id_pegawai' => 'id_pegawai']],
@@ -92,7 +92,7 @@ class RiwayatPendidikan extends \yii\db\ActiveRecord
             }
         }
 
-        // simpan tatus created by atau updated by
+        // simpan status created by atau updated by
         if ($insert) {
             $this->created_by = Yii::$app->user->identity->username;
         } else {
