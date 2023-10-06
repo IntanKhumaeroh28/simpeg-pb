@@ -16,9 +16,15 @@ use yii\widgets\ActiveForm;
     ]); ?>
 
     <!-- <?= $form->field($model, 'id_riwayat_pendidikan') ?> -->
+    
+    <?= $form->field($model, 'asal_sekolah') ?>
+
+    <?= $form->field($model, 'prodi') ?>
+
+    <?= $form->field($model, 'gelar') ?>
 
     <?= $form->field($model, 'id_pegawai') ?>
-
+    
     <?= $form->field($model, 'tahun_tamat') ?>
 
     <?= $form->field($model, 'dokumen') ?>

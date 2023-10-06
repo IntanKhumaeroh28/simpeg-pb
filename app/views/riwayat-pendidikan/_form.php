@@ -32,6 +32,9 @@ use yii\widgets\ActiveForm;
         ]);
     }
     ?>
+    <?= $form->field($model, 'asal_sekolah')->textInput() ?>
+    <?= $form->field($model, 'prodi')->textInput() ?>
+    <?= $form->field($model, 'gelar')->textInput() ?>
     <?= $form->field($model, 'tahun_tamat')->textInput() ?>
     <?php
     echo $form->field($model, 'ijazah_file')->widget(FileInput::classname(), [

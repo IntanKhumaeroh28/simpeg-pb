@@ -89,7 +89,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
       <nav class="navbar navbar-expand-md fixed-top">
         <style>
           .navbar {
-            background: blue;
+            background: #006A4E;
 
             /* untuk menampilkan supaya tampilan navbar jadi gradasi
 
