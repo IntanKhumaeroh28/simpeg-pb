@@ -89,7 +89,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
       <nav class="navbar navbar-expand-md fixed-top">
         <style>
           .navbar {
-            background: #006A4E;
+            background: blue;
 
             /* untuk menampilkan supaya tampilan navbar jadi gradasi
 
@@ -153,7 +153,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                   </li>
                 </ul>
                 <?= GhostHtml::a('User', ['/user/index'], ['class' => 'nav-link']) ?>
-                <!-- <?= GhostHtml::a('Change Own Password', ['auth/change-own-password'], ['class' => 'nav-link']) ?> -->
+                <!-- <?= GhostHtml::a('Merubah Password', ['auth/change-own-password'], ['class' => 'nav-link']) ?> -->
               <?php endif; ?>
 
               <?php

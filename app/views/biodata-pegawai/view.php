@@ -58,7 +58,7 @@ function tgl_indo($tanggal)
             <h2>Foto Pegawai</p>
                 <img src='<?= Yii::getAlias('@web/files/img/') . $model->foto ?>' width="100%">
         </div>
-        <div class="col">
+        <div class="col-md-12">
             <?= DetailView::widget([
 
                 'model' => $model,
@@ -178,7 +178,7 @@ function tgl_indo($tanggal)
                 <td><?= $no++ ?></td>
                 <td><?= $value['hubungan_keluarga'] ?></td>
                 <td><?= $value['nama'] ?></td>
-                <td><?= $value['tgl_lahir'] ?></td>
+                <td><?= tgl_indo($value['tgl_lahir']) ?></td>
                 <td><?= $value['nik'] ?></td>
                 <td><?= Html::a($value['file_kk'], ['biodata-pegawai/view-dokumen', 'dokumen' => $value['file_kk']]) ?></td>
                 <td><?= Html::a($value['file_akte'], ['biodata-pegawai/view-dokumen', 'dokumen' => $value['file_akte']]) ?></td>
