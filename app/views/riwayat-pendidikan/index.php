@@ -42,6 +42,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->biodataPegawai->nama;
                 }
             ],
+            'asal_sekolah',
+            'prodi',
+            'gelar',
             'tahun_tamat',
 
             [

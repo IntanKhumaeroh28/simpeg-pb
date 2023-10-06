@@ -39,7 +39,7 @@ class RiwayatPendidikan extends \yii\db\ActiveRecord
     {
         return [
             [['tahun_tamat', 'id_pegawai', 'id_pendidikan_formal'], 'required'],
-            [['tahun_tamat', 'id_pendidikan_formal', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'safe'],
+            [['tahun_tamat', 'asal_sekolah', 'prodi', 'gelar', 'id_pendidikan_formal', 'created_by', 'updated_by', 'created_at', 'updated_at'], 'safe'],
             [['dokumen'], 'string', 'max' => 100],
             [['id_pegawai'], 'string', 'max' => 50],
             [['id_pegawai'], 'exist', 'skipOnError' => true, 'targetClass' => BiodataPegawai::class, 'targetAttribute' => ['id_pegawai' => 'id_pegawai']],
@@ -59,9 +59,12 @@ class RiwayatPendidikan extends \yii\db\ActiveRecord
     {
         return [
             'id_riwayat_pendidikan' => 'Id Riwayat Pendidikan',
+            'asal_sekolah' => 'Asal Sekolah',
+            'prodi' => 'Prodi',
+            'gelar' => 'Gelar',
             'tahun_tamat' => 'Tahun Tamat',
             'dokumen' => 'Dokumen',
-            'id_pegawai' => 'nama',
+            'id_pegawai' => 'Nama',
             'id_pendidikan_formal' => 'Nama Pendidikan Formal',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
