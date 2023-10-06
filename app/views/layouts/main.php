@@ -150,7 +150,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                       <?= GhostHtml::a('Rekap Nama Unit, Jenis Kelamin dan Total', ['/laporan/rekap-per-nama-unit-jenis-kelamin-total'], ['class' => 'dropdown-item']) ?>
                       <?= GhostHtml::a('Rekap Nama Unit, Jumlah Pegawai', ['/laporan/rekap-per-nama-unit-pegawai'], ['class' => 'dropdown-item']) ?>
                     </div>
-                  </li>
+                  </li>gi
                 </ul>
                 <?= GhostHtml::a('User', ['/user/index'], ['class' => 'nav-link']) ?>
                 <!-- <?= GhostHtml::a('Merubah Password', ['auth/change-own-password'], ['class' => 'nav-link']) ?> -->
@@ -187,11 +187,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
   <footer id="footer" class="mt-auto py-3 bg-light">
     <div class="container">
       <div class="row text-muted">
-<<<<<<< HEAD
-        <div class="col-md-6 text-center text-md-start">&copy; CV.Prabubima Tech <?= date('Y') ?></div>
-=======
         <div class="col-md-6 text-center text-md-start">&copy; Cv Prabubimatech <?= date('Y') ?></div>
->>>>>>> 2a616655ac785adcb9ff7bef33329c994bafd4d6
         <div class="col-md-6 text-center text-md-end"><?= Yii::powered() ?></div>
       </div>
     </div>
