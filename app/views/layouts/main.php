@@ -150,7 +150,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                       <?= GhostHtml::a('Rekap Nama Unit, Jenis Kelamin dan Total', ['/laporan/rekap-per-nama-unit-jenis-kelamin-total'], ['class' => 'dropdown-item']) ?>
                       <?= GhostHtml::a('Rekap Nama Unit, Jumlah Pegawai', ['/laporan/rekap-per-nama-unit-pegawai'], ['class' => 'dropdown-item']) ?>
                     </div>
-                  </li>
+                  </li>gi
                 </ul>
                 <?= GhostHtml::a('User', ['/user/index'], ['class' => 'nav-link']) ?>
                 <!-- <?= GhostHtml::a('Merubah Password', ['auth/change-own-password'], ['class' => 'nav-link']) ?> -->

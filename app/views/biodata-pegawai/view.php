@@ -58,7 +58,7 @@ function tgl_indo($tanggal)
             <h3>Foto Pegawai</p>
                 <img src='<?= Yii::getAlias('@web/files/img/') . $model->foto ?>' width="100%">
         </div>
-        <div class="col-md-12">
+        <div class="col">
             <?= DetailView::widget([
 
                 'model' => $model,
