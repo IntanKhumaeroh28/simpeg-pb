@@ -46,8 +46,15 @@ use yii\helpers\Html;
         <tr>
             <td></td>
             <td></td>
+<<<<<<< HEAD
             <td>Total:</td>
             <td><?= $total ?></td>
         </tr>
+=======
+            <td><b>Total:</b></td>
+            <td><?= $total ?></td>
+        </tr>
+        </tr>
+>>>>>>> 2a616655ac785adcb9ff7bef33329c994bafd4d6
     </tbody>
 </table>

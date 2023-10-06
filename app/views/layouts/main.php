@@ -89,7 +89,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
       <nav class="navbar navbar-expand-md fixed-top">
         <style>
           .navbar {
-            background: #006A4E;
+            background: blue;
 
             /* untuk menampilkan supaya tampilan navbar jadi gradasi
 
@@ -153,7 +153,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                   </li>
                 </ul>
                 <?= GhostHtml::a('User', ['/user/index'], ['class' => 'nav-link']) ?>
-                <!-- <?= GhostHtml::a('Change Own Password', ['auth/change-own-password'], ['class' => 'nav-link']) ?> -->
+                <!-- <?= GhostHtml::a('Merubah Password', ['auth/change-own-password'], ['class' => 'nav-link']) ?> -->
               <?php endif; ?>
 
               <?php
@@ -187,7 +187,11 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
   <footer id="footer" class="mt-auto py-3 bg-light">
     <div class="container">
       <div class="row text-muted">
+<<<<<<< HEAD
         <div class="col-md-6 text-center text-md-start">&copy; CV.Prabubima Tech <?= date('Y') ?></div>
+=======
+        <div class="col-md-6 text-center text-md-start">&copy; Cv Prabubimatech <?= date('Y') ?></div>
+>>>>>>> 2a616655ac785adcb9ff7bef33329c994bafd4d6
         <div class="col-md-6 text-center text-md-end"><?= Yii::powered() ?></div>
       </div>
     </div>

@@ -98,6 +98,11 @@ class RiwayatPendidikan extends \yii\db\ActiveRecord
         } else {
             $this->updated_by = Yii::$app->user->identity->username;
         }
+
+        if (User::hasRole('pegawai', false)) {
+            $this->id_pegawai = Yii::$app->user->identity->username;
+        }
+
         return $parent;
     }
 

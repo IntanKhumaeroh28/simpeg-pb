@@ -19,8 +19,10 @@ $this->params['breadcrumbs'][] = ['label' => 'Rekap per nama unit dan pegawai'];
     </thead>
     <tbody>
         <?php
+        $total = 0;
         $no = 1;
         foreach ($data as $value) :
+            $total += $value['pegawai'];
         ?>
             <tr>
                 <td><?= $no++ ?></td>
@@ -37,5 +39,10 @@ $this->params['breadcrumbs'][] = ['label' => 'Rekap per nama unit dan pegawai'];
         <?php
         endforeach;
         ?>
+        <tr>
+            <td></td>
+            <td><b>Total:</b></td>
+            <td><?= $total ?></td>
+        </tr>
     </tbody>
 </table>

@@ -117,6 +117,9 @@ class RiwayatKeluargaController extends Controller
      */
     public function actionUpdate($id_riwayat_keluarga)
     {
+        if (User::hasRole('pegawai', false)) {
+            $id_pegawai = Yii::$app->user->identity->username;
+        }
         $model = $this->findModel($id_riwayat_keluarga);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {

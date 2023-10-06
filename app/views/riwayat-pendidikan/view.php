@@ -68,7 +68,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h2> Dokumen Ijazah </h2>
     <?php
-    echo '<embed src="' . Yii::getAlias('@web/files/dokumen/') . $model->dokumen . '" type="application/pdf" width="1110" height="600"></embed>';
+    if ($model->ijazah_file != null) {
+        echo '<embed src="' . Yii::getAlias('@web/files/dokumen/') . $model->dokumen . '" type="application/pdf" width="1110" height="600"></embed>';
+    } else {
+        echo  '
+    <div class="alert alert-secondary" role="alert">
+    File Ijazah belum ada!';
+    }
     ?>
 
 </div>
