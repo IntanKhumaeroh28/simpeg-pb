@@ -21,8 +21,10 @@ use yii\helpers\Html;
     </thead>
     <tbody>
         <?php
+        $total = 0;
         $no = 1;
         foreach ($data as $value) :
+            $total += $value['total'];
         ?>
             <tr>
                 <td><?= $no++ ?></td>
@@ -41,5 +43,11 @@ use yii\helpers\Html;
         <?php
         endforeach;
         ?>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Total:</td>
+            <td><?= $total ?></td>
+        </tr>
     </tbody>
 </table>

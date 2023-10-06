@@ -178,7 +178,7 @@ function tgl_indo($tanggal)
                 <td><?= $no++ ?></td>
                 <td><?= $value['hubungan_keluarga'] ?></td>
                 <td><?= $value['nama'] ?></td>
-                <td><?= $value['tgl_lahir'] ?></td>
+                <td><?= tgl_indo($value['tgl_lahir']); ?></td>
                 <td><?= $value['nik'] ?></td>
                 <td><?= Html::a($value['file_kk'], ['biodata-pegawai/view-dokumen', 'dokumen' => $value['file_kk']]) ?></td>
                 <td><?= Html::a($value['file_akte'], ['biodata-pegawai/view-dokumen', 'dokumen' => $value['file_akte']]) ?></td>
