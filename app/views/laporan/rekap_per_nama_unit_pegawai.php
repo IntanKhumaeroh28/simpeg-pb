@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Rekap per nama unit dan pegawai'];
         <tr>
             <td></td>
             <td><b>Total:</b></td>
-            <td style="font-size: 70px"><?= $total ?></td>
+            <td><?= $total ?></td>
         </tr>
     </tbody>
 </table>

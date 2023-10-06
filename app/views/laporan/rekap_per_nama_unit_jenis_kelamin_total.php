@@ -46,7 +46,7 @@ use yii\helpers\Html;
         <tr>
             <td></td>
             <td></td>
-            <td>$Total:</td>
+            <td><b>Total:</b></td>
             <td><?= $total ?></td>
         </tr>
         </tr>
