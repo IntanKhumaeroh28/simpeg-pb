@@ -178,10 +178,6 @@ function tgl_indo($tanggal)
                 <td><?= $no++ ?></td>
                 <td><?= $value['hubungan_keluarga'] ?></td>
                 <td><?= $value['nama'] ?></td>
-<<<<<<< HEAD
-=======
-                
->>>>>>> 2a616655ac785adcb9ff7bef33329c994bafd4d6
                 <td><?= tgl_indo($value['tgl_lahir']); ?></td>
                 <td><?= $value['nik'] ?></td>
                 <td><?= Html::a($value['file_kk'], ['biodata-pegawai/view-dokumen', 'dokumen' => $value['file_kk']]) ?></td>
