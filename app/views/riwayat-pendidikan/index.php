@@ -43,8 +43,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             'asal_sekolah',
-            'prodi',
-            'gelar',
+            // 'prodi',
+            // 'gelar',
             'tahun_tamat',
 
             [
@@ -66,6 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'class' => ActionColumn::className(),
                 'template' => '{view} {edit} {hapus}',
+                'contentOptions' => ['style' => 'width:25%;'],
                 'buttons' => [
                     'view' => function ($url, $model) {
                         return GhostHtml::a('View', ['riwayat-pendidikan/view', 'id_riwayat_pendidikan' => $model['id_riwayat_pendidikan']], [

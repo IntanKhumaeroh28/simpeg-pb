@@ -91,6 +91,7 @@ function tgl_indo($tanggal)
             [
                 'class' => ActionColumn::className(),
                 'template' => '{view} {edit} {hapus}',
+                'contentOptions' => ['style' => 'width:25%;'],
                 'buttons' => [
                     'view' => function ($url, $model) {
                         return GhostHtml::a('View', ['riwayat-keluarga/view', 'id_riwayat_keluarga' => $model['id_riwayat_keluarga']], [
