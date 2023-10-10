@@ -19,7 +19,7 @@ class RiwayatPendidikanSearch extends RiwayatPendidikan
     {
         return [
             [['id_riwayat_pendidikan', 'tahun_tamat', 'id_pendidikan_formal'], 'integer'],
-            [['dokumen', 'id_pegawai'], 'safe'],
+            [['dokumen', 'id_pegawai', 'asal_sekolah', 'prodi', 'gelar'], 'safe'],
         ];
     }
 
@@ -64,6 +64,9 @@ class RiwayatPendidikanSearch extends RiwayatPendidikan
         // grid filtering conditions
         $query->andFilterWhere([
             'id_riwayat_pendidikan' => $this->id_riwayat_pendidikan,
+            'asal_sekolah' => $this->asal_sekolah,
+            'prodi' => $this->prodi,
+            'gelar' => $this->gelar,
             'tahun_tamat' => $this->tahun_tamat,
             'id_pendidikan_formal' => $this->id_pendidikan_formal,
         ]);

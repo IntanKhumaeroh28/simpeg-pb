@@ -13,6 +13,9 @@ use yii\web\UploadedFile;
  * This is the model class for table "riwayat_pendidikan".
  *
  * @property int $id_riwayat_pendidikan
+ * @property string $asal_sekolah
+ * @property string $prodi
+ * @property string $gelar
  * @property int $tahun_tamat
  * @property string $dokumen
  * @property string $id_pegawai
