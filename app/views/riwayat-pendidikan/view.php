@@ -68,16 +68,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
         ],
     ]) ?>
+</div>
 
-    <h2> Dokumen Ijazah </h2>
-    <?php
-    if ($model->ijazah_file != null) {
-        echo '<embed src="' . Yii::getAlias('@web/files/dokumen/') . $model->dokumen . '" type="application/pdf" width="1110" height="600"></embed>';
-    } else {
-        echo  '
+<h2> Dokumen Ijazah </h2>
+<?php
+if ($model->dokumen != null) {
+    echo '<embed src="' . Yii::getAlias('@web/files/dokumen/') . $model->dokumen . '" type="application/pdf" width="1110" height="600">';
+} else {
+    echo  '
     <div class="alert alert-secondary" role="alert">
     File Ijazah belum ada!';
-    }
-    ?>
-
-</div>
+}
+?>
