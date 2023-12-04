@@ -58,7 +58,7 @@ function tgl_indo($tanggal)
             ['class' => 'yii\grid\SerialColumn'],
 
             'id_pegawai',
-            'nik',
+            //'nik',
             'nama',
             [
                 'attribute' => 'tgl_lahir',
@@ -70,7 +70,13 @@ function tgl_indo($tanggal)
             // 'alamat',
             // 'no_telp',
             // 'email:email',
-            // 'foto',
+            [
+                'attribute' => 'foto',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return Html::img(Yii::getAlias('@web/files/img/') . $model->foto, ['height' => '200px']);
+                }
+            ],
             // 'jumlah_pasangan',
             // 'jumlah_anak',
             // 'tahun_masuk',
@@ -96,7 +102,7 @@ function tgl_indo($tanggal)
                 'contentOptions' => ['style' => 'width:25%;'],
                 'buttons' => [
                     'view' => function ($url, $model) {
-                        return GhostHtml::a('View', ['biodata-pegawai/view', 'id_pegawai' => $model['id_pegawai']], [
+                        return GhostHtml::a('View Detail', ['biodata-pegawai/view', 'id_pegawai' => $model['id_pegawai']], [
                             'class' => 'btn btn-primary btn-sm'
                         ]);
                     },

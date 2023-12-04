@@ -23,23 +23,23 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nama')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'nik')->textInput(['maxlength' => true]) ?>
+    <?php // $form->field($model, 'nik')->textInput(['maxlength' => true]) ?>
 
     <?php
-    echo $form->field($model, 'dokumen_file_kk')->widget(FileInput::classname(), [
-        'options' => ['accept' => 'file/*'],
-        'options' => ['accept' => 'application/pdf'],
-    ]); ?>
+    // echo $form->field($model, 'dokumen_file_kk')->widget(FileInput::classname(), [
+    //     'options' => ['accept' => 'file/*'],
+    //     'options' => ['accept' => 'application/pdf'],
+    // ]); ?>
 
-    <?= $form->field($model, 'file_kk')->hiddenInput()->label('') ?>
+    <?php // $form->field($model, 'file_kk')->hiddenInput()->label('') ?>
 
     <?php
-    echo $form->field($model, 'dokumen_file_akte')->widget(FileInput::classname(), [
-        'options' => ['accept' => 'file/*'],
-        'options' => ['accept' => 'application/pdf'],
-    ]); ?>
+    // echo $form->field($model, 'dokumen_file_akte')->widget(FileInput::classname(), [
+    //     'options' => ['accept' => 'file/*'],
+    //     'options' => ['accept' => 'application/pdf'],
+    // ]); ?>
 
-    <?= $form->field($model, 'file_akte')->hiddenInput()->label('') ?>
+    <?php // $form->field($model, 'file_akte')->hiddenInput()->label('') ?>
 
     <?php
     echo $form->field($model, 'tgl_lahir')->widget(DatePicker::classname(), [
