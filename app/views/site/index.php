@@ -79,47 +79,59 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
                         ['riwayat-pendidikan/index'],
                         ['class' => 'box']
                     ) ?>
+                    <?php 
+                    // echo GhostHtml::a(
+                    //     Html::tag('div', Html::img('app/assets/icon/masterhub.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Master Hubungan Keluarga'),
+                    //     ['master-hubungan-keluarga/index'],
+                    //     ['class' => 'box']
+                    //) 
+                    ?>
                     <?php echo GhostHtml::a(
-                        Html::tag('div', Html::img('app/assets/icon/masterhub.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Master Hubungan Keluarga'),
-                        ['master-hubungan-keluarga/index'],
-                        ['class' => 'box']
-                    ) ?>
-                    <?php echo GhostHtml::a(
-                        Html::tag('div', Html::img('app/assets/icon/masterpend.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Master Hubungan Pendidikan Formal'),
+                        Html::tag('div', Html::img('app/assets/icon/masterpend.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Master Pendidikan Formal'),
                         ['master-pendidikan-formal/index'],
                         ['class' => 'box']
                     ) ?>
-                    <?php echo GhostHtml::a(
-                        Html::tag('div', Html::img('app/assets/icon/jenis kelamin.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Master Jenis Kelamin'),
-                        ['master-jenis-kelamin/index'],
-                        ['class' => 'box']
-                    ) ?>
-                    <?php echo GhostHtml::a(
-                        Html::tag('div', Html::img('app/assets/icon/agama.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Master Agama'),
-                        ['master-agama/index'],
-                        ['class' => 'box']
-                    ) ?>
+                    <?php 
+                    // echo GhostHtml::a(
+                    //     Html::tag('div', Html::img('app/assets/icon/jenis kelamin.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Master Jenis Kelamin'),
+                    //     ['master-jenis-kelamin/index'],
+                    //     ['class' => 'box']
+                    // ) 
+                    ?>
+                    <?php 
+                    // echo GhostHtml::a(
+                    //     Html::tag('div', Html::img('app/assets/icon/agama.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Master Agama'),
+                    //     ['master-agama/index'],
+                    //     ['class' => 'box']
+                    // )
+                     ?>
 
-                    <?php echo GhostHtml::a(
-                        Html::tag('div', Html::img('app/assets/icon/status perkawinan.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Master Status Perkawinan'),
-                        ['master-status-perkawinan/index'],
-                        ['class' => 'box']
-                    ) ?>
-                    <?php echo GhostHtml::a(
-                        Html::tag('div', Html::img('app/assets/icon/jenis pegawai.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Jenis Pegawai'),
-                        ['jenis-pegawai/index'],
-                        ['class' => 'box']
-                    ) ?>
+                    <?php 
+                    // echo GhostHtml::a(
+                    //     Html::tag('div', Html::img('app/assets/icon/status perkawinan.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Master Status Perkawinan'),
+                    //     ['master-status-perkawinan/index'],
+                    //     ['class' => 'box']
+                    // ) 
+                    ?>
+                    <?php 
+                    // echo GhostHtml::a(
+                    //     Html::tag('div', Html::img('app/assets/icon/jenis pegawai.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Jenis Pegawai'),
+                    //     ['jenis-pegawai/index'],
+                    //     ['class' => 'box']
+                    // ) 
+                    ?>
                     <?php echo GhostHtml::a(
                         Html::tag('div', Html::img('app/assets/icon/unit kerja.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Unit Kerja'),
                         ['unit-kerja/index'],
                         ['class' => 'box']
                     ) ?>
-                    <?php echo GhostHtml::a(
+                    <?php 
+                    echo GhostHtml::a(
                         Html::tag('div', Html::img('app/assets/icon/rekap.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Rekap Jenis Kelamin dan Pegawai'),
                         ['laporan/rekap-per-jenis-kelamin-pegawai'],
                         ['class' => 'box']
-                    ) ?>
+                    )
+                     ?>
                     <?php echo GhostHtml::a(
                         Html::tag('div', Html::img('app/assets/icon/rekap.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Rekap Nama Unit, Jenis Kelamin dan Total'),
                         ['laporan/rekap-per-nama-unit-jenis-kelamin-total'],

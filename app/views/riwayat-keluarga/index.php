@@ -71,7 +71,7 @@ function tgl_indo($tanggal)
                 'label' => 'Nama Keluarga',
             ],
             //'hub_keluarga',
-            'nik',
+            //'nik',
             // 'file_kk',
             // 'file_akte',
             [

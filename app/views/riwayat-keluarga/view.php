@@ -69,7 +69,7 @@ function tgl_indo($tanggal)
                 'label' => 'Nama Keluarga',
             ],
             // 'hub_keluarga',
-            'nik',
+            //'nik',
             // 'file_kk',
             // [
             //     'attribute' => 'file_kk',
@@ -97,27 +97,27 @@ function tgl_indo($tanggal)
         ],
     ]) ?>
 
-    <h3>File KK</h3>
+    <!-- <h3>File KK</h3> -->
     <?php
-    if ($model->file_kk != null) {
-        // echo Html::img(Yii::getAlias('@web/files/dokumen/') . $model->file_kk, ['height' => '200px']);
-        echo '<embed src="' . Yii::getAlias('@web/files/dokumen/') . $model->file_kk . '" type="application/pdf" width="100%" height="600px" />';
-    } else {
-        echo  '
-        <div class="alert alert-secondary" role="alert">
-        File KK belum ada!';
-    }
+    // if ($model->file_kk != null) {
+    //     // echo Html::img(Yii::getAlias('@web/files/dokumen/') . $model->file_kk, ['height' => '200px']);
+    //     echo '<embed src="' . Yii::getAlias('@web/files/dokumen/') . $model->file_kk . '" type="application/pdf" width="100%" height="600px" />';
+    // } else {
+    //     echo  '
+    //     <div class="alert alert-secondary" role="alert">
+    //     File KK belum ada!';
+    // }
     ?>
 </div>
 
-<h3>File Akte</h3>
+<!-- <h3>File Akte</h3> -->
 <?php
-if ($model->file_akte != null) {
-    // echo Html::img(Yii::getAlias('@web/files/dokumen/') . $model->file_kk, ['height' => '200px']);
-    echo '<embed src="' . Yii::getAlias('@web/files/dokumen/') . $model->file_akte . '" type="application/pdf" width="100%" height="600px" />';
-} else {
-    echo  '
-    <div class="alert alert-secondary" role="alert">
-    File Akte belum ada!';
-}
+// if ($model->file_akte != null) {
+//     // echo Html::img(Yii::getAlias('@web/files/dokumen/') . $model->file_kk, ['height' => '200px']);
+//     echo '<embed src="' . Yii::getAlias('@web/files/dokumen/') . $model->file_akte . '" type="application/pdf" width="100%" height="600px" />';
+// } else {
+//     echo  '
+//     <div class="alert alert-secondary" role="alert">
+//     File Akte belum ada!';
+// }
 ?>

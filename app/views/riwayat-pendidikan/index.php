@@ -2,6 +2,7 @@
 
 use app\models\BiodataPegawai;
 use app\models\RiwayatPendidikan;
+use app\models\User;
 use webvimark\modules\UserManagement\components\GhostHtml;
 use yii\base\Model;
 use yii\helpers\Html;
@@ -36,8 +37,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
             // 'id_riwayat_pendidikan',
             [
+                // 'attribute' => 'id_pegawai',
+                // 'filter' => ArrayHelper::map(BiodataPegawai::find()->asArray()->all(), 'id_pegawai', 'nama'),
+                // 'value' => function ($model) {
+                //     return $model->biodataPegawai->nama;
+                // }
                 'attribute' => 'id_pegawai',
-                'filter' => ArrayHelper::map(BiodataPegawai::find()->asArray()->all(), 'id_pegawai', 'nama'),
+                'filter' => User::hasRole('pegawai', false) ? null : ArrayHelper::map(BiodataPegawai::find()->asArray()->all(), 'id_pegawai', 'nama'),
                 'value' => function ($model) {
                     return $model->biodataPegawai->nama;
                 }

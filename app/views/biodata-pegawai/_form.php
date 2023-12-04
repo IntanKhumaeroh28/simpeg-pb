@@ -31,7 +31,7 @@ use yii\widgets\ActiveForm;
     }
     ?>
 
-    <?= $form->field($model, 'nik')->textInput(['maxlength' => true]) ?>
+    <?php // $form->field($model, 'nik')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'nama')->textInput(['maxlength' => true]) ?>
 
