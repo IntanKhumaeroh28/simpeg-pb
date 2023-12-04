@@ -113,7 +113,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
               <?= Html::a('Simpeg', ['/site/index'], ['class' => 'nav-link']) ?>
               <?= Html::a('Home', ['/site/index'], ['class' => 'nav-link']) ?>
               <?php if (!Yii::$app->user->isGuest) : ?>
-                <?= GhostHtml::a('Biodata Pegawai', ['/biodata-pegawai/index'], ['class' => 'nav-link']) ?>
+                <?= GhostHtml::a('Biodata Pegawai', ['/biodata-pegawai/index'], ['class' => 'nav-link ']) ?>
 
                 <ul class="navbar-nav">
                   <li class="nav-item dropdown">
@@ -131,12 +131,15 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 <li class="nav-item dropdown">
                   <?= GhostHtml::a('Master', ['/master-jenis-kelamin/index'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
                   <div class="dropdown-menu">
-                    <?= GhostHtml::a('Master Jenis Kelamin', ['/master-jenis-kelamin/index'], ['class' => 'dropdown-item']) ?>
-                    <?= GhostHtml::a('Master Agama', ['/master-agama/index'], ['class' => 'dropdown-item']) ?>
-                    <?= GhostHtml::a('Master Hubungan Keluarga', ['/master-hubungan-keluarga/index'], ['class' => 'dropdown-item']) ?>
+                    <?php // GhostHtml::a('Master Jenis Kelamin', ['/master-jenis-kelamin/index'], ['class' => 'dropdown-item']) 
+                    ?>
+                    <?php // GhostHtml::a('Master Agama', ['/master-agama/index'], ['class' => 'dropdown-item']) 
+                    ?>
+                    <?php // GhostHtml::a('Master Hubungan Keluarga', ['/master-hubungan-keluarga/index'], ['class' => 'dropdown-item']) ?>
                     <?= GhostHtml::a('Master Pendidikan Formal', ['/master-pendidikan-formal/index'], ['class' => 'dropdown-item']) ?>
-                    <?= GhostHtml::a('Master Status Perkawinan', ['/master-status-perkawinan/index'], ['class' => 'dropdown-item']) ?>
-                    <?= GhostHtml::a('Jenis Pegawai', ['/jenis-pegawai/index'], ['class' => 'dropdown-item']) ?>
+                    <?php // GhostHtml::a('Master Status Perkawinan', ['/master-status-perkawinan/index'], ['class' => 'dropdown-item']) 
+                    ?>
+                    <?php //  GhostHtml::a('Jenis Pegawai', ['/jenis-pegawai/index'], ['class' => 'dropdown-item']) ?>
                     <?= GhostHtml::a('Unit Kerja', ['/unit-kerja/index'], ['class' => 'dropdown-item']) ?>
                   </div>
                 </li>
@@ -176,7 +179,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
       // echo '</pre>';
       // die;
       ?>
-      <?php if (!empty($this->params['breadcrumbs'])) : ?>
+      <?php if (!empty($this->params['breadcrumbs noprint'])) : ?>
         <?= Bootstrap4Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
       <?php endif ?>
       <?= Alert::widget() ?>
@@ -187,7 +190,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
   <footer id="footer" class="mt-auto py-3 bg-light">
     <div class="container">
       <div class="row text-muted">
-        <div class="col-md-6 text-center text-md-start">&copy; Cv Prabubimatech <?= date('Y') ?></div>
+        <div class="col-md-6 text-center text-md-start">&copy; Cv Prabu Bima Tech <?= date('Y') ?></div>
         <div class="col-md-6 text-center text-md-end"><?= Yii::powered() ?></div>
       </div>
     </div>

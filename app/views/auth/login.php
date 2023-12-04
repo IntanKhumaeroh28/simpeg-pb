@@ -38,11 +38,12 @@ use yii\helpers\Html;
 				<br>
 				<div class="container" id="login-wrapper ">
 					</br>
-					<div class="row " style="padding-left: 85px;">
+					<div class="row" style="padding-left: 85px;">
 						<div class="col-md-5 offset-md-3 bg-light rounded-lg">
 							<div class="panel panel-default mx-6 my-6 ">
 								<div class="panel-heading text-center ">
 									<h3 class="panel-title"><?= UserManagementModule::t('front', 'Login Form') ?></h3>
+
 								</div>
 								<div class="panel-body ">
 									<div class="col-lg-8 offset-2">

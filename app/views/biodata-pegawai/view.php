@@ -1,16 +1,21 @@
+
 <?php
 
 use webvimark\modules\UserManagement\components\GhostHtml;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
+
 /** @var yii\web\View $this */
 /** @var app\models\BiodataPegawai $model */
+
+
 
 $this->title = $model->id_pegawai;
 $this->params['breadcrumbs'][] = ['label' => 'Biodata Pegawai', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
+
 
 function tgl_indo($tanggal)
 {
@@ -39,18 +44,28 @@ function tgl_indo($tanggal)
 
 ?>
 <div class="biodata-pegawai-view">
-
+<style>
+            @media print {
+                .noprint {
+            display: none;
+             }
+            }
+        </style>
+<div class="no print"></div>
     <h1><?= Html::encode($this->title) ?></h1>
-
+    
     <div>
-        <?= GhostHtml::a('Update', ['biodata-pegawai/update', 'id_pegawai' => $model->id_pegawai], ['class' => 'btn btn-primary']) ?>
+        <?= GhostHtml::a('Update', ['biodata-pegawai/update', 'id_pegawai' => $model->id_pegawai], ['class' => 'btn btn-primary noprint'   ]) ?>
         <?= GhostHtml::a('Delete', ['biodata-pegawai/delete', 'id_pegawai' => $model->id_pegawai], [
-            'class' => 'btn btn-danger',
+            'class' => 'btn btn-danger noprint',  
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
         ]) ?>
+        
+        <button class="btn btn-warning btn-xs noprint" onclick="window.print()"><i class="fa fa-print"></i> Cetak</button>
+        
     </div>
 
     <div class="row">
@@ -64,7 +79,7 @@ function tgl_indo($tanggal)
                 'model' => $model,
                 'attributes' => [
                     // 'id_pegawai',
-                    'nik',
+                    //'nik',
                     'nama',
                     [
                         'attribute' => 'tgl_lahir',
@@ -164,9 +179,9 @@ function tgl_indo($tanggal)
             <th scope="col">Hubungan Keluarga</th>
             <th scope="col">Nama</th>
             <th scope="col">Tgl Lahir</th>
-            <th scope="col">Nik</th>
-            <th scope="col">File KK</th>
-            <th scope="col">File Akte</th>
+            <!-- <th scope="col">Nik</th> -->
+            <!-- <th scope="col">File KK</th>
+            <th scope="col">File Akte</th> -->
         </tr>
     </thead>
     <tbody>
@@ -179,9 +194,9 @@ function tgl_indo($tanggal)
                 <td><?= $value['hubungan_keluarga'] ?></td>
                 <td><?= $value['nama'] ?></td>
                 <td><?= tgl_indo($value['tgl_lahir']); ?></td>
-                <td><?= $value['nik'] ?></td>
-                <td><?= Html::a($value['file_kk'], ['biodata-pegawai/view-dokumen', 'dokumen' => $value['file_kk']]) ?></td>
-                <td><?= Html::a($value['file_akte'], ['biodata-pegawai/view-dokumen', 'dokumen' => $value['file_akte']]) ?></td>
+                <td><?php // $value['nik'] ?></td>
+                <td><?php // Html::a($value['file_kk'], ['biodata-pegawai/view-dokumen', 'dokumen' => $value['file_kk']]) ?></td>
+                <td><?php // Html::a($value['file_akte'], ['biodata-pegawai/view-dokumen', 'dokumen' => $value['file_akte']]) ?></td>
             </tr>
         <?php
         endforeach;
