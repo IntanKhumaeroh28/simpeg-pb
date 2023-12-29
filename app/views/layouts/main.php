@@ -101,7 +101,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             color: white !important;
           }
         </style>
-
+        
         <div class="container">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -110,6 +110,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
+
               <?= Html::a('Simpeg', ['/site/index'], ['class' => 'nav-link']) ?>
               <?= Html::a('Home', ['/site/index'], ['class' => 'nav-link']) ?>
               <?php if (!Yii::$app->user->isGuest) : ?>
@@ -129,17 +130,11 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
 
                 <li class="nav-item dropdown">
-                  <?= GhostHtml::a('Master', ['/master-jenis-kelamin/index'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
+                  <?= GhostHtml::a('Master', ['/master-pendidikan-formal/index'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
                   <div class="dropdown-menu">
-                    <?php // GhostHtml::a('Master Jenis Kelamin', ['/master-jenis-kelamin/index'], ['class' => 'dropdown-item']) 
-                    ?>
-                    <?php // GhostHtml::a('Master Agama', ['/master-agama/index'], ['class' => 'dropdown-item']) 
-                    ?>
-                    <?php // GhostHtml::a('Master Hubungan Keluarga', ['/master-hubungan-keluarga/index'], ['class' => 'dropdown-item']) ?>
+                    
                     <?= GhostHtml::a('Master Pendidikan Formal', ['/master-pendidikan-formal/index'], ['class' => 'dropdown-item']) ?>
-                    <?php // GhostHtml::a('Master Status Perkawinan', ['/master-status-perkawinan/index'], ['class' => 'dropdown-item']) 
-                    ?>
-                    <?php //  GhostHtml::a('Jenis Pegawai', ['/jenis-pegawai/index'], ['class' => 'dropdown-item']) ?>
+                    
                     <?= GhostHtml::a('Unit Kerja', ['/unit-kerja/index'], ['class' => 'dropdown-item']) ?>
                   </div>
                 </li>
@@ -156,7 +151,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                   </li>
                 </ul>
                 <?= GhostHtml::a('User', ['/user/index'], ['class' => 'nav-link']) ?>
-                <!-- <?= GhostHtml::a('Merubah Password', ['auth/change-own-password'], ['class' => 'nav-link']) ?> -->
+                <?php
+                 GhostHtml::a('Merubah Password', ['auth/change-own-password'], ['class' => 'nav-link']) ?>
               <?php endif; ?>
 
               <?php
@@ -188,12 +184,12 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
   </main>
 
   <footer id="footer" class="mt-auto py-3 bg-light">
-    <div class="container">
+    <!-- <div class="container">
       <div class="row text-muted">
         <div class="col-md-6 text-center text-md-start">&copy; Cv Prabubimatech <?= date('Y') ?></div>
         <div class="col-md-6 text-center text-md-end"><?= Yii::powered() ?></div>
       </div>
-    </div>
+    </div> -->
   </footer>
 
   <?php $this->endBody() ?>
