@@ -7,6 +7,13 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 
 $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
+// $this->registerCss("
+//     body {
+//       background-image: url('assets/image.jpg');
+//       background-repeat: no-repeat;
+//       background-size: auto;
+//     }
+// ");
 ?>
 <style>
     /* body {
@@ -144,7 +151,7 @@ $this->title = 'Sistem Informasi Kepegawaian Prabubima Tech';
                         Html::tag('div', Html::img('app/assets/icon/sandi.png', ['class' => 'pull-left img-responsive']), ['class' => 'box-center']) . Html::tag('span', 'Mengubah Password'),
                         ['auth/change-own-password'],
                         ['class' => 'box']
-                       
+
                     ) ?>
 
                 </div>
