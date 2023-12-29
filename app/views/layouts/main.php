@@ -129,17 +129,19 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
 
                 <li class="nav-item dropdown">
-                  <?= GhostHtml::a('Master', ['/master-jenis-kelamin/index'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
+                  <?= GhostHtml::a('Master', ['/master-pendidikan-formal/index'], ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown', 'aria-expanded' => 'false', 'role' => 'button']) ?>
                   <div class="dropdown-menu">
                     <?php // GhostHtml::a('Master Jenis Kelamin', ['/master-jenis-kelamin/index'], ['class' => 'dropdown-item']) 
                     ?>
                     <?php // GhostHtml::a('Master Agama', ['/master-agama/index'], ['class' => 'dropdown-item']) 
                     ?>
-                    <?php // GhostHtml::a('Master Hubungan Keluarga', ['/master-hubungan-keluarga/index'], ['class' => 'dropdown-item']) ?>
+                    <?php // GhostHtml::a('Master Hubungan Keluarga', ['/master-hubungan-keluarga/index'], ['class' => 'dropdown-item']) 
+                    ?>
                     <?= GhostHtml::a('Master Pendidikan Formal', ['/master-pendidikan-formal/index'], ['class' => 'dropdown-item']) ?>
                     <?php // GhostHtml::a('Master Status Perkawinan', ['/master-status-perkawinan/index'], ['class' => 'dropdown-item']) 
                     ?>
-                    <?php //  GhostHtml::a('Jenis Pegawai', ['/jenis-pegawai/index'], ['class' => 'dropdown-item']) ?>
+                    <?php //  GhostHtml::a('Jenis Pegawai', ['/jenis-pegawai/index'], ['class' => 'dropdown-item']) 
+                    ?>
                     <?= GhostHtml::a('Unit Kerja', ['/unit-kerja/index'], ['class' => 'dropdown-item']) ?>
                   </div>
                 </li>
@@ -156,7 +158,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                   </li>
                 </ul>
                 <?= GhostHtml::a('User', ['/user/index'], ['class' => 'nav-link']) ?>
-                <!-- <?= GhostHtml::a('Merubah Password', ['auth/change-own-password'], ['class' => 'nav-link']) ?> -->
+                <?= GhostHtml::a('Merubah Password', ['auth/change-own-password'], ['class' => 'nav-link']) ?>
               <?php endif; ?>
 
               <?php

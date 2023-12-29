@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @link http://www.yiiframework.com/
  * @copyright Copyright (c) 2008 Yii Software LLC
@@ -23,6 +24,8 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
+        // 'js/popper-1.11.0.min.js',
+        'js/bootstrap-4.6.2.bundle.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

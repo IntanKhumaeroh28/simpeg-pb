@@ -63,7 +63,6 @@ function tgl_indo($tanggal)
                 'method' => 'post',
             ],
         ]) ?>
-        
         <button class="btn btn-warning btn-xs noprint" onclick="window.print()"><i class="fa fa-print"></i> Cetak</button>
         
     </div>
